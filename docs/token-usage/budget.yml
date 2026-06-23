@@ -1,0 +1,61 @@
+# Token budget for the MCP server surface.
+# CI-gate compares latest snapshot against these limits.
+# When a limit is exceeded, `scripts/check_token_budget.py` exits 3.
+#
+# Growth >10% vs previous snapshot triggers a WARN but not a FAIL.
+
+# The REAL cost every LLM request pays — serialised tools/list response.
+# This is what hits Claude's context window on every turn.
+# Baseline (legacy removed): 19,354 compact / 28,651 indented.
+# Limits set with ~15% headroom.
+tools_list_envelope_compact_max: 22000
+tools_list_envelope_indented_max: 33000
+
+# Analytical sum-of-parts (per-tool tokens summed, no JSON-RPC wrapper).
+# Useful for per-tool comparison but NOT the same as envelope.
+# Baseline: 29,609. Limit with headroom.
+surface_total_max: 34000
+
+# Per-flow limits (matches flow names in app/tools/token_metrics.FLOWS).
+flows:
+  create_dashboard_max: 2500
+  query_data_max: 1500
+  export_report_max: 1500
+  debug_unknown_action_max: 800
+  help_deep_dive_max: 2000
+
+# Per-category limits (sum of tool-level tokens in that category).
+# Baselines: component 6,853, dataset 3,793, report 3,306,
+# query 4,730, infra 8,839, admin 1,877.
+categories:
+  component_max: 9000
+  dataset_max: 4500
+  report_max: 4000
+  query_max: 5500
+  infra_max: 10000
+  admin_max: 2500
+
+# Provider/tool-set profiles captured in 2026-06-04 snapshots.
+# HOT_TOOLS are the initial surface for Anthropic/OpenAI Tool Search clients.
+# DEFERRED_TOOLS are loaded on demand. Other/classic clients receive all tools.
+client_profiles:
+  anthropic_main_tools:
+    tools_list_envelope_compact_max: 8000
+    tools_list_envelope_indented_max: 10500
+    surface_total_max: 12500
+  openai_main_tools:
+    tools_list_envelope_compact_max: 8200
+    tools_list_envelope_indented_max: 10500
+    surface_total_max: 12500
+  anthropic_deferred_tools:
+    tools_list_envelope_compact_max: 11000
+    tools_list_envelope_indented_max: 14500
+    surface_total_max: 16500
+  openai_deferred_tools:
+    tools_list_envelope_compact_max: 11200
+    tools_list_envelope_indented_max: 14500
+    surface_total_max: 16500
+  other_clients_full:
+    tools_list_envelope_compact_max: 22000
+    tools_list_envelope_indented_max: 33000
+    surface_total_max: 34000

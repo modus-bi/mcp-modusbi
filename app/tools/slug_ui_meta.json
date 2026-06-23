@@ -1,0 +1,1827 @@
+{
+"margin.l":{
+"ui_label":"Отступ Лево",
+"ui_section":"Отступы",
+"source":"override"
+},
+"margin.r":{
+"ui_label":"Отступ Право",
+"ui_section":"Отступы",
+"source":"override"
+},
+"margin.t":{
+"ui_label":"Отступ Верх",
+"ui_section":"Отступы",
+"source":"override"
+},
+"margin.b":{
+"ui_label":"Отступ Низ",
+"ui_section":"Отступы",
+"source":"override"
+},
+"margin.pad":{
+"ui_label":"Внутренний отступ",
+"ui_section":"Отступы",
+"source":"override"
+},
+"outline.enabled":{
+"ui_label":"вкл",
+"ui_section":"Рамка",
+"source":"t04"
+},
+"outline.width":{
+"ui_label":"Ширина",
+"ui_section":"Рамка",
+"source":"t04"
+},
+"outline.color":{
+"ui_label":"Цвет",
+"ui_section":"Рамка",
+"source":"t04"
+},
+"showtitle":{
+"ui_label":"Заголовок",
+"ui_section":"Общие",
+"source":"t04"
+},
+"noexport":{
+"ui_label":"Noexport",
+"ui_section":"Общие",
+"source":"derived"
+},
+"nocopy":{
+"ui_label":"Nocopy",
+"ui_section":"Общие",
+"source":"derived"
+},
+"subtitle":{
+"ui_label":"Подзаголовок",
+"ui_section":"Общие",
+"source":"t04"
+},
+"bgColor":{
+"ui_label":"Цвет фона",
+"ui_section":"Общие",
+"source":"t04"
+},
+"bgColor2":{
+"ui_label":"Цвет фона 2",
+"ui_section":"Общие",
+"source":"t04"
+},
+"orientation":{
+"ui_label":"Ориентация",
+"ui_section":"Общие",
+"source":"t04"
+},
+"fontSize":{
+"ui_label":"Font Size",
+"ui_section":"Общие",
+"source":"derived"
+},
+"numberPrecision":{
+"ui_label":"Точность чисел",
+"ui_section":"Общие",
+"source":"t04"
+},
+"percentPrecision":{
+"ui_label":"Точность проц.",
+"ui_section":"Общие",
+"source":"t04"
+},
+"scrollbars":{
+"ui_label":"Scrollbars",
+"ui_section":"Общие",
+"source":"derived"
+},
+"gradient":{
+"ui_label":"Градиент",
+"ui_section":"Общие",
+"source":"t04"
+},
+"stacking":{
+"ui_label":"Стекинг",
+"ui_section":"Общие",
+"source":"t04"
+},
+"flip":{
+"ui_label":"Отразить зеркально",
+"ui_section":"Вид панели",
+"source":"t04"
+},
+"visuals.value.color":{
+"ui_label":"Цвет значения",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.font.size":{
+"ui_label":"Размер значения (em)",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.font.weight":{
+"ui_label":"Жирность значения",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.font.family":{
+"ui_label":"Шрифт значения",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.outlineColor":{
+"ui_label":"Цвет обводки значения",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.outlineWidth":{
+"ui_label":"Ширина обводки значения (px)",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.visible":{
+"ui_label":"Показывать значение",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.decimals":{
+"ui_label":"Знаков после запятой (значение)",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.font.style":{
+"ui_label":"Начертание значения",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.link":{
+"ui_label":"Ссылка по клику (значение)",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.value.linkTarget":{
+"ui_label":"Открывать ссылку в",
+"ui_section":"Значение",
+"source":"inline"
+},
+"visuals.caption.color":{
+"ui_label":"Цвет заголовка",
+"ui_section":"Заголовок",
+"source":"inline"
+},
+"visuals.caption.font.size":{
+"ui_label":"Размер заголовка (em)",
+"ui_section":"Заголовок",
+"source":"inline"
+},
+"visuals.caption.font.weight":{
+"ui_label":"Жирность заголовка",
+"ui_section":"Заголовок",
+"source":"inline"
+},
+"visuals.caption.visible":{
+"ui_label":"Показывать заголовок",
+"ui_section":"Заголовок",
+"source":"inline"
+},
+"visuals.subcaption.color":{
+"ui_label":"Цвет подзаголовка",
+"ui_section":"Подзаголовок",
+"source":"inline"
+},
+"visuals.subcaption.font.size":{
+"ui_label":"Размер подзаголовка (em)",
+"ui_section":"Подзаголовок",
+"source":"inline"
+},
+"visuals.subcaption.visible":{
+"ui_label":"Показывать подзаголовок",
+"ui_section":"Подзаголовок",
+"source":"inline"
+},
+"visuals.trend.color":{
+"ui_label":"Цвет индикатора тренда",
+"ui_section":"Тренд",
+"source":"inline"
+},
+"visuals.trend.visible":{
+"ui_label":"Показывать индикатор тренда",
+"ui_section":"Тренд",
+"source":"inline"
+},
+"gradientDirection":{
+"ui_label":"Направление градиента (°)",
+"ui_section":"Фон",
+"source":"inline"
+},
+"textAlign":{
+"ui_label":"Выравнивание текста",
+"ui_section":"Макет",
+"source":"inline"
+},
+"truncateTitle":{
+"ui_label":"Обрезать заголовок",
+"ui_section":"Макет",
+"source":"inline"
+},
+"hideSpinner":{
+"ui_label":"Анимация обновления",
+"ui_section":"Данные",
+"source":"t04"
+},
+"link.operation":{
+"ui_label":"Другая операция",
+"ui_section":"Клик",
+"source":"t04"
+},
+"expandH":{
+"ui_label":"Expand H",
+"ui_section":"Общие",
+"source":"derived"
+},
+"expandV":{
+"ui_label":"Expand V",
+"ui_section":"Общие",
+"source":"derived"
+},
+"legend.visible":{
+"ui_label":"вкл",
+"ui_section":"Легенда",
+"source":"t04"
+},
+"legend.position":{
+"ui_label":"Положение",
+"ui_section":"Легенда",
+"source":"t04"
+},
+"legend.order":{
+"ui_label":"Реверс",
+"ui_section":"Легенда",
+"source":"t04"
+},
+"legend.orientation":{
+"ui_label":"Orientation",
+"ui_section":"Легенда",
+"source":"derived"
+},
+"legend.fontSize":{
+"ui_label":"Размер шрифта",
+"ui_section":"Легенда",
+"source":"t04"
+},
+"legend.bgColor":{
+"ui_label":"Bg Color",
+"ui_section":"Легенда",
+"source":"derived"
+},
+"legend.borderColor":{
+"ui_label":"Border Color",
+"ui_section":"Легенда",
+"source":"derived"
+},
+"legend.borderWidth":{
+"ui_label":"Border Width",
+"ui_section":"Легенда",
+"source":"derived"
+},
+"legend.reverse":{
+"ui_label":"Реверс",
+"ui_section":"Легенда",
+"source":"t04"
+},
+"legend.percent":{
+"ui_label":"Percent",
+"ui_section":"Легенда",
+"source":"derived"
+},
+"labels.visible":{
+"ui_label":"enable",
+"ui_section":"Подписи",
+"source":"t04"
+},
+"labels.position":{
+"ui_label":"Position",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.fontSize":{
+"ui_label":"enable / шрифт подписей / шрифт значений / интервал",
+"ui_section":"Подписи",
+"source":"t04"
+},
+"labels.labelsColor":{
+"ui_label":"Labels Color",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.angle":{
+"ui_label":"Angle",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.hidePercent":{
+"ui_label":"Скрыть если <N%",
+"ui_section":"Подписи",
+"source":"t04"
+},
+"labels.template":{
+"ui_label":"Template",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.outer.fontsize":{
+"ui_label":"Размер шрифта",
+"ui_section":"Подписи",
+"source":"t04"
+},
+"labels.outer.color":{
+"ui_label":"Color",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.inner.fontsize":{
+"ui_label":"Fontsize",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.groupPercent":{
+"ui_label":"—",
+"ui_section":"(slug без UI)",
+"source":"t04"
+},
+"labels.groupCount":{
+"ui_label":"Group Count",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.switchControlNumberOfSegments":{
+"ui_label":"Управление кол-вом сегментов",
+"ui_section":"Общие",
+"source":"t04"
+},
+"axes.categoryGrid":{
+"ui_label":"Сетка",
+"ui_section":"Ось Кат.",
+"source":"t04"
+},
+"axes.categoryLabels":{
+"ui_label":"Category Labels",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.categoryScale":{
+"ui_label":"Category Scale",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.categoryTitle":{
+"ui_label":"Category Title",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.categoryLabelAngle":{
+"ui_label":"Category Label Angle",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.categoryScrollable":{
+"ui_label":"Category Scrollable",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.valueShowMin":{
+"ui_label":"Value Show Min",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.valueShowMax":{
+"ui_label":"Value Show Max",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.categoryScrollbar":{
+"ui_label":"Category Scrollbar",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.categoryMinGridWidth":{
+"ui_label":"Category Min Grid Width",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.categoryMaxLabelWidth":{
+"ui_label":"Category Max Label Width",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.valueGrid":{
+"ui_label":"Сетка",
+"ui_section":"Ось Знач.",
+"source":"t04"
+},
+"axes.valueLabels":{
+"ui_label":"Подписи шкалы",
+"ui_section":"Ось Знач.",
+"source":"t04"
+},
+"axes.valueScale":{
+"ui_label":"Value Scale",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.valueTitle":{
+"ui_label":"Value Title",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.scaleType":{
+"ui_label":"Scale Type",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.labelsAccuracy":{
+"ui_label":"Labels Accuracy",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.autoZoom":{
+"ui_label":"Auto Zoom",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.selectedFieldIndex":{
+"ui_label":"Selected Field Index",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.sortable":{
+"ui_label":"Sortable",
+"ui_section":"Оси",
+"source":"derived"
+},
+"balloon.combine":{
+"ui_label":"Combine",
+"ui_section":"Всплывающая подсказка",
+"source":"derived"
+},
+"balloon.template":{
+"ui_label":"Шаблон",
+"ui_section":"Всплыв.",
+"source":"t04"
+},
+"balloon.fontSize":{
+"ui_label":"Размер шрифта",
+"ui_section":"Всплыв.",
+"source":"t04"
+},
+"balloon.fontColor":{
+"ui_label":"Font Color",
+"ui_section":"Всплывающая подсказка",
+"source":"derived"
+},
+"balloon.bgColor":{
+"ui_label":"Bg Color",
+"ui_section":"Всплывающая подсказка",
+"source":"derived"
+},
+"data.baseColor":{
+"ui_label":"базовый цвет",
+"ui_section":"Осн.стиль",
+"source":"t04"
+},
+"data.colorStep":{
+"ui_label":"Шаг яркости",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"data.rowsLimit":{
+"ui_label":"Лимит при запросе",
+"ui_section":"Данные",
+"source":"t04"
+},
+"data.rowsLimitToShow":{
+"ui_label":"Rows Limit To Show",
+"ui_section":"Данные",
+"source":"derived"
+},
+"data.seriesLimitToShow":{
+"ui_label":"Series Limit To Show",
+"ui_section":"Данные",
+"source":"derived"
+},
+"data.rowsLimitToExport":{
+"ui_label":"Лимит при экспорте",
+"ui_section":"Данные",
+"source":"t04"
+},
+"data.autofillEmptySeries":{
+"ui_label":"Дополнять пустые Кат./Серии",
+"ui_section":"Данные",
+"source":"t04"
+},
+"data.intervalRefresh":{
+"ui_label":"Интервальное обновление",
+"ui_section":"Данные",
+"source":"t04"
+},
+"data.intervalSeconds":{
+"ui_label":"Interval Seconds",
+"ui_section":"Данные",
+"source":"derived"
+},
+"visuals.autoColor":{
+"ui_label":"Auto Color",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"visuals.mainColor":{
+"ui_label":"Основной цвет",
+"ui_section":"Стиль элем.",
+"source":"t04"
+},
+"visuals.colorPalette":{
+"ui_label":"палитра",
+"ui_section":"Осн.стиль",
+"source":"t04"
+},
+"visuals.columnWidth":{
+"ui_label":"Ширина столбцов",
+"ui_section":"Стиль элем.",
+"source":"t04"
+},
+"visuals.clustered":{
+"ui_label":"Clustered",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"visuals.smoothing":{
+"ui_label":"Smoothing",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"visuals.lineWidth":{
+"ui_label":"Толщина",
+"ui_section":"Стилизация (series)",
+"source":"t04"
+},
+"visuals.lineDashStyle":{
+"ui_label":"Line Dash Style",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"visuals.markerType":{
+"ui_label":"Marker Type",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"visuals.markerSize":{
+"ui_label":"Marker Size",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"visuals.markerLabels":{
+"ui_label":"Marker Labels",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"visuals.fillOpacity":{
+"ui_label":"Цвет заливки",
+"ui_section":"Стиль элем.",
+"source":"t04"
+},
+"style.smoothing":{
+"ui_label":"Сглаживание",
+"ui_section":"Осн. стиль",
+"source":"t04"
+},
+"style.lineMode":{
+"ui_label":"Line Mode",
+"ui_section":"Стиль",
+"source":"derived"
+},
+"style.lineWidth":{
+"ui_label":"Толщина линии",
+"ui_section":"Осн. стиль",
+"source":"t04"
+},
+"style.markerMode":{
+"ui_label":"Marker Mode",
+"ui_section":"Стиль",
+"source":"derived"
+},
+"style.markerWidth":{
+"ui_label":"Размер маркера",
+"ui_section":"Осн. стиль",
+"source":"t04"
+},
+"style.outlineWidth":{
+"ui_label":"Ширина ободка",
+"ui_section":"Осн. стиль",
+"source":"t04"
+},
+"style.autoColor":{
+"ui_label":"Auto Color",
+"ui_section":"Стиль",
+"source":"derived"
+},
+"style.visType":{
+"ui_label":"Vis Type",
+"ui_section":"Стиль",
+"source":"derived"
+},
+"style.labelsEnabled":{
+"ui_label":"вкл",
+"ui_section":"Подписи",
+"source":"t04"
+},
+"style.clustered":{
+"ui_label":"Clustered",
+"ui_section":"Стиль",
+"source":"derived"
+},
+"regimes.autoWidth":{
+"ui_label":"Автоширина колонок",
+"ui_section":"Режимы",
+"source":"t04"
+},
+"regimes.columnDrag":{
+"ui_label":"Column Drag",
+"ui_section":"Режимы таблицы",
+"source":"derived"
+},
+"regimes.multilineHeader":{
+"ui_label":"Multiline Header",
+"ui_section":"Режимы таблицы",
+"source":"derived"
+},
+"regimes.subtotals":{
+"ui_label":"Подытоги",
+"ui_section":"Режимы",
+"source":"t04"
+},
+"regimes.totals":{
+"ui_label":"Итоги",
+"ui_section":"Режимы",
+"source":"t04"
+},
+"regimes.fixedColumns":{
+"ui_label":"Закреплённых колонок",
+"ui_section":"Режимы",
+"source":"t04"
+},
+"regimes.cellHeight":{
+"ui_label":"Cell Height",
+"ui_section":"Режимы таблицы",
+"source":"derived"
+},
+"regimes.headerHeight":{
+"ui_label":"Header Height",
+"ui_section":"Режимы таблицы",
+"source":"derived"
+},
+"regimes.resizable":{
+"ui_label":"Resizable",
+"ui_section":"Режимы таблицы",
+"source":"derived"
+},
+"sort.multiColumnSort":{
+"ui_label":"По нескольким колонкам",
+"ui_section":"Сортировка",
+"source":"t04"
+},
+"sort.headerClickSort":{
+"ui_label":"Смена сортировки нажатием",
+"ui_section":"Сортировка",
+"source":"t04"
+},
+"table.linkByForRow":{
+"ui_label":"Гиперссылка строки",
+"ui_section":"Общие",
+"source":"t04"
+},
+"table.zebraType":{
+"ui_label":"Тип «зебры»",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"table.zebraColor":{
+"ui_label":"Zebra Color",
+"ui_section":"Таблица",
+"source":"derived"
+},
+"table.headersBackground":{
+"ui_label":"Цвет фона/текста заголовков, зебры, тема",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"table.headersColor":{
+"ui_label":"Headers Color",
+"ui_section":"Таблица",
+"source":"derived"
+},
+"table.theme":{
+"ui_label":"Theme",
+"ui_section":"Таблица",
+"source":"derived"
+},
+"table.showNumberLineInHeader":{
+"ui_label":"Отобразить кол-во строк",
+"ui_section":"Общие",
+"source":"t04"
+},
+"table.precision":{
+"ui_label":"Точность чисел",
+"ui_section":"Общие",
+"source":"t04"
+},
+"delta.delta":{
+"ui_label":"Тип расчёта (Цель)",
+"ui_section":"Стиль(Trend)",
+"source":"t04"
+},
+"delta.percent":{
+"ui_label":"В процентах",
+"ui_section":"Стиль(Trend)",
+"source":"t04"
+},
+"grid.startAngle":{
+"ui_label":"Начальный угол",
+"ui_section":"Шкала",
+"source":"t04"
+},
+"grid.endAngle":{
+"ui_label":"Конечный угол",
+"ui_section":"Шкала",
+"source":"t04"
+},
+"grid.min":{
+"ui_label":"Минимум",
+"ui_section":"Шкала",
+"source":"t04"
+},
+"grid.max":{
+"ui_label":"Максимум",
+"ui_section":"Шкала",
+"source":"t04"
+},
+"grid.roundLimits":{
+"ui_label":"Округл. мин/макс",
+"ui_section":"Шкала",
+"source":"t04"
+},
+"grid.tickCount":{
+"ui_label":"Крупных делений",
+"ui_section":"Шкала",
+"source":"t04"
+},
+"grid.width":{
+"ui_label":"Width",
+"ui_section":"Шкала/индикатор",
+"source":"derived"
+},
+"grid.color":{
+"ui_label":"Color",
+"ui_section":"Шкала/индикатор",
+"source":"derived"
+},
+"grid.labelsColor":{
+"ui_label":"Labels Color",
+"ui_section":"Шкала/индикатор",
+"source":"derived"
+},
+"grid.labelFrequency":{
+"ui_label":"Label Frequency",
+"ui_section":"Шкала/индикатор",
+"source":"derived"
+},
+"grid.minorTickCount":{
+"ui_label":"Мелких делений",
+"ui_section":"Шкала",
+"source":"t04"
+},
+"grid.gradeCount":{
+"ui_label":"Количество цветов (зоны)",
+"ui_section":"Шкала/Отсечки",
+"source":"t04"
+},
+"grid.paletteColors":{
+"ui_label":"Palette Colors",
+"ui_section":"Шкала/индикатор",
+"source":"derived"
+},
+"grid.paletteInvert":{
+"ui_label":"Palette Invert",
+"ui_section":"Шкала/индикатор",
+"source":"derived"
+},
+"grid.gradientMode":{
+"ui_label":"Gradient Mode",
+"ui_section":"Шкала/индикатор",
+"source":"derived"
+},
+"gauge.backgroundColor":{
+"ui_label":"Цвет фона",
+"ui_section":"Общие",
+"source":"t04"
+},
+"viewType.displayType":{
+"ui_label":"Display Type",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.multiselect":{
+"ui_label":"Multiselect",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.resetEnabled":{
+"ui_label":"Reset Enabled",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.searchEnabled":{
+"ui_label":"Search Enabled",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.autoApply":{
+"ui_label":"Auto Apply",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.showAll":{
+"ui_label":"Show All",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.updateOnApply":{
+"ui_label":"Update On Apply",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.updateOnCloseDropdown":{
+"ui_label":"Update On Close Dropdown",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.inversed":{
+"ui_label":"Inversed",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.hideEmptyLines":{
+"ui_label":"Hide Empty Lines",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.sortSelectedOptionsToTop":{
+"ui_label":"Sort Selected Options To Top",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"visuals.innerRadius":{
+"ui_label":"Inner Radius",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"visuals.startAngle":{
+"ui_label":"Start Angle",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"showDonut":{
+"ui_label":"Вид (Пирог/Бублик)",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"radius":{
+"ui_label":"Диаметр",
+"ui_section":"Общие",
+"source":"t04"
+},
+"summEnabled":{
+"ui_label":"Отображать итог",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"summFontSize":{
+"ui_label":"Шрифт итога",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"summColor":{
+"ui_label":"(Цвет итога)",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"labelsTemplate":{
+"ui_label":"Шаблон",
+"ui_section":"Подписи",
+"source":"t04"
+},
+"balloonTemplate":{
+"ui_label":"Balloon Template",
+"ui_section":"Общие",
+"source":"derived"
+},
+"labels.groupedTitle__ru":{
+"ui_label":"Заголовок группы «Прочее»",
+"ui_section":"Общие",
+"source":"t04"
+},
+"visuals.columnBorderRadius":{
+"ui_label":"Column Border Radius",
+"ui_section":"Стиль элементов",
+"source":"derived"
+},
+"visuals.bubbleMinSize":{
+"ui_label":"Радиус мин",
+"ui_section":"Общие",
+"source":"t04"
+},
+"visuals.bubbleMaxSize":{
+"ui_label":"Радиус макс",
+"ui_section":"Общие",
+"source":"t04"
+},
+"bubble.zoomToEdges":{
+"ui_label":"Учёт размеров пузырьков",
+"ui_section":"Общие",
+"source":"t04"
+},
+"bubble.strictMinMax":{
+"ui_label":"Режим точн. масшт.",
+"ui_section":"Общие",
+"source":"t04"
+},
+"bubble.filterMode":{
+"ui_label":"Режим фильтра",
+"ui_section":"Общие",
+"source":"t04"
+},
+"bubble.showScrollbars":{
+"ui_label":"Show Scrollbars",
+"ui_section":"Пузырьковая диаграмма",
+"source":"derived"
+},
+"bubble.precision":{
+"ui_label":"Цвет фона / Отступы / Точность / Формат даты",
+"ui_section":"Общие",
+"source":"t04"
+},
+"bubble.bigNumberSuffixes":{
+"ui_label":"Big Number Suffixes",
+"ui_section":"Пузырьковая диаграмма",
+"source":"derived"
+},
+"bubble.legendForColor":{
+"ui_label":"enable",
+"ui_section":"Легенда цвета",
+"source":"t04"
+},
+"bubble.legendForSize":{
+"ui_label":"enable / Граф. представление",
+"ui_section":"Легенда размера",
+"source":"t04"
+},
+"grid.gridType":{
+"ui_label":"Тип сетки (Радар/Паутина)",
+"ui_section":"Ось Значения",
+"source":"t04"
+},
+"grid.filled":{
+"ui_label":"заливка области",
+"ui_section":"(top, нет UI)",
+"source":"t04"
+},
+"grid.radarLabels":{
+"ui_label":"Подписи категорий",
+"ui_section":"Ось Значения",
+"source":"t04"
+},
+"totals.grandSumsFixed":{
+"ui_label":"Закрепить общие итоги",
+"ui_section":"Итоги",
+"source":"t04"
+},
+"totals.sumColumnAtLeft":{
+"ui_label":"Общие итоги слева/сверху, скрыть по колонкам",
+"ui_section":"Итоги",
+"source":"t04"
+},
+"totals.noGrandSumsX":{
+"ui_label":"Скрыть общие итоги по строкам",
+"ui_section":"Итоги",
+"source":"t04"
+},
+"totals.noGrandSumsY":{
+"ui_label":"No Grand Sums Y",
+"ui_section":"Итоги",
+"source":"derived"
+},
+"totals.noSums":{
+"ui_label":"Скрыть промежуточные итоги по строкам",
+"ui_section":"Итоги",
+"source":"t04"
+},
+"totals.sumRowAtTop":{
+"ui_label":"Sum Row At Top",
+"ui_section":"Итоги",
+"source":"derived"
+},
+"pivot.theme":{
+"ui_label":"Тема/Цвет линий/Шрифт/Цвета шапки/Размер шапки",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"pivot.borderColor":{
+"ui_label":"Border Color",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"pivot.fontFamily":{
+"ui_label":"Font Family",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"pivot.headerFontSize":{
+"ui_label":"Header Font Size",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"pivot.headerBackgroundColor":{
+"ui_label":"Header Background Color",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"pivot.headerTextColor":{
+"ui_label":"Header Text Color",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"pivot.headerAling":{
+"ui_label":"Выравнивание в шапке",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"pivot.dateFormat":{
+"ui_label":"Формат даты",
+"ui_section":"Общие",
+"source":"t04"
+},
+"pivot.showPanel":{
+"ui_label":"Show Panel",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"pivot.hideMeasuresHeader":{
+"ui_label":"Скрыть заголовок значений",
+"ui_section":"Общие",
+"source":"t04"
+},
+"pivot.nullVisible":{
+"ui_label":"Отображение нулевых",
+"ui_section":"Общие",
+"source":"t04"
+},
+"pivot.groupByOptimization":{
+"ui_label":"Group By Optimization",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"pivot.autoHeightEnabled":{
+"ui_label":"Auto Height Enabled",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"pivot.numbersEnabled":{
+"ui_label":"Нумерация строк",
+"ui_section":"Общие",
+"source":"t04"
+},
+"pivot.precision":{
+"ui_label":"Точность чисел",
+"ui_section":"Общие",
+"source":"t04"
+},
+"pivot.headerHeight":{
+"ui_label":"Header Height",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"pivot.headerHorWordWrapEnabled":{
+"ui_label":"Высота шапки / Перенос строк",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"pivot.autoWidthEnabled":{
+"ui_label":"Auto Width Enabled",
+"ui_section":"Сводная таблица",
+"source":"derived"
+},
+"map.initialZoom":{
+"ui_label":"—",
+"ui_section":"(нет UI)",
+"source":"t04"
+},
+"map.clusterMarkers":{
+"ui_label":"—",
+"ui_section":"(нет UI)",
+"source":"t04"
+},
+"map.filterMode":{
+"ui_label":"Режим фильтра",
+"ui_section":"Общие",
+"source":"t04"
+},
+"map.autoCenter":{
+"ui_label":"Авто центровка",
+"ui_section":"Общие",
+"source":"t04"
+},
+"map.multilayerMode":{
+"ui_label":"Многослойный режим",
+"ui_section":"Общие",
+"source":"t04"
+},
+"map.showSmallObjects":{
+"ui_label":"Show Small Objects",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.titleBrightness":{
+"ui_label":"Яркость заголовка",
+"ui_section":"Общие",
+"source":"t04"
+},
+"map.annotationOpacity":{
+"ui_label":"Яркость аннотации",
+"ui_section":"Описание",
+"source":"t04"
+},
+"map.legend.position":{
+"ui_label":"Расположение",
+"ui_section":"Легенда",
+"source":"t04"
+},
+"map.legend.visible":{
+"ui_label":"Visible",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.legend.discrete":{
+"ui_label":"Дискретные цвета",
+"ui_section":"Легенда",
+"source":"t04"
+},
+"map.legend.gradeNumber":{
+"ui_label":"Grade Number",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.legend.invertColors":{
+"ui_label":"Invert Colors",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.legend.withFilters":{
+"ui_label":"With Filters",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.showLabels":{
+"ui_label":"Show Labels",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.labelsSize":{
+"ui_label":"Labels Size",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.showValues":{
+"ui_label":"Показывать значения",
+"ui_section":"Подписи",
+"source":"t04"
+},
+"map.markers.valuesPrecision":{
+"ui_label":"Values Precision",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.showTooltip":{
+"ui_label":"Show Tooltip",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.tooltipSize":{
+"ui_label":"Tooltip Size",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.tooltipWordWrap":{
+"ui_label":"Tooltip Word Wrap",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.labelMinZoom":{
+"ui_label":"Label Min Zoom",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.clustering":{
+"ui_label":"Кластеризация",
+"ui_section":"Подписи",
+"source":"t04"
+},
+"map.markers.clusteringThreshold":{
+"ui_label":"Clustering Threshold",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.minSize":{
+"ui_label":"Min Size",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.maxSize":{
+"ui_label":"Max Size",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.gradeNumberForSize":{
+"ui_label":"Grade Number For Size",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.isLinearScale":{
+"ui_label":"Is Linear Scale",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.fixedExtent":{
+"ui_label":"Fixed Extent",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.maxValue":{
+"ui_label":"Max Value",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.showMaxValue":{
+"ui_label":"Show Max Value",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.markers.maxValueColor":{
+"ui_label":"Max Value Color",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.center.lat":{
+"ui_label":"Lat",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.center.lng":{
+"ui_label":"Lng",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.background.allowTiles":{
+"ui_label":"Карта",
+"ui_section":"Фон",
+"source":"t04"
+},
+"map.background.allowTiles2":{
+"ui_label":"Железные дороги",
+"ui_section":"Фон",
+"source":"t04"
+},
+"map.background.tileUrl":{
+"ui_label":"Tile Url",
+"ui_section":"Карта",
+"source":"derived"
+},
+"map.background.backgroundColor":{
+"ui_label":"Background Color",
+"ui_section":"Карта",
+"source":"derived"
+},
+"tilemap.startColor":{
+"ui_label":"Цвет 1 / Цвет 2 (шкала)",
+"ui_section":"Легенда",
+"source":"t04"
+},
+"tilemap.endColor":{
+"ui_label":"End Color",
+"ui_section":"Плиточная карта",
+"source":"derived"
+},
+"tilemap.tileType":{
+"ui_label":"Тип плиток",
+"ui_section":"Плитки",
+"source":"t04"
+},
+"tilemap.nameFontSize":{
+"ui_label":"Размер текста",
+"ui_section":"Плитки",
+"source":"t04"
+},
+"tilemap.specialTiles":{
+"ui_label":"Отмечать города",
+"ui_section":"Плитки",
+"source":"t04"
+},
+"tilemap.grouping":{
+"ui_label":"enable / Коэф. разделителя",
+"ui_section":"Группир.",
+"source":"t04"
+},
+"tilemap.deltaK":{
+"ui_label":"enable / Коэф. разделителя",
+"ui_section":"Группир.",
+"source":"t04"
+},
+"tilemap.allowTiles":{
+"ui_label":"через slug",
+"ui_section":"(Фон плиток)",
+"source":"t04"
+},
+"tilemap.bgTileColor":{
+"ui_label":"Bg Tile Color",
+"ui_section":"Плиточная карта",
+"source":"derived"
+},
+"tilemap.legendVisible":{
+"ui_label":"видимость / позиция",
+"ui_section":"Легенда",
+"source":"t04"
+},
+"tilemap.legendX":{
+"ui_label":"Legend X",
+"ui_section":"Плиточная карта",
+"source":"derived"
+},
+"tilemap.legendY":{
+"ui_label":"Legend Y",
+"ui_section":"Плиточная карта",
+"source":"derived"
+},
+"tilemap.popup":{
+"ui_label":"Подсказка (popup)",
+"ui_section":"Плитки",
+"source":"t04"
+},
+"tilemap.autoZoom":{
+"ui_label":"Автомасштаб",
+"ui_section":"Общие",
+"source":"t04"
+},
+"tilemap.tileSize":{
+"ui_label":"Размер плитки",
+"ui_section":"Плитки",
+"source":"t04"
+},
+"tilemap.filterMode":{
+"ui_label":"Режим фильтра",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.filterMode":{
+"ui_label":"Режим фильтра",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.darkLabels":{
+"ui_label":"Тёмные подписи",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.splittedMode":{
+"ui_label":"Двустрочные подписи",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.ellipsisLength":{
+"ui_label":"Лимит длины подписи",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.minPercent":{
+"ui_label":"Порог скрывания подписей %",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.precision":{
+"ui_label":"Точность чисел",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.layerExpand":{
+"ui_label":"Тип разворачивания",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.visibleLayers":{
+"ui_label":"Начальное кол-во слоёв",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.layerButtons":{
+"ui_label":"Кнопки управления слоями",
+"ui_section":"Общие",
+"source":"t04"
+},
+"sunburst.colorsEnabled":{
+"ui_label":"Многоцветность",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"sunburst.fontSize":{
+"ui_label":"Размер шрифта",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"sunburst.fontFamily":{
+"ui_label":"Тип шрифта",
+"ui_section":"Стилизация",
+"source":"t04"
+},
+"treemap.filterMode":{
+"ui_label":"enable (checkbox)",
+"ui_section":"Режим фильтра",
+"source":"t04"
+},
+"treemap.precision":{
+"ui_label":"Точность чисел",
+"ui_section":"Общие",
+"source":"t04"
+},
+"balloon.visible":{
+"ui_label":"вкл",
+"ui_section":"Всплыв.",
+"source":"t04"
+},
+"visuals.colorMin":{
+"ui_label":"Цвет минимума",
+"ui_section":"Общие+Стилизация",
+"source":"t04"
+},
+"visuals.colorMax":{
+"ui_label":"Цвет максимума",
+"ui_section":"Общие+Стилизация",
+"source":"t04"
+},
+"parallel.tableSize":{
+"ui_label":"Высота таблицы (px)",
+"ui_section":"Общие",
+"source":"t04"
+},
+"stock.dateFormat":{
+"ui_label":"формат даты",
+"ui_section":"(нет UI)",
+"source":"t04"
+},
+"stock.dateZoomPanel":{
+"ui_label":"Кнопки зумирования",
+"ui_section":"Общие",
+"source":"t04"
+},
+"stock.dateRangePanel":{
+"ui_label":"Ввод диапазона дат",
+"ui_section":"Общие",
+"source":"t04"
+},
+"stock.scrollbarDisabled":{
+"ui_label":"enable (инверт.)",
+"ui_section":"Скроллбар",
+"source":"t04"
+},
+"stock.altAxisEnabled":{
+"ui_label":"enable",
+"ui_section":"Доп.диаграмма",
+"source":"t04"
+},
+"stock.dateAxisMinGridDistance":{
+"ui_label":"Мин.ширина сетки",
+"ui_section":"Осн.диаграмма",
+"source":"t04"
+},
+"stock.dateAxisMaxWidth":{
+"ui_label":"Макс.ширина подписи",
+"ui_section":"Осн.диаграмма",
+"source":"t04"
+},
+"stock.dateAxisTickangle":{
+"ui_label":"Наклон подписей",
+"ui_section":"Осн.диаграмма",
+"source":"t04"
+},
+"stock.dateAxisZigzag":{
+"ui_label":"Два уровня подписей",
+"ui_section":"Осн.диаграмма",
+"source":"t04"
+},
+"stock.refresh":{
+"ui_label":"Интервальное обновление",
+"ui_section":"Данные",
+"source":"t04"
+},
+"hierFilter.multipleChoice":{
+"ui_label":"Multiple Choice",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.bothChoice":{
+"ui_label":"Both Choice",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.inversed":{
+"ui_label":"Inversed",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.hideTitle":{
+"ui_label":"Hide Title",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.filterTitle":{
+"ui_label":"Filter Title",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.headerWidth":{
+"ui_label":"Header Width",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.searchInBaseMode":{
+"ui_label":"Search In Base Mode",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.searchInBaseMinNumber":{
+"ui_label":"Search In Base Min Number",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.updateOnCloseDropdown":{
+"ui_label":"Update On Close Dropdown",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.updateOnApply":{
+"ui_label":"Update On Apply",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.noLoadOptions":{
+"ui_label":"No Load Options",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"hierFilter.sortSelectedOptionsToTop":{
+"ui_label":"Sort Selected Options To Top",
+"ui_section":"Иерархический фильтр",
+"source":"derived"
+},
+"switch.filterType":{
+"ui_label":"Filter Type",
+"ui_section":"Переключатель",
+"source":"derived"
+},
+"switch.selectorTitleOverride":{
+"ui_label":"Selector Title Override",
+"ui_section":"Переключатель",
+"source":"derived"
+},
+"tabs.height":{
+"ui_label":"Height",
+"ui_section":"Вкладки",
+"source":"derived"
+},
+"tabs.autoApply":{
+"ui_label":"Auto Apply",
+"ui_section":"Вкладки",
+"source":"derived"
+},
+"audio.progressBarColor":{
+"ui_label":"Progress Bar Color",
+"ui_section":"Аудиоплеер",
+"source":"derived"
+},
+"audio.progressBarBackgroundColor":{
+"ui_label":"Progress Bar Background Color",
+"ui_section":"Аудиоплеер",
+"source":"derived"
+},
+"audio.backgroundColor":{
+"ui_label":"Цвет фона индикатора",
+"ui_section":"Общие",
+"source":"t04"
+},
+"audio.url":{
+"ui_label":"Url",
+"ui_section":"Аудиоплеер",
+"source":"derived"
+},
+"audio.uploadURL":{
+"ui_label":"Upload URL",
+"ui_section":"Аудиоплеер",
+"source":"derived"
+},
+"comparison.object1":{
+"ui_label":"Объект 1",
+"ui_section":"Объекты",
+"source":"t04"
+},
+"comparison.object2":{
+"ui_label":"Объект 2",
+"ui_section":"Объекты",
+"source":"t04"
+},
+"comparison.showDelta":{
+"ui_label":"Дельта",
+"ui_section":"Дельта/Процент",
+"source":"t04"
+},
+"comparison.showPercent":{
+"ui_label":"Процент",
+"ui_section":"Дельта/Процент",
+"source":"t04"
+},
+"comparison.precision":{
+"ui_label":"Точность чисел",
+"ui_section":"Общие",
+"source":"t04"
+},
+"graph.layout":{
+"ui_label":"Тип графа",
+"ui_section":"Общие",
+"source":"t04"
+},
+"graph.zoomable":{
+"ui_label":"Автомасштабирование",
+"ui_section":"Общие",
+"source":"t04"
+},
+"graph.initialZoom":{
+"ui_label":"Начальный масштаб",
+"ui_section":"Общие",
+"source":"t04"
+},
+"text.noexport":{
+"ui_label":"Noexport",
+"ui_section":"Общие",
+"source":"derived"
+},
+"text.maximizable":{
+"ui_label":"Maximizable",
+"ui_section":"Общие",
+"source":"derived"
+},
+"image.backgroundSize":{
+"ui_label":"Background Size",
+"ui_section":"Общие",
+"source":"derived"
+},
+"image.backgroundPosition":{
+"ui_label":"Background Position",
+"ui_section":"Общие",
+"source":"derived"
+},
+"image.backgroundStyle":{
+"ui_label":"Background Style",
+"ui_section":"Общие",
+"source":"derived"
+},
+"image.titleSize":{
+"ui_label":"Title Size",
+"ui_section":"Общие",
+"source":"derived"
+},
+"image.titleColor":{
+"ui_label":"Title Color",
+"ui_section":"Общие",
+"source":"derived"
+},
+"image.linkName":{
+"ui_label":"Link Name",
+"ui_section":"Общие",
+"source":"derived"
+},
+"image.linkTarget":{
+"ui_label":"Link Target",
+"ui_section":"Общие",
+"source":"derived"
+},
+"iframe.linkName":{
+"ui_label":"Link Name",
+"ui_section":"iFrame",
+"source":"derived"
+},
+"iframe.linkTarget":{
+"ui_label":"Link Target",
+"ui_section":"iFrame",
+"source":"derived"
+},
+"tabs.orientation":{
+"ui_label":"Ориентация (В/Г)",
+"ui_section":"Общие",
+"source":"t04"
+},
+"tabs.visuals":{
+"ui_label":"Visuals",
+"ui_section":"Вкладки",
+"source":"derived"
+},
+"image.src":{
+"ui_label":"Src",
+"ui_section":"Общие",
+"source":"derived"
+},
+"axes.customZoom":{
+"ui_label":"Custom Zoom",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.firstLabel":{
+"ui_label":"First Label",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.firstTick":{
+"ui_label":"First Tick",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.lastLabel":{
+"ui_label":"Last Label",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.lastTick":{
+"ui_label":"Last Tick",
+"ui_section":"Оси",
+"source":"derived"
+},
+"axes.rangeMode":{
+"ui_label":"Range Mode",
+"ui_section":"Оси",
+"source":"derived"
+},
+"labels.bypassCollisions":{
+"ui_label":"Bypass Collisions",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.outerLabelsAngle":{
+"ui_label":"Outer Labels Angle",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.valuesFontSize":{
+"ui_label":"Values Font Size",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"labels.valuesTopMargin":{
+"ui_label":"Values Top Margin",
+"ui_section":"Подписи",
+"source":"derived"
+},
+"main.extraAxis":{
+"ui_label":"Extra Axis",
+"ui_section":"Общие",
+"source":"derived"
+},
+"visuals.chartType":{
+"ui_label":"тип визуализации",
+"ui_section":"Осн.стиль",
+"source":"t04"
+},
+"viewType.addInvertedSwitch":{
+"ui_label":"Add Inverted Switch",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.clearSelection":{
+"ui_label":"Clear Selection",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"viewType.unlimitedSearch":{
+"ui_label":"Unlimited Search",
+"ui_section":"Тип фильтра",
+"source":"derived"
+},
+"map.annotationText":{
+"ui_label":"Annotation Text",
+"ui_section":"Карта",
+"source":"derived"
+}
+}

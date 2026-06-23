@@ -1,0 +1,2634 @@
+{
+  "schema": {
+    "id": "mcp-scorecard-report",
+    "version": "1.0"
+  },
+  "generator": {
+    "product_name": "MCP Scorecard",
+    "tool_name": "mcp-scorecard",
+    "package_name": "mcp-scorecard",
+    "package_version": "1.0.0"
+  },
+  "scan": {
+    "timestamp": "2026-06-22T15:03:03.207599+00:00",
+    "target": {
+      "raw": "stdio:[\"python3\",\"-m\",\"app.server\",\"--readonly\"]",
+      "transport": "stdio",
+      "description": "Local MCP server launched over stdio.",
+      "server_name": "modusbi",
+      "server_version": "1.26.0",
+      "protocol_version": "2025-11-25",
+      "metadata": {
+        "mcp": {
+          "protocolVersion": "2025-11-25",
+          "capabilities": {
+            "experimental": {},
+            "prompts": {
+              "listChanged": false
+            },
+            "resources": {
+              "subscribe": false,
+              "listChanged": false
+            },
+            "tools": {
+              "listChanged": false
+            }
+          },
+          "transport": "stdio",
+          "command": [
+            "python3",
+            "-m",
+            "app.server",
+            "--readonly"
+          ],
+          "instructions": "ModusBI MCP Server \u2014 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0430 BI-\u043e\u0442\u0447\u0451\u0442\u043e\u0432 \u0438 \u0434\u0430\u0448\u0431\u043e\u0440\u0434\u043e\u0432 \u0434\u043b\u044f \u043f\u043e\u0440\u0442\u0430\u043b\u0430 ModusBI.\n\n\u0422\u0438\u043f\u0438\u0447\u043d\u044b\u0435 workflow:\n\n1. \u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043e\u0442\u0447\u0451\u0442\u0430 \u0441 \u043d\u0443\u043b\u044f:\n   report_operations(action=\"create\", ...) \u2192 dataset_operations(action=\"create\", ...)\n   \u2192 component_crud(action=\"add\", ...) \u2192 component_filters(action=\"filter_field_add\", ...)\n   \u2192 style_operations(action=\"update\", ...) [CSS]\n\n2. \u0413\u043e\u0442\u043e\u0432\u044b\u0435 \u0448\u0430\u0431\u043b\u043e\u043d\u044b (\u0431\u044b\u0441\u0442\u0440\u0435\u0435):\n   report_template(action=\"list\") \u2192 report_template(action=\"scaffold\", template=...)\n   \u0428\u0430\u0431\u043b\u043e\u043d\u044b: kpi_dashboard, ranking, comparison, factor_analysis, geo_analytics, simple.\n\n3. \u0420\u0430\u0431\u043e\u0442\u0430 \u0441 \u0434\u0430\u043d\u043d\u044b\u043c\u0438:\n   - dataset_query \u2014 SQL-like \u0437\u0430\u043f\u0440\u043e\u0441 \u043a \u0441\u0435\u043c\u0430\u043d\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u043c\u0443 \u0441\u043b\u043e\u044e (readonly)\n   - sql_query_validate \u2014 \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 SQL \u0434\u043e create dataset\n   - query_batch \u2014 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0437\u0430\u043f\u0440\u043e\u0441\u043e\u0432 \u043e\u0434\u043d\u0438\u043c \u0432\u044b\u0437\u043e\u0432\u043e\u043c\n\n4. Batch-\u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0438:\n   - batch_operations(action=\"components_add\", report_id=..., components=[...])\n   - batch_operations(action=\"reports_export\", report_ids=[...], format=\"pdf\")\n\n\u041a\u043b\u044e\u0447\u0435\u0432\u044b\u0435 \u043a\u043e\u043d\u0432\u0435\u043d\u0446\u0438\u0438:\n - \"report\" = \u043e\u0442\u0447\u0451\u0442/\u0434\u0430\u0448\u0431\u043e\u0440\u0434, \"component\" = \u0432\u0438\u0434\u0436\u0435\u0442, \"dataset\" = \u0441\u0435\u043c\u0430\u043d\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0441\u043b\u043e\u0439.\n - component_idx \u2014 0-based \u0438\u043d\u0434\u0435\u043a\u0441 (\u041d\u0415 id).\n - 30 \u0442\u0438\u043f\u043e\u0432 \u043a\u043e\u043c\u043f\u043e\u043d\u0435\u043d\u0442\u043e\u0432; component_crud(action=\"types_list\") \u2014 \u0441\u043f\u0438\u0441\u043e\u043a.\n - \u0412\u0438\u0437\u0443\u0430\u043b\u044c\u043d\u0430\u044f \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430 \u2014 3 \u0443\u0440\u043e\u0432\u043d\u044f: \u0430\u0442\u043e\u043c\u0430\u0440\u043d\u044b\u0435 params (legend_visible, bg_color),\n   config_overrides (slug-\u043a\u043b\u044e\u0447\u0438, \u0441\u043c. config_schema.SLUG_SCHEMA), presets (minimal/presentation/dashboard/dark/print/kpi).\n\n\u0420\u0435\u0436\u0438\u043c \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438:\n - \u041f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e readonly (\u0441 \u0432\u0435\u0440\u0441\u0438\u0438 1.0.0). \u0414\u043e\u0441\u0442\u0443\u043f\u043d\u044b: list/get/summary/*_list/validate/export.\n - \u0414\u043b\u044f create/update/delete \u2014 \u0437\u0430\u043f\u0443\u0441\u043a \u0441 --readwrite.\n - \u041e\u0448\u0438\u0431\u043a\u0430 \"\u0442\u0440\u0435\u0431\u0443\u0435\u0442 \u0440\u0435\u0436\u0438\u043c: readwrite\" \u2192 \u0441\u0435\u0440\u0432\u0435\u0440 \u0437\u0430\u043f\u0443\u0449\u0435\u043d \u0432 readonly.\n\n\u041f\u043e\u0434\u0441\u043a\u0430\u0437\u043a\u0438 \u043f\u043e \u043e\u0448\u0438\u0431\u043a\u0430\u043c:\n - {success: False, error, missing: [...], expected_types: {...}, hint, example} \u2014\n   \u0437\u0430\u043f\u043e\u043b\u043d\u0438\u0442\u044c \u043d\u0435\u0434\u043e\u0441\u0442\u0430\u044e\u0449\u0438\u0435 \u043f\u0430\u0440\u0430\u043c\u0435\u0442\u0440\u044b \u0438\u0437 example \u0438 \u043f\u043e\u0432\u0442\u043e\u0440\u0438\u0442\u044c \u0432\u044b\u0437\u043e\u0432.\n - {error: \"Unknown action: X\"} \u2014 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c help-action: component_crud(action=\"help\").\n\n\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u0438\u0432\u043d\u044b\u0435 tools (\u043d\u0435 \u0432 \u0433\u043b\u0430\u0432\u043d\u044b\u0445 workflow):\n - instance_operations \u2014 info \u043e \u0442\u0435\u043a\u0443\u0449\u0435\u043c \u043f\u043e\u0440\u0442\u0430\u043b\u0435 (single-instance per process)\n - datasource_operations \u2014 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u043e\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u044f\u043c\u0438 \u043a \u0411\u0414\n - security_operations \u2014 Row Level Security (RLS)\n - preflight_check_datasource \u2014 \u0433\u043b\u0443\u0431\u043e\u043a\u0430\u044f \u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u043f\u0435\u0440\u0435\u0434 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435\u043c\n\nMulti-portal: \u043d\u0430\u0441\u0442\u0440\u0430\u0438\u0432\u0430\u0435\u0442\u0441\u044f \u0447\u0435\u0440\u0435\u0437 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e mcpServers entries \u0432 mcp.json\n(\u043e\u0434\u0438\u043d \u043f\u0440\u043e\u0446\u0435\u0441\u0441 = \u043e\u0434\u0438\u043d \u043f\u043e\u0440\u0442\u0430\u043b). \u0421\u043c. INSTALL.md \u00abMultiple portals\u00bb.\n\n\u041a\u043e\u0433\u0434\u0430 \u041d\u0415 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u044d\u0442\u043e\u0442 \u0441\u0435\u0440\u0432\u0435\u0440:\n - \u041d\u0435-ModusBI \u0438\u0441\u0442\u043e\u0447\u043d\u0438\u043a\u0438 \u0434\u0430\u043d\u043d\u044b\u0445 (\u0442\u043e\u043b\u044c\u043a\u043e ModusBI API).\n - \u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f\u043c\u0438/\u043f\u0440\u0430\u0432\u0430\u043c\u0438 (\u0442\u043e\u043b\u044c\u043a\u043e RLS \u0447\u0435\u0440\u0435\u0437 security_operations).\n"
+        }
+      }
+    }
+  },
+  "inventory": {
+    "tool_count": 19,
+    "tools": [
+      {
+        "name": "instance_operations",
+        "description": "Get information about the configured portal instance.\n\n    Single-instance per process model: the portal is configured via env vars\n    in mcp.json. To work with multiple portals, configure multiple mcpServers\n    entries \u2014 see INSTALL.md \"Multiple portals\" section.\n\n    Actions:\n    - list: List configured instance (always 1 in this model \u2014 for compat).\n    - get_active: Get current instance info (URL, name, token state).\n\n    Returns:\n        list: {instances: [{name, base_url, is_active, description}]}\n        get_active: {instance: {name, base_url, token_valid, ...}}",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "list",
+                "get_active"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "instance_operationsArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Portal instance information (read-only)",
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "report_operations",
+        "description": "CRUD for reports + components_list + export (pdf/pptx) + variables/categories + clone.\n\n    Actions: help, list, get, create, update, delete, summary, components_list, groups_list,\n             export, export_info, variables_list/add/update/delete, categories_list/add/update/delete,\n             get_options, update_options, clone, global_filters_list, global_filter_delete.\n\n    \u26a0\ufe0f DESTRUCTIVE actions:\n    - delete: permanently deletes the report AND cascades to all its components, filters,\n              layouts, variables. This action is irreversible and cannot be undone.\n              Consider report_operations(action='get') first to backup the report config.\n    - variables_delete / categories_delete / global_filter_delete: permanently removes\n              the specified entity from the report; cannot be undone.\n    - update / update_options: overwrites specified fields \u2014 previous values are lost.\n\n    For examples: report_operations(action=\"help\", name=\"<action_name>\")\n\n    list/groups_list are paginated (limit=50, offset=0).\n    clone copies all components, filters, variables. export requires reports service reachable.\n\n    \u26a0\ufe0f Destructive actions: delete, variables_delete, categories_delete, global_filter_delete\n    (permanently removes data, cannot be undone without a prior backup).\n    Requires readwrite mode: create, update, delete, clone, *_add, *_update, *_delete.",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "help",
+                "list",
+                "get",
+                "create",
+                "update",
+                "delete",
+                "summary",
+                "components_list",
+                "groups_list",
+                "export",
+                "export_info",
+                "variables_list",
+                "variable_add",
+                "variable_update",
+                "variable_delete",
+                "categories_list",
+                "category_add",
+                "category_update",
+                "category_delete",
+                "get_options",
+                "update_options",
+                "clone",
+                "global_filters_list",
+                "global_filter_delete"
+              ],
+              "type": "string"
+            },
+            "report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report (e.g. 35). Use report_operations(action='list') to list IDs."
+            },
+            "name": {
+              "type": "string",
+              "default": null,
+              "description": "Short technical name (latin, lower_snake_case). Shown in listings and used as internal identifier. For action='help', pass the action name to describe."
+            },
+            "caption": {
+              "type": "string",
+              "default": null,
+              "description": "Human-readable label shown in the UI (supports Cyrillic/Unicode)."
+            },
+            "group_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report group (folder). Use reportgroup_operations(action='list') to list IDs."
+            },
+            "remark": {
+              "type": "string",
+              "default": null,
+              "description": "Optional free-form remark/note attached to the entity."
+            },
+            "parent_id": {
+              "default": 0,
+              "description": "Numeric ID of the parent entity (0 = root).",
+              "type": "integer"
+            },
+            "description": {
+              "default": "",
+              "description": "Optional free-form description shown in the UI / listings.",
+              "type": "string"
+            },
+            "ord": {
+              "default": 0,
+              "description": "Sort order / position index within a list (integer, 0-based).",
+              "type": "integer"
+            },
+            "format": {
+              "default": "pdf",
+              "enum": [
+                "pdf",
+                "png",
+                "pptx"
+              ],
+              "type": "string"
+            },
+            "page_size": {
+              "default": "A4",
+              "description": "Paper size for export: 'A4', 'A3', 'Letter', etc.",
+              "type": "string"
+            },
+            "page_orientation": {
+              "default": "portrait",
+              "description": "Page orientation for export: 'portrait' or 'landscape'.",
+              "type": "string"
+            },
+            "output_dir": {
+              "type": "string",
+              "default": null,
+              "description": "Absolute path to export output dir (fallback: MODUSBI_EXPORT_DIR env var or ~/Downloads/modusbi_exports)."
+            },
+            "filename": {
+              "type": "string",
+              "default": null,
+              "description": "Output file name without extension (extension is added based on format)."
+            },
+            "timeout": {
+              "default": 120,
+              "description": "Timeout in seconds for long-running operations (e.g. export, large queries).",
+              "type": "integer"
+            },
+            "global_filters": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "Map alias \u2192 {'enabled': True, 'selected': [...]} for cross-component filtering."
+            },
+            "variable_name": {
+              "type": "string",
+              "default": null,
+              "description": "Name of the report variable (key used in SQL templates as :variable_name)."
+            },
+            "variable_value": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Value(s) for the report variable. Single value or list of strings."
+            },
+            "category_name": {
+              "type": "string",
+              "default": null,
+              "description": "Name of a report category (globalCategory) used for cross-component filtering."
+            },
+            "category_selected": {
+              "type": "string",
+              "default": null,
+              "description": "Currently selected option within a report category."
+            },
+            "category_options": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array",
+              "default": null,
+              "description": "List of available options for a report category."
+            },
+            "cell_mode": {
+              "type": "string",
+              "default": null,
+              "description": "Grid cell sizing mode for the report layout (e.g. 'fixed', 'auto')."
+            },
+            "allow_overlap_mode": {
+              "type": "boolean",
+              "default": null,
+              "description": "Allow components to overlap in the grid (true/false)."
+            },
+            "free_pane_movement": {
+              "type": "boolean",
+              "default": null,
+              "description": "Allow free (non-snapping) component movement in the grid (true/false)."
+            },
+            "no_gap_mode": {
+              "type": "boolean",
+              "default": null,
+              "description": "Remove gaps between grid cells (true/false)."
+            },
+            "recalculated_cell_mode": {
+              "type": "boolean",
+              "default": null,
+              "description": "Recalculate cell sizes dynamically on resize (true/false)."
+            },
+            "grouping_mode": {
+              "type": "boolean",
+              "default": null,
+              "description": "Enable grouping mode in the report grid (true/false)."
+            },
+            "limit": {
+              "default": 50,
+              "description": "Maximum number of rows/items to return.",
+              "type": "integer"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Row/item offset for pagination (0-based).",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "report_operationsArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Report CRUD + export + clone",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "dataset_operations",
+        "description": "CRUD for datasets (semantic layer on top of datasources).\n\n    Actions: help, list, get, fields_list, create, update, delete.\n    For examples: dataset_operations(action=\"help\", name=\"<action>\")\n\n    \u26a0\ufe0f DESTRUCTIVE actions:\n    - delete: permanently deletes the dataset. This action is irreversible and cannot be\n              undone. WARNING: it breaks every report and component that references the\n              dataset \u2014 they will fail to load until rebuilt or redirected to another dataset.\n    - update: overwrites specified fields (query / field_aliases / rls). Changing query\n              may break existing component bindings.\n\n    \u26a0\ufe0f field_aliases MUST be set BEFORE binding dataset to components \u2014 backend rejects\n    alias changes on fields already used in components (HTTP 400). Workflow:\n    create \u2192 set field_aliases \u2192 THEN add components.\n\n    Prefer dataset_create_from_sql over create (it validates SQL). action=\"update\" with\n    query also auto-validates SQL. list is paginated (limit=50, offset=0).\n\n    \u26a0\ufe0f Destructive actions: delete (permanently removes dataset, cannot be undone;\n    breaks dependent reports/components).\n    Requires readwrite mode: create, update, delete.",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "help",
+                "list",
+                "get",
+                "fields_list",
+                "create",
+                "update",
+                "delete"
+              ],
+              "type": "string"
+            },
+            "dataset_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the dataset (e.g. 5). Use dataset_operations(action='list') to list IDs."
+            },
+            "name": {
+              "type": "string",
+              "default": null,
+              "description": "Short technical name (latin, lower_snake_case). Shown in listings and used as internal identifier."
+            },
+            "caption": {
+              "type": "string",
+              "default": null,
+              "description": "Human-readable label shown in the UI (supports Cyrillic/Unicode)."
+            },
+            "datasource_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the datasource connection (NOT driver type, e.g. 3). Use datasource_operations(action='list')."
+            },
+            "sql": {
+              "type": "string",
+              "default": null,
+              "description": "SQL query string for the dataset's semantic layer."
+            },
+            "rls": {
+              "type": "boolean",
+              "default": null,
+              "description": "Enable or disable Row Level Security on the dataset (true/false)."
+            },
+            "sql_rls": {
+              "type": "string",
+              "default": null,
+              "description": "RLS filter SQL using ':current_user_id' placeholder, e.g. 'user_id = :current_user_id'."
+            },
+            "field_aliases": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "Map field name \u2192 {'alias': '...', 'description': '...'}. MUST be set BEFORE binding dataset to components."
+            },
+            "limit": {
+              "default": 50,
+              "description": "Maximum number of rows/items to return.",
+              "type": "integer"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Row/item offset for pagination (0-based).",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "dataset_operationsArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Dataset (semantic layer) CRUD",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "component_crud",
+        "description": "Component CRUD + layout + slug introspection.\n\n    Actions: help, types_list, get, add, add_text_block, add_chart_with_conclusion,\n             update, delete, data, copy, layout_update, layout_get_breakpoints,\n             layout_update_breakpoint, swap, list_slugs, list_presets.\n\n    \u26a0\ufe0f DESTRUCTIVE actions:\n    - delete: permanently removes the component and cascades to its layouts,\n              filter bindings, conditional rules and calc fields. This action is\n              irreversible and cannot be undone.\n    - update / layout_update / layout_update_breakpoint: overwrites specified\n              fields (title / dataset / axes / position). Previous values are lost.\n\n    For per-action details and examples: component_crud(action=\"help\", value_field=\"add\")\n    For the actions list: component_crud(action=\"help\")\n\n    Tables ALWAYS use aggregation=\"none\". text_content is sanitized (no <script>).\n    Visuals: Level 1 (legend_visible/bg_color/stacking/...), Level 2 (config_overrides with flat slug keys),\n    Level 3 (preset name).\n\n    \u26a0\ufe0f Destructive actions: delete (permanently deletes component + cascading\n    layouts/filters, cannot be undone).\n    Requires readwrite mode: add, add_text_block, add_chart_with_conclusion, update,\n    delete, copy, layout_update, layout_update_breakpoint, swap.",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "help",
+                "types_list",
+                "get",
+                "add",
+                "add_text_block",
+                "add_chart_with_conclusion",
+                "update",
+                "delete",
+                "data",
+                "copy",
+                "layout_update",
+                "layout_get_breakpoints",
+                "layout_update_breakpoint",
+                "swap",
+                "list_slugs",
+                "list_presets"
+              ],
+              "type": "string"
+            },
+            "report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report (e.g. 35). Use report_operations(action='list') to list IDs."
+            },
+            "component_idx": {
+              "type": "integer",
+              "default": null,
+              "description": "Zero-based index of component in the report (0 = first component)."
+            },
+            "component_idx_2": {
+              "type": "integer",
+              "default": null,
+              "description": "Second component index for swap action."
+            },
+            "component_type": {
+              "type": "string",
+              "default": null,
+              "description": "Component class name, e.g. 'HsBarAMchartsChart' (chart), 'HsTotalsPanelV2' (KPI), 'HsTableReactabularChart' (table), 'HsTextBlock' (text). Use component_crud(action='types_list') for full list."
+            },
+            "title": {
+              "type": "string",
+              "default": null,
+              "description": "Human-readable component title shown in the UI header."
+            },
+            "dataset_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the dataset (e.g. 5). Use dataset_operations(action='list') to list IDs."
+            },
+            "dataset_name": {
+              "type": "string",
+              "default": null,
+              "description": "Human-readable name of the dataset to bind to the component (resolved via fuzzy match)."
+            },
+            "category_field": {
+              "default": "",
+              "description": "Dataset field name used as category/dimension (e.g. 'region').",
+              "type": "string"
+            },
+            "value_field": {
+              "type": "string",
+              "default": null,
+              "description": "Dataset field name used as main value/metric (e.g. 'amount')."
+            },
+            "aggregation": {
+              "default": "",
+              "enum": [
+                "sum",
+                "avg",
+                "max",
+                "min",
+                "count",
+                "none",
+                ""
+              ],
+              "type": "string"
+            },
+            "value_fields_type": {
+              "default": "number",
+              "enum": [
+                "number",
+                "string"
+              ],
+              "type": "string"
+            },
+            "position": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "Component position/size {'x':int, 'y':int, 'w':int, 'h':int} (grid units)."
+            },
+            "x": {
+              "type": "integer",
+              "default": null,
+              "description": "Grid column of the component's left edge (0..59 for HD breakpoint)."
+            },
+            "y": {
+              "type": "integer",
+              "default": null,
+              "description": "Grid row of the component's top edge. Auto-calculated if omitted."
+            },
+            "w": {
+              "type": "integer",
+              "default": null,
+              "description": "Width in grid columns. Typical: filter=10..15, KPI=15, chart=30, table=60."
+            },
+            "h": {
+              "type": "integer",
+              "default": null,
+              "description": "Height in grid rows. Typical: filter=3, KPI=6, chart=12, table=18."
+            },
+            "z_index": {
+              "type": "integer",
+              "default": null,
+              "description": "Integer stacking order; higher is rendered above lower (e.g. 100 for dropdowns)."
+            },
+            "limit": {
+              "default": 100,
+              "description": "Maximum number of rows/items to return.",
+              "type": "integer"
+            },
+            "field_titles": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "Map technical field name \u2192 human-readable label, e.g. {region: \u0420\u0435\u0433\u0438\u043e\u043d}."
+            },
+            "where_filter": {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "type": "array",
+              "default": null,
+              "description": "Filter conditions list [{'field':'x', 'operator':'=', 'value':'...'}] applied to the component."
+            },
+            "text_content": {
+              "type": "string",
+              "default": null,
+              "description": "HTML text content for HsTextBlock components (sanitized; no <script> tags allowed)."
+            },
+            "row_fields": {
+              "type": "string",
+              "default": null,
+              "description": "Comma-separated dataset fields for pivot rows (e.g. 'region,city')."
+            },
+            "column_fields": {
+              "type": "string",
+              "default": null,
+              "description": "Comma-separated dataset fields for pivot columns (e.g. 'year,quarter')."
+            },
+            "size_field": {
+              "type": "string",
+              "default": null,
+              "description": "Dataset field used for bubble size in BubbleChart (numeric)."
+            },
+            "series_field": {
+              "type": "string",
+              "default": null,
+              "description": "Dataset field name used for multi-series grouping (e.g. 'product' for one bar per category \u00d7 series). Frontend builds N series from distinct values. Supported: HsBar/Line/Area/StockAMchartsChart."
+            },
+            "subheader_field": {
+              "type": "string",
+              "default": null,
+              "description": "For HsTotalsPanelV2: secondary value field rendered as subheader (under main KPI value)."
+            },
+            "info_fields": {
+              "type": "string",
+              "default": null,
+              "description": "For HsTotalsPanelV2: comma-separated extra info-strings (e.g. 'avg_price,total_count') rendered as info-rows below KPI."
+            },
+            "legend_visible": {
+              "type": "boolean",
+              "default": null,
+              "description": "Show or hide the chart legend (true/false)."
+            },
+            "legend_position": {
+              "type": "string",
+              "default": null,
+              "description": "Position of the chart legend: 'top', 'bottom', 'left', or 'right'."
+            },
+            "labels_visible": {
+              "type": "boolean",
+              "default": null,
+              "description": "Show or hide value labels on chart elements (true/false)."
+            },
+            "orientation": {
+              "enum": [
+                "horizontal",
+                "vertical"
+              ],
+              "type": "string",
+              "default": null
+            },
+            "bg_color": {
+              "type": "string",
+              "default": null,
+              "description": "Background color in rgba() or hex format, e.g. 'rgba(255,255,255,1)' or '#FFFFFF'."
+            },
+            "stacking": {
+              "enum": [
+                "stacked",
+                "normal",
+                "percent"
+              ],
+              "type": "string",
+              "default": null
+            },
+            "config_overrides": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "Flat slug overrides dict; see component_crud(action='list_slugs') for keys."
+            },
+            "preset": {
+              "enum": [
+                "minimal",
+                "presentation",
+                "dashboard",
+                "dark",
+                "print",
+                "kpi"
+              ],
+              "type": "string",
+              "default": null
+            },
+            "target_report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Destination report ID when copying a component across reports."
+            },
+            "breakpoint": {
+              "enum": [
+                "hd",
+                "lg",
+                "md",
+                "sm",
+                "xs",
+                "xxs"
+              ],
+              "type": "string",
+              "default": null
+            },
+            "slug_category": {
+              "type": "string",
+              "default": null,
+              "description": "For list_slugs: filter by category (e.g. 'legend', 'margin', 'data') OR search by substring with 'search:' prefix (e.g. 'search:color'). Prepend 'ui:' to add UI metadata (ui_label/ui_section \u2014 the control name & panel section from the frontend) to each slug, e.g. 'ui:legend' or 'ui:' (whole component) or 'ui:search:color'. UI metadata is OFF by default (it adds ~70% tokens); request it only when you need the panel labels for one component/category. Use list_slugs() without category to discover categories. For get: pass 'raw' to include config_raw (full raw component config)."
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "component_crudArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Component CRUD + layout",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "component_filters",
+        "description": "Filter axis + global filter + cascade + grid layout management.\n\n    Actions: help, set_global_filter, reset_global_filters, filter_fields_list,\n             filter_field_add, filter_field_remove, filter_set_cascade,\n             filters_grid_layout.\n\n    \u26a0\ufe0f DESTRUCTIVE: filter_field_remove permanently removes filter binding\n    (re-add with dataset_id, alias, field_type); reset_global_filters clears\n    all global filter selections (irreversible from MCP, users re-select).\n\n    For examples: component_filters(action=\"help\", value_field=\"filter_field_add\")\n\n    filter_set_cascade reset rules (optional): reset_mode='min'|'max' \u2014 value the\n    child filter resets to when the parent changes; reset_type='always' \u2014 reset on\n    every parent change (the only value the frontend supports).\n\n    CRITICAL: filter_field_add must be called on EVERY data-component\n    (chart/table/KPI/map), not only on the FilterControlPanel \u2014 otherwise\n    dropdown shows values but data is not filtered.\n\n    Requires readwrite mode: set_global_filter, reset_global_filters,\n    filter_field_add, filter_field_remove, filter_set_cascade,\n    filters_grid_layout.",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "help",
+                "set_global_filter",
+                "reset_global_filters",
+                "filter_fields_list",
+                "filter_field_add",
+                "filter_field_remove",
+                "filter_set_cascade",
+                "filters_grid_layout"
+              ],
+              "type": "string"
+            },
+            "report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report (e.g. 35). Use report_operations(action='list') to list IDs."
+            },
+            "component_idx": {
+              "type": "integer",
+              "default": null,
+              "description": "Zero-based index of component in the report (0 = first component)."
+            },
+            "value_field": {
+              "type": "string",
+              "default": null,
+              "description": "Dataset field name used as main value/metric (e.g. 'amount')."
+            },
+            "dataset_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the dataset (e.g. 5). Use dataset_operations(action='list') to list IDs."
+            },
+            "alias": {
+              "type": "string",
+              "default": null,
+              "description": "Human-readable label for a filter field (Russian/Unicode supported, e.g. '\u0420\u0435\u0433\u0438\u043e\u043d')."
+            },
+            "field_type": {
+              "enum": [
+                "string",
+                "number",
+                "date",
+                "datetime",
+                "boolean"
+              ],
+              "type": "string",
+              "default": null
+            },
+            "depends_on": {
+              "type": "string",
+              "default": null,
+              "description": "Alias of the parent filter this cascade filter depends on (dropdown values are filtered by parent selection)."
+            },
+            "reset_mode": {
+              "enum": [
+                "min",
+                "max"
+              ],
+              "type": "string",
+              "default": null,
+              "description": "Cascade reset target when the parent filter changes: 'min' (reset child to minimum value) or 'max' (to maximum). Written to globalFilters[alias].resetMode."
+            },
+            "reset_type": {
+              "const": "always",
+              "type": "string",
+              "default": null,
+              "description": "When to reset the child filter on parent change: 'always' (the only value supported by the frontend). Written to globalFilters[alias].resetType."
+            },
+            "config_overrides": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "Flat slug overrides dict; see component_crud(action='list_slugs') for keys."
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "component_filtersArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Component filters CRUD",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "component_axes",
+        "description": "Calc fields, PageContainer pages, pivot drill-through links, drill-down hierarchy,\n    TabsPanel buttons, conditional formatting rules, map geokeys.\n\n    Actions: help, calc_fields_* (list/add/update/remove), page_* (list/add/remove/rename),\n             pivot_link_set/remove, drill_* (get/add_level/delete_level/change_level/toggle_date_range/set_field),\n             conditional_rule_* (add/list/delete), geodata_list, map_set_geokeys, map_get_geokeys,\n             tabs_button_* (list/add/delete).\n\n    \u26a0\ufe0f DESTRUCTIVE actions:\n    - calc_fields_remove: permanently deletes the calculated field. Irreversible and\n              cannot be undone \u2014 the expression is lost.\n    - page_remove: permanently deletes a PageContainer page AND all components bound to\n              that page. This action is irreversible and cannot be undone.\n    - pivot_link_remove: permanently removes the pivot drill-through link configuration.\n    - drill_delete_level: permanently deletes a level from the drill-down hierarchy.\n              Cannot be undone \u2014 the level configuration is lost.\n    - conditional_rule_delete: permanently deletes the conditional formatting rule\n              (colors, indicators, thresholds). Irreversible.\n    - tabs_button_delete: permanently removes a navigation button from a TabsPanel.\n              Cannot be undone.\n    - calc_fields_update / map_set_geokeys / drill_change_level: overwrites existing\n              configuration \u2014 previous state is lost.\n\n    For details: component_axes(action=\"help\", value_field=\"<action>\")\n\n    \u26a0\ufe0f Destructive actions: calc_fields_remove, page_remove, pivot_link_remove,\n    drill_delete_level, conditional_rule_delete, tabs_button_delete (permanently deletes\n    configuration, cannot be undone).\n    Requires readwrite mode: calc_fields_add/update/remove, page_add/remove/rename,\n    pivot_link_set/remove, drill_add_level/delete_level/change_level/toggle_date_range/set_field,\n    conditional_rule_add/delete, map_set_geokeys, tabs_button_add/delete.",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "help",
+                "calc_fields_list",
+                "calc_field_add",
+                "calc_field_update",
+                "calc_field_remove",
+                "page_list",
+                "page_add",
+                "page_remove",
+                "page_rename",
+                "pivot_link_set",
+                "pivot_link_remove",
+                "drill_get",
+                "drill_add_level",
+                "drill_delete_level",
+                "drill_change_level",
+                "drill_toggle_date_range",
+                "drill_set_field",
+                "tabs_button_list",
+                "tabs_button_add",
+                "tabs_button_delete",
+                "conditional_rule_add",
+                "conditional_rule_list",
+                "conditional_rule_delete",
+                "geodata_list",
+                "map_set_geokeys",
+                "map_get_geokeys"
+              ],
+              "type": "string"
+            },
+            "report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report (e.g. 35). Use report_operations(action='list') to list IDs."
+            },
+            "component_idx": {
+              "type": "integer",
+              "default": null,
+              "description": "Zero-based index of component in the report (0 = first component)."
+            },
+            "value_field": {
+              "type": "string",
+              "default": null,
+              "description": "Dataset field name used as main value/metric (e.g. 'amount')."
+            },
+            "title": {
+              "type": "string",
+              "default": null,
+              "description": "Human-readable component title shown in the UI header."
+            },
+            "dataset_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the dataset (e.g. 5). Use dataset_operations(action='list') to list IDs."
+            },
+            "calc_expression": {
+              "type": "string",
+              "default": null,
+              "description": "Calculated field expression using dataset field names (e.g. 'amount * 1.2' or 'SUM(amount) / COUNT(id)')."
+            },
+            "target_axis": {
+              "type": "string",
+              "default": null,
+              "description": "Axis to attach a calculated field to: 'values', 'categories', 'rows', 'columns'."
+            },
+            "page_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of a page inside a multi-page component (TabsPanel/PageContainer)."
+            },
+            "field_id": {
+              "type": "string",
+              "default": null,
+              "description": "String identifier of a field within a component (assigned when the field is added)."
+            },
+            "target_url": {
+              "type": "string",
+              "default": null,
+              "description": "Absolute URL template for pivot drill-through links (supports {field} placeholders)."
+            },
+            "link_target": {
+              "default": "_blank",
+              "enum": [
+                "_blank",
+                "_self"
+              ],
+              "type": "string"
+            },
+            "field_index": {
+              "type": "integer",
+              "default": null,
+              "description": "Zero-based index of an item (rule / button / field) within its list."
+            },
+            "drill_category_id": {
+              "type": "string",
+              "default": null,
+              "description": "String ID of the drill-down category (level identifier in the hierarchy)."
+            },
+            "drill_direction": {
+              "type": "string",
+              "default": null,
+              "description": "Drill direction: 'drilldown' (go deeper) or 'drillup' (go back one level)."
+            },
+            "drill_selected": {
+              "type": "string",
+              "default": null,
+              "description": "Selected value to pass when drilling (context from the clicked row/bar)."
+            },
+            "config_overrides": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "Flat slug overrides dict; see component_crud(action='list_slugs') for keys."
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "component_axesArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Component axes, calc fields, pages",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "component_styling",
+        "description": "Conditional formatting, field sorting, map geo-binding (subset of component_axes).\n\n    Actions: conditional_rule_add/list/delete, field_sort_set, geodata_list,\n             map_set_geokeys, map_get_geokeys. (These also live in component_axes.)\n\n    \u26a0\ufe0f DESTRUCTIVE actions:\n    - conditional_rule_delete: permanently deletes the conditional formatting rule\n              (colors, indicators, thresholds). This action is irreversible and cannot\n              be undone \u2014 the rule config is lost.\n    - field_sort_set / map_set_geokeys: overwrites existing sort/geokey configuration \u2014\n              previous values are lost.\n\n    For details: component_styling(action=\"help\", value_field=\"<action>\")\n\n    \u26a0\ufe0f Destructive actions: conditional_rule_delete (permanently removes formatting\n    rule, cannot be undone).\n    Requires readwrite mode: conditional_rule_add, conditional_rule_delete,\n    field_sort_set, map_set_geokeys.",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "help",
+                "conditional_rule_add",
+                "conditional_rule_list",
+                "conditional_rule_delete",
+                "field_sort_set",
+                "geodata_list",
+                "map_set_geokeys",
+                "map_get_geokeys"
+              ],
+              "type": "string"
+            },
+            "report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report (e.g. 35). Use report_operations(action='list') to list IDs."
+            },
+            "component_idx": {
+              "type": "integer",
+              "default": null,
+              "description": "Zero-based index of component in the report (0 = first component)."
+            },
+            "value_field": {
+              "type": "string",
+              "default": null,
+              "description": "Dataset field name used as main value/metric (e.g. 'amount')."
+            },
+            "field_index": {
+              "type": "integer",
+              "default": null,
+              "description": "Zero-based index of an item (rule / button / field) within its list."
+            },
+            "config_overrides": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "Flat slug overrides dict; see component_crud(action='list_slugs') for keys."
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "component_stylingArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Component visual styling",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "datasource_operations",
+        "description": "Read-only operations for data sources (database connections).\n\n    Datasources are database connections. \u26a0\ufe0f create/update/delete are NOT supported via MCP\n    by design \u2014 destructive/mutating operations on datasources would permanently break every\n    dataset and report using the connection, so they must be performed through the web portal\n    or the direct HTTP API where an admin can confirm the change.\n\n    Actions:\n    - list: List all datasources (read-only)\n    - get: Get datasource info by ID (read-only)\n    - tables_list: List database tables (datasource_id required; read-only)\n    - table_fields: Get table fields (datasource_id, table_name required; schema for PostgreSQL)\n    - check_connection: Check connection status (datasource_id required; read-only)\n\n    Example - List datasources:\n        datasource_operations(action='list')\n\n    Example - Get datasource info:\n        datasource_operations(action=\"get\", datasource_id=1)\n\n    Example - List tables:\n        datasource_operations(action=\"tables_list\", datasource_id=1)\n\n    Example - Get table fields:\n        datasource_operations(\n            action=\"table_fields\",\n            datasource_id=1,\n            table_name=\"users\",\n            schema=\"public\"\n        )\n\n    Example - Check connection:\n        datasource_operations(action=\"check_connection\", datasource_id=1)\n\n    Returns:\n        list: {success, count, items: [{id, name, caption, parent_id}]}\n        get: {success, datasource: {id, name, host, database, ...}}\n        tables_list: {success, datasource_id, items: [{name, schema}]}\n        table_fields: {success, table_name, items: [{name, type, nullable}]}\n        check_connection: {success, connected: bool, message}",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "list",
+                "get",
+                "tables_list",
+                "table_fields",
+                "check_connection",
+                "create",
+                "update",
+                "delete"
+              ],
+              "type": "string"
+            },
+            "datasource_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the datasource connection (NOT driver type, e.g. 3). Use datasource_operations(action='list')."
+            },
+            "table_name": {
+              "type": "string",
+              "default": null,
+              "description": "Database table name (without schema prefix)."
+            },
+            "schema": {
+              "default": "public",
+              "description": "Database schema name (default 'public' for PostgreSQL).",
+              "type": "string"
+            },
+            "limit": {
+              "default": 50,
+              "description": "Maximum number of rows/items to return.",
+              "type": "integer"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Row/item offset for pagination (0-based).",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "datasource_operationsArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Datasource management",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "dataset_query",
+        "description": "Query data from a dataset (semantic model).\n\n    This is the primary way to get data from ModusBI.\n\n    Args:\n        dataset_id: Dataset ID (NOT datasource_id!)\n        select: Fields to select, e.g. [{\"name\": \"amount\", \"aggr\": \"sum\"}]\n        where: Filter conditions, e.g. [{\"name\": \"region\", \"op\": \"=\", \"value\": \"Moscow\"}]\n        group: Grouping fields, e.g. [{\"name\": \"region\"}]\n        order: Ordering, e.g. [{\"name\": \"amount\", \"dir\": \"desc\"}]\n        limit: Max rows (default 1000); 0 = \u0432\u0435\u0440\u043d\u0443\u0442\u044c 0 \u0441\u0442\u0440\u043e\u043a (\u0442\u043e\u043b\u044c\u043a\u043e \u043c\u0435\u0442\u0430\u0434\u0430\u043d\u043d\u044b\u0435 \u043f\u043e\u043b\u0435\u0439), \u043e\u0442\u0440\u0438\u0446\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0439 \u2014 \u043e\u0448\u0438\u0431\u043a\u0430\n        variables: SQL variables for :variable_name substitution.\n            Format: {\"var_name\": [\"value1\", \"value2\"]}\n\n    Example - Get all data:\n        dataset_query(dataset_id=5)\n\n    Example - Aggregated query:\n        dataset_query(\n            dataset_id=5,\n            select=[{\"name\": \"region\"}, {\"name\": \"amount\", \"aggr\": \"sum\"}],\n            group=[{\"name\": \"region\"}],\n            order=[{\"name\": \"amount\", \"dir\": \"desc\"}]\n        )\n\n    Example - With SQL variables:\n        dataset_query(dataset_id=42, variables={\"region\": [\"Moscow\"], \"year\": [2024]})\n\n    Returns:\n        {success, dataset_id, fields, rows, rows_count}",
+        "input_schema": {
+          "$defs": {
+            "GroupClause": {
+              "additionalProperties": false,
+              "description": "One field in the GROUP BY clause of ``dataset_query``.",
+              "properties": {
+                "name": {
+                  "description": "Field name to group by.",
+                  "type": "string"
+                },
+                "calc": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Optional calculation expression."
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "OrderClause": {
+              "additionalProperties": false,
+              "description": "One field in the ORDER BY clause of ``dataset_query``.",
+              "properties": {
+                "name": {
+                  "description": "Field name to order by.",
+                  "type": "string"
+                },
+                "dir": {
+                  "default": "asc",
+                  "description": "Sort direction (default: asc).",
+                  "enum": [
+                    "asc",
+                    "desc"
+                  ],
+                  "type": "string"
+                },
+                "alias": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Optional alias (when ordering by an aliased expression)."
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "SelectField": {
+              "additionalProperties": false,
+              "description": "One field in the SELECT clause of ``dataset_query``.",
+              "properties": {
+                "name": {
+                  "description": "Field name from dataset, e.g. 'amount'.",
+                  "type": "string"
+                },
+                "aggr": {
+                  "enum": [
+                    "sum",
+                    "avg",
+                    "max",
+                    "min",
+                    "count",
+                    "none",
+                    ""
+                  ],
+                  "type": "string",
+                  "default": null,
+                  "description": "Aggregation function. Empty string or 'none' = no aggregation."
+                },
+                "alias": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Optional alias for the result column."
+                },
+                "calc": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Optional calculation expression (for calc fields)."
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "WhereClause": {
+              "additionalProperties": false,
+              "description": "One condition in the WHERE clause of ``dataset_query``.",
+              "properties": {
+                "name": {
+                  "description": "Field name to filter on.",
+                  "type": "string"
+                },
+                "op": {
+                  "description": "Comparison operator. 'is'/'is not' (value omitted) = IS [NOT] NULL. 'in'/'not in' are NOT supported by the portal (HTTP 400) \u2014 use repeated '=' conditions with logicOr:1.",
+                  "enum": [
+                    "=",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "in",
+                    "not in",
+                    "like",
+                    "is",
+                    "is not"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "items": {},
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Value to compare. Omit for 'is'/'is not' (NULL check)."
+                },
+                "oper": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Alternate spelling of 'op' (passthrough for API compatibility)."
+                },
+                "lvl": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Logical nesting level."
+                },
+                "logicOr": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "1 = OR with previous condition, 0/absent = AND."
+                }
+              },
+              "required": [
+                "name",
+                "op"
+              ],
+              "type": "object"
+            }
+          },
+          "properties": {
+            "dataset_id": {
+              "description": "Numeric ID of the dataset (e.g. 5). Use dataset_operations(action='list') to list IDs.",
+              "type": "integer"
+            },
+            "select": {
+              "items": {
+                "$ref": "#/$defs/SelectField"
+              },
+              "type": "array",
+              "default": null,
+              "description": "List of fields to select, each as {'name':'field', 'aggr':'sum|avg|min|max|count'}."
+            },
+            "where": {
+              "items": {
+                "$ref": "#/$defs/WhereClause"
+              },
+              "type": "array",
+              "default": null,
+              "description": "List of filter conditions, each as {'name':'field', 'op':..., 'value':...}. Working ops: =, !=, <, >, <=, >=, like, is, is not. 'is'/'is not' with value omitted produce IS [NOT] NULL. 'in' is NOT supported by the portal (HTTP 400) \u2014 use repeated '=' conditions with logicOr:1 instead."
+            },
+            "group": {
+              "items": {
+                "$ref": "#/$defs/GroupClause"
+              },
+              "type": "array",
+              "default": null,
+              "description": "List of grouping fields, each as {'name':'field'}."
+            },
+            "order": {
+              "items": {
+                "$ref": "#/$defs/OrderClause"
+              },
+              "type": "array",
+              "default": null,
+              "description": "List of ordering entries, each as {'name':'field', 'dir':'asc|desc'}."
+            },
+            "limit": {
+              "default": 1000,
+              "description": "Maximum number of rows/items to return.",
+              "type": "integer"
+            },
+            "variables": {
+              "additionalProperties": {
+                "items": {},
+                "type": "array"
+              },
+              "type": "object",
+              "default": null,
+              "description": "Map of SQL variable name to list of values for :variable substitution (e.g. {'region':['Moscow']})."
+            }
+          },
+          "required": [
+            "dataset_id"
+          ],
+          "title": "dataset_queryArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Dataset SQL-like query (read-only)",
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "query_batch",
+        "description": "Execute multiple queries on a dataset in a single request.\n\n    More efficient than multiple single queries.\n\n    Each query should have:\n    - id: Unique identifier (string)\n    - params: Query parameters (select, where, group, order, etc.)\n\n    Example:\n        queries = [\n            {\"id\": \"total\", \"params\": {\"select\": [{\"name\": \"amount\", \"aggr\": \"sum\"}]}},\n            {\"id\": \"by_region\", \"params\": {\"select\": [...], \"group\": [{\"name\": \"region\"}]}}\n        ]\n\n    Returns results for each query with its id.\n\n    KNOWN PORTAL ISSUE: the portal may answer HTTP 200 with empty data for a\n    contract-valid batch. MCP detects this and returns success:false with\n    warning \"portal returned empty data (known issue)\".\n    Workaround: call dataset_query once per query \u2014 the single-query path works.",
+        "input_schema": {
+          "$defs": {
+            "BatchQueryParams": {
+              "additionalProperties": false,
+              "description": "Inner params for a single ``query_batch`` entry.\n\nMirrors ``dataset_query`` arguments.\n\nNOTE: the batch path forwards params to the portal as-is (no order\ntransformation) \u2014 for sorting in batch, pass the full format\n{name, alias, direction}; otherwise the portal drops the condition\n(alias='').",
+              "properties": {
+                "select": {
+                  "items": {
+                    "$ref": "#/$defs/SelectField"
+                  },
+                  "type": "array",
+                  "default": null,
+                  "description": "Fields to select (see SelectField)."
+                },
+                "where": {
+                  "items": {
+                    "$ref": "#/$defs/WhereClause"
+                  },
+                  "type": "array",
+                  "default": null,
+                  "description": "Filter conditions (see WhereClause)."
+                },
+                "group": {
+                  "items": {
+                    "$ref": "#/$defs/GroupClause"
+                  },
+                  "type": "array",
+                  "default": null,
+                  "description": "Group-by fields (see GroupClause)."
+                },
+                "order": {
+                  "items": {
+                    "$ref": "#/$defs/OrderClause"
+                  },
+                  "type": "array",
+                  "default": null,
+                  "description": "Order-by fields (see OrderClause)."
+                },
+                "limit": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Row limit (default 1000 server-side)."
+                }
+              },
+              "type": "object"
+            },
+            "BatchQuerySpec": {
+              "additionalProperties": false,
+              "description": "One query in ``query_batch.queries``.\n\nEach query has a unique ``id`` so results can be looked up by caller.",
+              "properties": {
+                "id": {
+                  "description": "Unique identifier for the query (result key).",
+                  "type": "string"
+                },
+                "params": {
+                  "$ref": "#/$defs/BatchQueryParams",
+                  "description": "Query parameters (select, where, group, order, limit)."
+                }
+              },
+              "required": [
+                "id",
+                "params"
+              ],
+              "type": "object"
+            },
+            "GroupClause": {
+              "additionalProperties": false,
+              "description": "One field in the GROUP BY clause of ``dataset_query``.",
+              "properties": {
+                "name": {
+                  "description": "Field name to group by.",
+                  "type": "string"
+                },
+                "calc": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Optional calculation expression."
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "OrderClause": {
+              "additionalProperties": false,
+              "description": "One field in the ORDER BY clause of ``dataset_query``.",
+              "properties": {
+                "name": {
+                  "description": "Field name to order by.",
+                  "type": "string"
+                },
+                "dir": {
+                  "default": "asc",
+                  "description": "Sort direction (default: asc).",
+                  "enum": [
+                    "asc",
+                    "desc"
+                  ],
+                  "type": "string"
+                },
+                "alias": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Optional alias (when ordering by an aliased expression)."
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "SelectField": {
+              "additionalProperties": false,
+              "description": "One field in the SELECT clause of ``dataset_query``.",
+              "properties": {
+                "name": {
+                  "description": "Field name from dataset, e.g. 'amount'.",
+                  "type": "string"
+                },
+                "aggr": {
+                  "enum": [
+                    "sum",
+                    "avg",
+                    "max",
+                    "min",
+                    "count",
+                    "none",
+                    ""
+                  ],
+                  "type": "string",
+                  "default": null,
+                  "description": "Aggregation function. Empty string or 'none' = no aggregation."
+                },
+                "alias": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Optional alias for the result column."
+                },
+                "calc": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Optional calculation expression (for calc fields)."
+                }
+              },
+              "required": [
+                "name"
+              ],
+              "type": "object"
+            },
+            "WhereClause": {
+              "additionalProperties": false,
+              "description": "One condition in the WHERE clause of ``dataset_query``.",
+              "properties": {
+                "name": {
+                  "description": "Field name to filter on.",
+                  "type": "string"
+                },
+                "op": {
+                  "description": "Comparison operator. 'is'/'is not' (value omitted) = IS [NOT] NULL. 'in'/'not in' are NOT supported by the portal (HTTP 400) \u2014 use repeated '=' conditions with logicOr:1.",
+                  "enum": [
+                    "=",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "in",
+                    "not in",
+                    "like",
+                    "is",
+                    "is not"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "items": {},
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Value to compare. Omit for 'is'/'is not' (NULL check)."
+                },
+                "oper": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Alternate spelling of 'op' (passthrough for API compatibility)."
+                },
+                "lvl": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Logical nesting level."
+                },
+                "logicOr": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "1 = OR with previous condition, 0/absent = AND."
+                }
+              },
+              "required": [
+                "name",
+                "op"
+              ],
+              "type": "object"
+            }
+          },
+          "properties": {
+            "dataset_id": {
+              "description": "Numeric ID of the dataset (e.g. 5). Use dataset_operations(action='list') to list IDs.",
+              "type": "integer"
+            },
+            "queries": {
+              "description": "List of batch queries, each as {'id':'unique_id', 'params':{select/where/group/order/...}}.",
+              "items": {
+                "$ref": "#/$defs/BatchQuerySpec"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "dataset_id",
+            "queries"
+          ],
+          "title": "query_batchArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Batch SQL queries (read-only)",
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "sql_query_validate",
+        "description": "Validate SQL query and get result fields structure.\n\n    Validates SQL and returns field definitions.\n\n    NOT a sandbox: the portal \"validates\" SQL by EXECUTING it on the live\n    datasource. MCP therefore allows only a SINGLE SELECT (or WITH ... SELECT)\n    statement \u2014 DML/DDL and multi-statement SQL are rejected on the MCP side\n    with success:false (\"only single SELECT allowed\").\n\n    Use this BEFORE creating a dataset to:\n    - Check SQL syntax\n    - Get field types and names\n    - Preview dataset structure\n\n    Args:\n        sql_query: SQL query to validate\n        datasource_id: Datasource ID (driver), default 1 = PostgreSQL\n\n    Example:\n        sql_query_validate(\n            sql_query=\"SELECT id, name, amount FROM sales\",\n            datasource_id=1\n        )\n\n    Returns:\n        {success, valid, fields: [{name, type, alias}], fields_count}",
+        "input_schema": {
+          "properties": {
+            "sql_query": {
+              "description": "SQL query string (used for validation or dataset creation).",
+              "type": "string"
+            },
+            "datasource_id": {
+              "default": 1,
+              "description": "Numeric ID of the datasource connection (NOT driver type, e.g. 3). Use datasource_operations(action='list').",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "sql_query"
+          ],
+          "title": "sql_query_validateArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "SQL validation (read-only)",
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "dataset_create_from_sql",
+        "description": "Create dataset from SQL \u2014 VALIDATES SQL, infers field types, builds semantic layer in one call.\n\n    RECOMMENDED over dataset_operations(action=\"create\") (that one skips validation).\n\n    Write SQL with ORIGINAL (latin) column names (AS names). Set human-readable labels via\n    dataset_operations(action=\"update\", field_aliases={...}) right after \u2014 aliases MUST\n    be set BEFORE binding to components (backend blocks edits after binding).\n\n    Tips: include ORDER BY for chart sorting, use ::INTEGER on EXTRACT, ROUND(...) for\n    percents. ORDER BY is preserved by the API.\n\n    Args:\n        sql_query: SQL (with WHERE/ORDER BY as needed)\n        datasource_id: datasource connection ID (NOT driver type \u2014 derived automatically)\n        name: dataset name (latin)\n        caption: human-readable caption\n\n    Returns:\n        {success, dataset: {id, name, fields_count}, fields: [...]}",
+        "input_schema": {
+          "properties": {
+            "sql_query": {
+              "description": "SQL query string (used for validation or dataset creation).",
+              "type": "string"
+            },
+            "datasource_id": {
+              "description": "Numeric ID of the datasource connection (NOT driver type, e.g. 3). Use datasource_operations(action='list').",
+              "type": "integer"
+            },
+            "name": {
+              "description": "Short technical name (latin, lower_snake_case). Shown in listings and used as internal identifier.",
+              "type": "string"
+            },
+            "caption": {
+              "type": "string",
+              "default": null,
+              "description": "Human-readable label shown in the UI (supports Cyrillic/Unicode)."
+            }
+          },
+          "required": [
+            "sql_query",
+            "datasource_id",
+            "name"
+          ],
+          "title": "dataset_create_from_sqlArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Create dataset with semantic layer",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "preflight_check_datasource",
+        "description": "Preflight check: verify datasource can actually execute queries.\n\n    This goes beyond check_connection by actually trying a simple SQL query.\n    Use this before expensive operations to fail fast with clear diagnostics.\n\n    The check performs two steps:\n    1. Basic connection check (same as check_connection)\n    2. Simple SQL query execution (SELECT 1)\n\n    Args:\n        datasource_id: Datasource ID to check\n\n    Example:\n        preflight_check_datasource(datasource_id=1)\n\n    Returns:\n        {\n            success: bool,\n            datasource_id: int,\n            connected: bool,      # Basic connection works\n            can_query: bool,      # SQL execution works\n            message?: str,        # Success message\n            error?: str,          # Error description\n            hint?: str            # Troubleshooting hint\n        }\n\n    Use cases:\n    - Before running dataset_query on a new dataset\n    - Diagnosing why queries fail with HTTP 500\n    - Validating datasource configuration",
+        "input_schema": {
+          "properties": {
+            "datasource_id": {
+              "description": "Numeric ID of the datasource connection (NOT driver type, e.g. 3). Use datasource_operations(action='list').",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "datasource_id"
+          ],
+          "title": "preflight_check_datasourceArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Datasource preflight check (read-only)",
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "style_operations",
+        "description": "CSS styling operations for reports.\n\n    ## \u26a0\ufe0f IMPORTANT: CSS Update Workflow (destructive overwrite)\n    **ALWAYS study available classes, examples, and current CSS before updating!**\n    \u26a0\ufe0f action=\"update\" is DESTRUCTIVE \u2014 it permanently REPLACES all CSS. Previous styles\n    are overwritten and cannot be undone without a prior backup. You must:\n    1. GET available CSS classes with action=\"classes_list\" (know what's possible)\n    2. GET styling examples with action=\"examples_list\" (see recommended patterns)\n    3. GET current CSS with action=\"get\" (see what's already applied) \u2014 THIS IS YOUR BACKUP\n    4. Analyze and merge your new styles with existing ones\n    5. Then UPDATE with the complete merged CSS\n\n    Actions:\n    - classes_list: List available ModusBI CSS classes - STUDY THESE FIRST! (read-only)\n    - examples_list: Get CSS styling examples - LEARN PATTERNS! (read-only)\n    - get: Get current report CSS (report_id required) - READ BEFORE UPDATE! (read-only)\n    - update: \u26a0\ufe0f DESTRUCTIVE \u2014 permanently overwrites and replaces ALL report CSS with the\n              supplied string. Previous styles are deleted and cannot be undone. Always GET\n              the current CSS first and merge before calling update.\n    - validate: Validate CSS syntax (css required; read-only)\n\n    Categories for classes_list/examples_list:\n    header, tables, charts, maps, filters, grid, components, all\n\n    Example - Correct workflow:\n        # Step 1: Learn available CSS classes for the category you need\n        style_operations(action=\"classes_list\", category=\"charts\")\n        # Returns: {classes: [{name: \".amcharts-graph\", description: \"Chart lines\"}]}\n\n        # Step 2: Get styling examples to understand patterns\n        style_operations(action=\"examples_list\", category=\"charts\")\n        # Returns: {examples: [{name: \"Dark theme\", css: \"...\", description: \"...\"}]}\n\n        # Step 3: Get current CSS to see what's already applied\n        current = style_operations(action=\"get\", report_id=35)\n        # Returns: {success: true, css: \".existing { color: red; }\"}\n\n        # Step 4: Merge existing + new styles and update\n        style_operations(\n            action=\"update\",\n            report_id=35,\n            css=\".existing { color: red; } .amcharts-graph { stroke: #1976d2; }\"\n        )\n\n    Returns:\n        get: {success, report_id, css: str}\n        update: {success, message}\n        validate: {success, valid: bool, errors: [...]}\n        classes_list: {success, category, classes: [{name, description}]}\n        examples_list: {success, category, examples: [{name, css, description}]}\n\n    \u26a0\ufe0f Destructive actions: update (permanently overwrites all CSS; previous styles are\n    irreversibly deleted, cannot be undone).\n    Requires readwrite mode: update.",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "classes_list",
+                "examples_list",
+                "get",
+                "update",
+                "validate",
+                "apply_theme"
+              ],
+              "type": "string"
+            },
+            "report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report (e.g. 35). Use report_operations(action='list') to list IDs."
+            },
+            "css": {
+              "type": "string",
+              "default": null,
+              "description": "CSS text to apply. For style_operations(update) this REPLACES all existing CSS \u2014 GET current CSS first and merge."
+            },
+            "category": {
+              "default": "all",
+              "description": "Category filter. For classes_list: 'all', 'header', 'selectors', 'components', 'tables', 'charts', 'maps', 'pivot', 'filters', 'grid', 'page_container', 'icons', 'text_block', 'mui', 'scrollbar'. For examples_list the set DIFFERS (e.g. 'headers' not 'header', plus 'colors', 'animations', 'specific_component'). Pass 'all' or call the action without category to see its valid keys.",
+              "type": "string"
+            },
+            "theme": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "Theme colors {primary, secondary, bg, accent, text}. Used by action='apply_theme'."
+            },
+            "mode": {
+              "default": "merge",
+              "description": "For apply_theme: 'merge' (append to existing CSS, default) or 'replace' (overwrite all).",
+              "type": "string"
+            },
+            "kpi_icons": {
+              "additionalProperties": true,
+              "type": "object",
+              "default": null,
+              "description": "For apply_theme: {component_idx: url} or {component_idx: {url, size, position}}. Adds CSS background-image to KPI components."
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "style_operationsArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Report-level CSS (overwrites)",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "reportgroup_operations",
+        "description": "CRUD operations for report groups (folders for organizing reports).\n\n    Organize reports into hierarchical groups.\n\n    Actions:\n    - list: List all report groups (read-only)\n    - get: Get group by ID (group_id required; read-only)\n    - create: Create group (name required; caption, parent_id, menu, options optional)\n    - update: Update group (group_id required; name, caption, parent_id, menu optional) \u2014\n              overwrites specified fields\n    - delete: \u26a0\ufe0f DESTRUCTIVE \u2014 permanently deletes the report group. This action is\n              irreversible and cannot be undone. WARNING: nested groups and reports that\n              reference the deleted group via parent_id will be orphaned and may become\n              inaccessible through the portal's folder tree.\n    - move: Move group to new parent (group_id, parent_id required; previous_group_id optional)\n\n    Example - List all groups:\n        reportgroup_operations(action='list')\n\n    Example - Get group info:\n        reportgroup_operations(action=\"get\", group_id=20)\n\n    Example - Create group:\n        reportgroup_operations(\n            action=\"create\",\n            name=\"Sales Reports\",\n            caption=\"Sales Department Dashboards\",\n            parent_id=1,\n            menu=True\n        )\n\n    Example - Move group:\n        reportgroup_operations(\n            action=\"move\",\n            group_id=25,\n            parent_id=20\n        )\n\n    Returns:\n        list: {success, count, groups: [{id, name, caption, parent_id, menu}]}\n        get: {success, group: {id, name, caption, parent_id, menu, reports_count}}\n        create: {success, group_id, message}\n        update: {success, message}\n        delete: {success, message}\n        move: {success, message}\n\n    \u26a0\ufe0f Destructive actions: delete (permanently removes group, cannot be undone;\n    orphans nested groups/reports that reference it via parent_id).\n    Requires readwrite mode: create, update, delete, move.",
+        "input_schema": {
+          "$defs": {
+            "ReportGroupOptions": {
+              "additionalProperties": true,
+              "description": "Options for ``reportgroup_operations``.\n\nSoft model (``extra='allow'``): the API accepts arbitrary keys and\nnew localisation/display options may land here. Canonical fields\nlisted per docs/infrastructure/reportgroup.md.",
+              "properties": {
+                "caption__ru": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Caption in Russian."
+                },
+                "caption__en": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Caption in English."
+                },
+                "name__ru": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Name in Russian."
+                },
+                "name__en": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Name in English."
+                },
+                "color": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Group colour in navigation, as rgba(R,G,B,A)."
+                },
+                "cellMode": {
+                  "enum": [
+                    "compact",
+                    "standard",
+                    "large"
+                  ],
+                  "type": "string",
+                  "default": null,
+                  "description": "Grid cell size for reports inside the group."
+                },
+                "allowOverlapMode": {
+                  "type": "boolean",
+                  "default": null,
+                  "description": "Allow component overlap in reports of this group."
+                },
+                "recalculatedCellMode": {
+                  "type": "boolean",
+                  "default": null,
+                  "description": "Recalculate cell size when layout changes."
+                },
+                "icon": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Icon name."
+                }
+              },
+              "type": "object"
+            }
+          },
+          "properties": {
+            "action": {
+              "enum": [
+                "list",
+                "get",
+                "create",
+                "update",
+                "delete",
+                "move"
+              ],
+              "type": "string"
+            },
+            "group_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report group (folder). Use reportgroup_operations(action='list') to list IDs."
+            },
+            "name": {
+              "type": "string",
+              "default": null,
+              "description": "Short technical name (latin, lower_snake_case). Shown in listings and used as internal identifier."
+            },
+            "caption": {
+              "type": "string",
+              "default": null,
+              "description": "Human-readable label shown in the UI (supports Cyrillic/Unicode)."
+            },
+            "parent_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the parent entity (0 = root)."
+            },
+            "menu": {
+              "type": "boolean",
+              "default": null,
+              "description": "Show this report group in the main navigation menu (true/false)."
+            },
+            "is_extended": {
+              "type": "boolean",
+              "default": null,
+              "description": "Mark the group as extended (with additional metadata, true/false)."
+            },
+            "group_options": {
+              "$ref": "#/$defs/ReportGroupOptions",
+              "default": null,
+              "description": "Optional dict of group-specific options (JSON object)."
+            },
+            "image": {
+              "type": "string",
+              "default": null,
+              "description": "Optional URL or base64-encoded image used as the group icon."
+            },
+            "previous_group_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the group after which to place this group when moving (for ordering)."
+            },
+            "limit": {
+              "default": 50,
+              "description": "Maximum number of rows/items to return.",
+              "type": "integer"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Row/item offset for pagination (0-based).",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "reportgroup_operationsArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Report group (folder) CRUD",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "data_export_operations",
+        "description": "Data export operations for components (CSV/Excel).\n\n    Export component data to files.\n\n    Actions:\n    - component_csv: Export component data to CSV (local, no dependencies)\n    - component_xlsx: Export component data to Excel (via API reportToXlsx)\n    - info: Get export directory configuration\n\n    Export location priority:\n    1. output_dir parameter\n    2. MODUSBI_EXPORT_DIR env var\n    3. ~/Downloads/modusbi_exports\n\n    Example - Export to CSV:\n        data_export_operations(\n            action=\"component_csv\",\n            report_id=35,\n            component_idx=0,\n            filename=\"sales_data\"\n        )\n\n    Example - Export to Excel:\n        data_export_operations(\n            action=\"component_xlsx\",\n            report_id=35,\n            component_idx=0,\n            include_totals=True\n        )\n\n    Example - Get export directory info:\n        data_export_operations(action=\"info\")\n\n    Returns:\n        component_csv: {success, file_path, rows_count, format: \"csv\"}\n        component_xlsx: {success, file_path, rows_count, format: \"xlsx\"}\n        info: {success, export_dir, env_var, exists: bool}",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "component_csv",
+                "component_xlsx",
+                "info"
+              ],
+              "type": "string"
+            },
+            "report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report (e.g. 35). Use report_operations(action='list') to list IDs."
+            },
+            "component_idx": {
+              "type": "integer",
+              "default": null,
+              "description": "Zero-based index of component in the report (0 = first component)."
+            },
+            "output_dir": {
+              "type": "string",
+              "default": null,
+              "description": "Absolute path to export output dir (fallback: MODUSBI_EXPORT_DIR env var or ~/Downloads/modusbi_exports)."
+            },
+            "filename": {
+              "type": "string",
+              "default": null,
+              "description": "Output file name without extension (extension is added based on format)."
+            },
+            "limit": {
+              "default": 10000,
+              "description": "Maximum number of rows/items to return.",
+              "type": "integer"
+            },
+            "format": {
+              "default": "csv",
+              "description": "Data export format: 'csv' or 'xlsx' (data_export_operations \u2014 \u0444\u0430\u043a\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0444\u043e\u0440\u043c\u0430\u0442 \u043e\u043f\u0440\u0435\u0434\u0435\u043b\u044f\u0435\u0442\u0441\u044f action component_csv/component_xlsx). \u0414\u043b\u044f \u044d\u043a\u0441\u043f\u043e\u0440\u0442\u0430 \u043e\u0442\u0447\u0451\u0442\u043e\u0432 \u0432 'pdf'/'png'/'pptx' \u2014 report_operations(action='export')/batch reports_export (\u0441\u0432\u043e\u0439 format).",
+              "type": "string"
+            },
+            "include_subtotals": {
+              "default": false,
+              "description": "Include subtotal rows in the exported data (true/false).",
+              "type": "boolean"
+            },
+            "include_totals": {
+              "default": false,
+              "description": "Include a grand total row in the exported data (true/false).",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "data_export_operationsArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Data export to files (read-only)",
+            "readOnlyHint": true,
+            "destructiveHint": false,
+            "idempotentHint": true,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "batch_operations",
+        "description": "Batch operations for multiple objects at once.\n\n    Actions:\n    - components_add: Add multiple components (report_id, components list)\n    - components_delete: \u26a0\ufe0f DESTRUCTIVE \u2014 permanently deletes multiple components at once\n              (report_id, indices list). This action is irreversible and cannot be undone.\n              Each deletion cascades to layouts/filters of the removed component. Double-check\n              the indices list before calling \u2014 a wrong index permanently removes the wrong\n              component.\n    - layouts_update: Update multiple layouts (report_id, layouts list) \u2014 overwrites each\n              target layout's fields\n    - styles_apply: \u26a0\ufe0f Applies CSS to multiple reports at once (report_ids, css). Each target\n              report's CSS is permanently overwritten \u2014 previous styles are deleted and\n              cannot be undone per-report without a prior backup.\n    - reports_export: Export multiple reports (report_ids, format) \u2014 read-only on portal state\n\n    Example - Add multiple components:\n        batch_operations(\n            action=\"components_add\",\n            report_id=35,\n            components=[\n                {\"type\": \"HsBarAMchartsChart\", \"title\": \"Sales\", ...},\n                {\"type\": \"HsPieAMchartsChart\", \"title\": \"Distribution\", ...}\n            ]\n        )\n\n    Example - Export multiple reports to PDF:\n        batch_operations(\n            action=\"reports_export\",\n            report_ids=[35, 36, 37],\n            format=\"pdf\"\n        )\n\n    Returns:\n        components_add: {success, added: int, results: [...]}\n        components_delete: {success, deleted: int}\n        layouts_update: {success, updated: int}\n        styles_apply: {success, applied: int, report_ids: [...]}\n        reports_export: {success, exported: int, files: [...]}\n\n    \u26a0\ufe0f Destructive actions: components_delete (permanently removes components in bulk,\n    cannot be undone), styles_apply (overwrites CSS of every target report, previous\n    styles irreversibly deleted).\n    Requires readwrite mode: components_add, components_delete, layouts_update,\n    styles_apply.",
+        "input_schema": {
+          "$defs": {
+            "ComponentSpec": {
+              "additionalProperties": true,
+              "description": "One component in ``batch_operations.components_add``.\n\nSoft model (``extra='allow'``): 339+ slug config_overrides and\nfuture builder flags can be passed through without schema bumps.\nCanonical fields listed explicitly for LLM guidance.",
+              "properties": {
+                "component_type": {
+                  "description": "Component type, e.g. 'HsBarAMchartsChart' (chart), 'HsTotalsPanelV2' (KPI), 'HsTableReactabularChart' (table), 'HsTextBlock' (text).",
+                  "type": "string"
+                },
+                "title": {
+                  "description": "Component title (shown in header).",
+                  "type": "string"
+                },
+                "dataset_id": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Dataset ID (required for data components)."
+                },
+                "value_field": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Comma-separated field names for values axis (required for data components)."
+                },
+                "category_field": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Field name for categories axis."
+                },
+                "aggregation": {
+                  "enum": [
+                    "sum",
+                    "avg",
+                    "max",
+                    "min",
+                    "count",
+                    "none",
+                    ""
+                  ],
+                  "type": "string",
+                  "default": null,
+                  "description": "Aggregation for value fields. Tables auto-forced to 'none'."
+                },
+                "value_fields_type": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Type hint for value fields (default 'number')."
+                },
+                "row_fields": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Comma-separated row fields (pivot table)."
+                },
+                "column_fields": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Comma-separated column fields (pivot/comparison)."
+                },
+                "size_field": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Bubble size field (bubble chart)."
+                },
+                "field_titles": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "type": "object",
+                  "default": null,
+                  "description": "Map of field name to display alias."
+                },
+                "where_filter": {
+                  "items": {
+                    "$ref": "#/$defs/WhereClause"
+                  },
+                  "type": "array",
+                  "default": null,
+                  "description": "Component-level WHERE filter."
+                },
+                "text_content": {
+                  "type": "string",
+                  "default": null,
+                  "description": "HTML content for text blocks (sanitized)."
+                },
+                "x": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Grid column (left)."
+                },
+                "y": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Grid row (top)."
+                },
+                "w": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Width in grid columns."
+                },
+                "h": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Height in grid rows."
+                },
+                "position": {
+                  "additionalProperties": {
+                    "type": "integer"
+                  },
+                  "type": "object",
+                  "default": null,
+                  "description": "Alternative to x/y/w/h: {'x':..,'y':..,'w':..,'h':..}."
+                },
+                "stacking": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Bar stacking: 'normal', '100', ''."
+                },
+                "orientation": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Chart orientation: 'horizontal'|'vertical'."
+                },
+                "preset": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Visual preset: minimal, presentation, dashboard, dark, print, kpi."
+                },
+                "legend_visible": {
+                  "type": "boolean",
+                  "default": null,
+                  "description": "Show legend."
+                },
+                "legend_position": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Legend position (top/right/bottom/left)."
+                },
+                "labels_visible": {
+                  "type": "boolean",
+                  "default": null,
+                  "description": "Show data labels on chart."
+                },
+                "bg_color": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Background color (rgba)."
+                },
+                "config_overrides": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "default": null,
+                  "description": "Flat dict of slug overrides (see config_schema.SLUG_SCHEMA)."
+                }
+              },
+              "required": [
+                "component_type",
+                "title"
+              ],
+              "type": "object"
+            },
+            "LayoutSpec": {
+              "additionalProperties": false,
+              "description": "One layout update in ``batch_operations.layouts``.\n\nStrict: exactly the fields understood by ``_update_multiple_layouts``.",
+              "properties": {
+                "component_idx": {
+                  "description": "Zero-based index of the component to re-layout.",
+                  "type": "integer"
+                },
+                "x": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Grid column (left)."
+                },
+                "y": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Grid row (top)."
+                },
+                "w": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Width in grid columns."
+                },
+                "h": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Height in grid rows."
+                },
+                "z_index": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "CSS z-index (stacking order)."
+                }
+              },
+              "required": [
+                "component_idx"
+              ],
+              "type": "object"
+            },
+            "WhereClause": {
+              "additionalProperties": false,
+              "description": "One condition in the WHERE clause of ``dataset_query``.",
+              "properties": {
+                "name": {
+                  "description": "Field name to filter on.",
+                  "type": "string"
+                },
+                "op": {
+                  "description": "Comparison operator. 'is'/'is not' (value omitted) = IS [NOT] NULL. 'in'/'not in' are NOT supported by the portal (HTTP 400) \u2014 use repeated '=' conditions with logicOr:1.",
+                  "enum": [
+                    "=",
+                    "!=",
+                    "<",
+                    ">",
+                    "<=",
+                    ">=",
+                    "in",
+                    "not in",
+                    "like",
+                    "is",
+                    "is not"
+                  ],
+                  "type": "string"
+                },
+                "value": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "items": {},
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Value to compare. Omit for 'is'/'is not' (NULL check)."
+                },
+                "oper": {
+                  "type": "string",
+                  "default": null,
+                  "description": "Alternate spelling of 'op' (passthrough for API compatibility)."
+                },
+                "lvl": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "Logical nesting level."
+                },
+                "logicOr": {
+                  "type": "integer",
+                  "default": null,
+                  "description": "1 = OR with previous condition, 0/absent = AND."
+                }
+              },
+              "required": [
+                "name",
+                "op"
+              ],
+              "type": "object"
+            }
+          },
+          "properties": {
+            "action": {
+              "enum": [
+                "components_add",
+                "components_delete",
+                "layouts_update",
+                "styles_apply",
+                "reports_export"
+              ],
+              "type": "string"
+            },
+            "report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report (e.g. 35). Use report_operations(action='list') to list IDs."
+            },
+            "report_ids": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array",
+              "default": null,
+              "description": "List of numeric report IDs for bulk operations."
+            },
+            "components": {
+              "items": {
+                "$ref": "#/$defs/ComponentSpec"
+              },
+              "type": "array",
+              "default": null,
+              "description": "List of component specs to add in bulk. Each dict follows component_crud(add) signature."
+            },
+            "layouts": {
+              "items": {
+                "$ref": "#/$defs/LayoutSpec"
+              },
+              "type": "array",
+              "default": null,
+              "description": "List of layout specs to update in bulk. Each dict: {'component_idx':int, 'x':int, 'y':int, 'w':int, 'h':int}."
+            },
+            "indices": {
+              "items": {
+                "type": "integer"
+              },
+              "type": "array",
+              "default": null,
+              "description": "List of zero-based component indices to delete in bulk."
+            },
+            "css": {
+              "type": "string",
+              "default": null,
+              "description": "CSS text to apply. For style_operations(update) this REPLACES all existing CSS \u2014 GET current CSS first and merge."
+            },
+            "format": {
+              "default": "pdf",
+              "enum": [
+                "pdf",
+                "png",
+                "pptx"
+              ],
+              "type": "string"
+            },
+            "output_dir": {
+              "type": "string",
+              "default": null,
+              "description": "Absolute path to export output dir (fallback: MODUSBI_EXPORT_DIR env var or ~/Downloads/modusbi_exports)."
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "batch_operationsArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Batch operations for multiple objects",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "report_template",
+        "description": "Report template operations: list available templates, preview layouts, scaffold reports.\n\n    Actions:\n    - list: List all available templates with descriptions and ASCII previews (read-only)\n    - preview: Detailed ASCII layout + component breakdown for a template (read-only)\n    - scaffold: Create report and populate with template components (1 GET + 1 PUT).\n              \u26a0\ufe0f When report_id is provided, scaffold APPENDS components to that report.\n              When report_id is omitted, a new report is created. Components added by\n              scaffold persist and must be removed via component_crud(action=\"delete\")\n              if unwanted \u2014 there is no automatic \"undo scaffold\" action.\n\n    Templates: kpi_dashboard, ranking, comparison, factor_analysis, geo_analytics, simple\n\n    Example - List templates:\n        report_template(action='list')\n\n    Example - Preview a template:\n        report_template(action=\"preview\", template=\"kpi_dashboard\")\n\n    Example - Scaffold new report from template (with field binding):\n        report_template(action=\"scaffold\", template=\"kpi_dashboard\", dataset_id=10,\n                       name=\"Sales Dashboard\", group_id=20,\n                       category_field=\"region\", value_field=\"amount,qty,profit\")\n        # KPI \u0441\u043b\u043e\u0442\u044b \u043f\u043e\u043b\u0443\u0447\u0430\u0442 amount/qty/profit \u043f\u043e \u043a\u0440\u0443\u0433\u0443, \u0433\u0440\u0430\u0444\u0438\u043a region+amount,\n        # \u0442\u0430\u0431\u043b\u0438\u0446\u0430 region+\u0432\u0441\u0435 \u043c\u0435\u0442\u0440\u0438\u043a\u0438. \u0411\u0435\u0437 category/value_field \u2014 \u043a\u0430\u0440\u043a\u0430\u0441 \u0441\n        # placeholder 'value' (\u043f\u0440\u0438\u0432\u044f\u0437\u043a\u0430 \u0432\u0440\u0443\u0447\u043d\u0443\u044e \u0447\u0435\u0440\u0435\u0437 component_crud update).\n\n    Example - Add template to existing report:\n        report_template(action=\"scaffold\", template=\"simple\", report_id=35, dataset_id=10)\n\n    Returns:\n        list: {success, count, templates: [{name, description, component_count, component_types, ascii_preview}]}\n        preview: {success, template, ascii_layout, components: [{idx, type, title, x, y, w, h, needs_data}]}\n        scaffold: {success, report_id, report_created, template, components, added, next_steps}\n\n    \u26a0\ufe0f Destructive actions: none outright, but scaffold creates/mutates portal state that\n    must be manually rolled back (component_crud delete / report_operations delete) \u2014 it\n    cannot be undone automatically.\n    Requires readwrite mode: scaffold.",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "list",
+                "preview",
+                "scaffold"
+              ],
+              "type": "string"
+            },
+            "template": {
+              "type": "string",
+              "default": null,
+              "description": "Template name: 'kpi_dashboard', 'ranking', 'comparison', 'factor_analysis', 'geo_analytics', or 'simple'."
+            },
+            "report_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report (e.g. 35). Use report_operations(action='list') to list IDs."
+            },
+            "dataset_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the dataset (e.g. 5). Use dataset_operations(action='list') to list IDs."
+            },
+            "name": {
+              "type": "string",
+              "default": null,
+              "description": "Short technical name (latin, lower_snake_case). Shown in listings and used as internal identifier."
+            },
+            "group_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the report group (folder). Use reportgroup_operations(action='list') to list IDs."
+            },
+            "category_field": {
+              "type": "string",
+              "default": null,
+              "description": "Dataset field bound as category/dimension in scaffolded slots (filter panels, chart X-axis, table first column)."
+            },
+            "value_field": {
+              "type": "string",
+              "default": null,
+              "description": "Comma-separated metric fields to bind at scaffold: KPI slots cycle through them, charts use the first, tables get category+all metrics. Without it scaffold creates a skeleton with placeholder 'value'."
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "report_templateArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Scaffold reports from predefined templates",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      },
+      {
+        "name": "security_operations",
+        "description": "Manage Row Level Security (RLS) for datasets.\n\n    RLS in ModusBI filters data per-user using query_rls with :current_user_id placeholder.\n\n    Actions:\n    - status: Get RLS status for dataset (dataset_id required; read-only)\n    - enable: Enable RLS for dataset (dataset_id required)\n    - disable: \u26a0\ufe0f DESTRUCTIVE \u2014 permanently disables RLS for the dataset. WARNING: this\n              immediately exposes all rows to every user who has access to the dataset,\n              removing the per-user data filter. Cannot be undone without re-enabling\n              and re-entering the filter query (previous query string is preserved, but\n              security posture change is effective immediately).\n    - update_filter: \u26a0\ufe0f DESTRUCTIVE \u2014 overwrites and permanently replaces the RLS filter\n              query. Previous rls_query is deleted and cannot be recovered unless you\n              backed it up via action=\"status\" first. An incorrect filter may leak data\n              to users who should not see it, or block legitimate users entirely.\n    - list_enabled: List all datasets with RLS enabled (read-only)\n    - test: Test RLS filter with sample data (dataset_id required; read-only)\n\n    Example - Check RLS status:\n        security_operations(action=\"status\", dataset_id=5)\n\n    Example - Enable RLS with filter:\n        security_operations(\n            action=\"update_filter\",\n            dataset_id=5,\n            rls_query=\"user_id = :current_user_id\"\n        )\n\n    Example - List all RLS-enabled datasets:\n        security_operations(action=\"list_enabled\")\n\n    Returns:\n        status: {success, dataset_id, rls_enabled: bool, rls_query: str}\n        enable: {success, message, rls_enabled: true}\n        disable: {success, message, rls_enabled: false}\n        update_filter: {success, message, rls_query}\n        list_enabled: {success, datasets_with_rls: [...], count}\n        test: {success, test_result: \"passed\"|\"failed\", rows_returned}\n\n    \u26a0\ufe0f Destructive actions: disable (permanently removes the per-user data filter until\n    re-enabled), update_filter (overwrites rls_query; previous filter is irreversibly\n    deleted). Both have immediate security impact and cannot be undone without a backup\n    taken via action=\"status\".\n    Requires readwrite mode: enable, disable, update_filter.",
+        "input_schema": {
+          "properties": {
+            "action": {
+              "enum": [
+                "status",
+                "enable",
+                "disable",
+                "update_filter",
+                "list_enabled",
+                "test"
+              ],
+              "type": "string"
+            },
+            "dataset_id": {
+              "type": "integer",
+              "default": null,
+              "description": "Numeric ID of the dataset (e.g. 5). Use dataset_operations(action='list') to list IDs."
+            },
+            "enabled": {
+              "type": "boolean",
+              "default": null,
+              "description": "Enable (true) or disable (false) the feature on the target entity."
+            },
+            "rls_query": {
+              "type": "string",
+              "default": null,
+              "description": "Row Level Security filter SQL using ':current_user_id' placeholder."
+            }
+          },
+          "required": [
+            "action"
+          ],
+          "title": "security_operationsArguments",
+          "type": "object"
+        },
+        "metadata": {
+          "annotations": {
+            "title": "Row Level Security (RLS) CRUD",
+            "readOnlyHint": false,
+            "destructiveHint": true,
+            "idempotentHint": false,
+            "openWorldHint": true
+          }
+        }
+      }
+    ]
+  },
+  "scorecard": {
+    "total_score": {
+      "value": 100,
+      "max": 100,
+      "penalty_points": 0
+    },
+    "category_scores": {
+      "conformance": {
+        "score": 100,
+        "max_score": 100,
+        "penalty_points": 0,
+        "finding_count": 0,
+        "check_penalties": {}
+      },
+      "security": {
+        "score": 100,
+        "max_score": 100,
+        "penalty_points": 0,
+        "finding_count": 0,
+        "check_penalties": {}
+      },
+      "ergonomics": {
+        "score": 100,
+        "max_score": 100,
+        "penalty_points": 0,
+        "finding_count": 0,
+        "check_penalties": {}
+      },
+      "metadata": {
+        "score": 100,
+        "max_score": 100,
+        "penalty_points": 0,
+        "finding_count": 0,
+        "check_penalties": {}
+      }
+    },
+    "finding_counts": {
+      "total": 0,
+      "by_severity": {
+        "info": 0,
+        "warning": 0,
+        "error": 0
+      },
+      "by_bucket": {}
+    },
+    "why_this_score": "No deterministic issues were detected in the current server surface.",
+    "score_meaning": "Deterministic CI-first quality scorecard based on conformance, security-relevant capabilities, ergonomics, and metadata hygiene.",
+    "limitations": [
+      "Low score means more deterministic findings or higher-risk exposed surface, not malicious intent.",
+      "High score means fewer deterministic findings, not a guarantee of safety."
+    ]
+  },
+  "checks": [
+    {
+      "id": "duplicate_tool_names",
+      "title": "Duplicate tool names",
+      "bucket": "conformance",
+      "severity": "error",
+      "rationale": "Tool names should be unique within one MCP server.",
+      "category": "tool-identity",
+      "risk_category": "metadata_hygiene",
+      "score_impact": 20,
+      "tags": [
+        "tools",
+        "identity"
+      ]
+    },
+    {
+      "id": "missing_tool_description",
+      "title": "Missing tool description",
+      "bucket": "metadata",
+      "severity": "warning",
+      "rationale": "Each tool should include a non-empty description.",
+      "category": "tool-description",
+      "risk_category": "metadata_hygiene",
+      "score_impact": 10,
+      "tags": [
+        "tools",
+        "description"
+      ]
+    },
+    {
+      "id": "overly_generic_tool_name",
+      "title": "Overly generic tool name",
+      "bucket": "ergonomics",
+      "severity": "warning",
+      "rationale": "Tool names should communicate behavior clearly.",
+      "category": "tool-identity",
+      "risk_category": "metadata_hygiene",
+      "score_impact": 10,
+      "tags": [
+        "tools",
+        "identity"
+      ]
+    },
+    {
+      "id": "vague_tool_description",
+      "title": "Vague tool description",
+      "bucket": "ergonomics",
+      "severity": "warning",
+      "rationale": "Tool descriptions should clearly explain what the tool does.",
+      "category": "tool-description",
+      "risk_category": "metadata_hygiene",
+      "score_impact": 10,
+      "tags": [
+        "tools",
+        "description"
+      ]
+    },
+    {
+      "id": "missing_schema_type",
+      "title": "Missing schema type",
+      "bucket": "conformance",
+      "severity": "warning",
+      "rationale": "Tool input schemas should declare a top-level type.",
+      "category": "input-schema",
+      "risk_category": "schema_hygiene",
+      "score_impact": 10,
+      "tags": [
+        "schema",
+        "validation"
+      ]
+    },
+    {
+      "id": "schema_allows_arbitrary_properties",
+      "title": "Schema allows arbitrary properties",
+      "bucket": "conformance",
+      "severity": "warning",
+      "rationale": "Tool input schemas should not allow arbitrary top-level properties.",
+      "category": "input-schema",
+      "risk_category": "schema_hygiene",
+      "score_impact": 10,
+      "tags": [
+        "schema",
+        "validation"
+      ]
+    },
+    {
+      "id": "weak_input_schema",
+      "title": "Weak input schema",
+      "bucket": "ergonomics",
+      "severity": "warning",
+      "rationale": "Tool input schemas should constrain free-form payloads clearly.",
+      "category": "input-schema",
+      "risk_category": "schema_hygiene",
+      "score_impact": 10,
+      "tags": [
+        "schema",
+        "validation"
+      ]
+    },
+    {
+      "id": "missing_required_for_critical_fields",
+      "title": "Missing required critical fields",
+      "bucket": "conformance",
+      "severity": "warning",
+      "rationale": "Critical schema fields such as path, command, or URL should be required.",
+      "category": "input-schema",
+      "risk_category": "schema_hygiene",
+      "score_impact": 10,
+      "tags": [
+        "schema",
+        "validation"
+      ]
+    },
+    {
+      "id": "dangerous_exec_tool",
+      "title": "Dangerous execution tool",
+      "bucket": "security",
+      "severity": "error",
+      "rationale": "Tools that execute host shell commands are high risk.",
+      "category": "capability",
+      "risk_category": "command_execution",
+      "score_impact": 20,
+      "tags": [
+        "capability",
+        "execution"
+      ]
+    },
+    {
+      "id": "dangerous_shell_download_exec",
+      "title": "Dangerous download-and-execute tool",
+      "bucket": "security",
+      "severity": "error",
+      "rationale": "Tools that combine remote download with shell execution are high risk.",
+      "category": "capability",
+      "risk_category": "command_execution",
+      "score_impact": 20,
+      "tags": [
+        "capability",
+        "execution",
+        "network"
+      ]
+    },
+    {
+      "id": "dangerous_fs_write_tool",
+      "title": "Dangerous filesystem write tool",
+      "bucket": "security",
+      "severity": "error",
+      "rationale": "Tools that write files on disk are high risk.",
+      "category": "capability",
+      "risk_category": "file_system",
+      "score_impact": 20,
+      "tags": [
+        "capability",
+        "filesystem"
+      ]
+    },
+    {
+      "id": "dangerous_fs_delete_tool",
+      "title": "Dangerous filesystem delete tool",
+      "bucket": "security",
+      "severity": "error",
+      "rationale": "Tools that delete files or directories are high risk.",
+      "category": "capability",
+      "risk_category": "file_system",
+      "score_impact": 20,
+      "tags": [
+        "capability",
+        "filesystem",
+        "destructive"
+      ]
+    },
+    {
+      "id": "dangerous_http_request_tool",
+      "title": "Dangerous HTTP request tool",
+      "bucket": "security",
+      "severity": "error",
+      "rationale": "Tools that issue arbitrary HTTP requests are high risk.",
+      "category": "capability",
+      "risk_category": "network",
+      "score_impact": 20,
+      "tags": [
+        "capability",
+        "network",
+        "http"
+      ]
+    },
+    {
+      "id": "dangerous_network_tool",
+      "title": "Dangerous network tool",
+      "bucket": "security",
+      "severity": "error",
+      "rationale": "Tools that expose generic network access are high risk.",
+      "category": "capability",
+      "risk_category": "network",
+      "score_impact": 20,
+      "tags": [
+        "capability",
+        "network"
+      ]
+    },
+    {
+      "id": "write_tool_without_scope_hint",
+      "title": "Write tool without scope hint",
+      "bucket": "ergonomics",
+      "severity": "warning",
+      "rationale": "Filesystem mutation tools should document scope constraints clearly.",
+      "category": "capability",
+      "risk_category": "external_side_effects",
+      "score_impact": 10,
+      "tags": [
+        "capability",
+        "filesystem",
+        "scope"
+      ]
+    },
+    {
+      "id": "tool_description_mentions_destructive_access",
+      "title": "Description mentions destructive access",
+      "bucket": "metadata",
+      "severity": "warning",
+      "rationale": "Tool descriptions should make destructive broad-scope access easy to spot.",
+      "category": "capability",
+      "risk_category": "external_side_effects",
+      "score_impact": 10,
+      "tags": [
+        "tools",
+        "description",
+        "destructive"
+      ]
+    }
+  ],
+  "findings": [],
+  "grouped_findings": {
+    "by_bucket": []
+  },
+  "metadata": {}
+}

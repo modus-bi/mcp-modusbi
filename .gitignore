@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/build/
+*.egg
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Environment variables
+.env
+.mcp.json
+.mcp.runner.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/dist/
+build/.venv-build/
+
+# Exports
+exports/
+
+# Frontend build artifacts (reference only, not part of MCP server)
+docs/FRONTEND/
+
+# Ralph Loop runner logs
+
+# Generated documentation pipeline logs
+docs/infrastructure/_logs/
+
+# MCP Scorecard local artifacts
+.scorecard/
+
+# Ad-hoc mass-fix scripts (one-off DQ-dashboard scripts in repo root)
+/_dq2_*.py
+/_add_*.py
+.playwright-mcp/
+
+# local machine config / secrets
+.claude/settings.local.json
+
+# stray screenshots at root
+/*.png

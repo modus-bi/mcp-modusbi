@@ -1,0 +1,1693 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-06-22T18:52:09.917559+00:00",
+  "tag": "v1.0.0",
+  "mcp_version": "1.0.0",
+  "tokenizer": "cl100k_base",
+  "surface": {
+    "timestamp": "2026-06-22T18:52:09.917579+00:00",
+    "tokenizer": "cl100k_base",
+    "tokenizer_backend": "tiktoken:cl100k_base",
+    "version": "1.0.0",
+    "tool_profile": {
+      "name": "all_tools",
+      "tool_count": 19,
+      "tool_names": [
+        "batch_operations",
+        "component_axes",
+        "component_crud",
+        "component_filters",
+        "component_styling",
+        "data_export_operations",
+        "dataset_create_from_sql",
+        "dataset_operations",
+        "dataset_query",
+        "datasource_operations",
+        "instance_operations",
+        "preflight_check_datasource",
+        "query_batch",
+        "report_operations",
+        "report_template",
+        "reportgroup_operations",
+        "security_operations",
+        "sql_query_validate",
+        "style_operations"
+      ],
+      "missing_tools": []
+    },
+    "instructions": {
+      "chars": 2461,
+      "tokens": 744
+    },
+    "per_tool": {
+      "batch_operations": {
+        "name_tokens": 2,
+        "description_tokens": 442,
+        "schema_tokens": 2351,
+        "annotations_tokens": 45,
+        "total": 2840
+      },
+      "component_axes": {
+        "name_tokens": 2,
+        "description_tokens": 408,
+        "schema_tokens": 933,
+        "annotations_tokens": 47,
+        "total": 1390
+      },
+      "component_crud": {
+        "name_tokens": 3,
+        "description_tokens": 299,
+        "schema_tokens": 2084,
+        "annotations_tokens": 44,
+        "total": 2430
+      },
+      "component_filters": {
+        "name_tokens": 2,
+        "description_tokens": 248,
+        "schema_tokens": 623,
+        "annotations_tokens": 43,
+        "total": 916
+      },
+      "component_styling": {
+        "name_tokens": 3,
+        "description_tokens": 197,
+        "schema_tokens": 334,
+        "annotations_tokens": 43,
+        "total": 577
+      },
+      "data_export_operations": {
+        "name_tokens": 3,
+        "description_tokens": 251,
+        "schema_tokens": 469,
+        "annotations_tokens": 47,
+        "total": 770
+      },
+      "dataset_create_from_sql": {
+        "name_tokens": 4,
+        "description_tokens": 194,
+        "schema_tokens": 207,
+        "annotations_tokens": 45,
+        "total": 450
+      },
+      "dataset_operations": {
+        "name_tokens": 2,
+        "description_tokens": 259,
+        "schema_tokens": 527,
+        "annotations_tokens": 46,
+        "total": 834
+      },
+      "dataset_query": {
+        "name_tokens": 2,
+        "description_tokens": 327,
+        "schema_tokens": 1450,
+        "annotations_tokens": 47,
+        "total": 1826
+      },
+      "datasource_operations": {
+        "name_tokens": 3,
+        "description_tokens": 367,
+        "schema_tokens": 288,
+        "annotations_tokens": 43,
+        "total": 701
+      },
+      "instance_operations": {
+        "name_tokens": 2,
+        "description_tokens": 133,
+        "schema_tokens": 66,
+        "annotations_tokens": 46,
+        "total": 247
+      },
+      "preflight_check_datasource": {
+        "name_tokens": 5,
+        "description_tokens": 210,
+        "schema_tokens": 87,
+        "annotations_tokens": 48,
+        "total": 350
+      },
+      "query_batch": {
+        "name_tokens": 2,
+        "description_tokens": 191,
+        "schema_tokens": 1587,
+        "annotations_tokens": 46,
+        "total": 1826
+      },
+      "report_operations": {
+        "name_tokens": 2,
+        "description_tokens": 291,
+        "schema_tokens": 1399,
+        "annotations_tokens": 46,
+        "total": 1738
+      },
+      "report_template": {
+        "name_tokens": 2,
+        "description_tokens": 494,
+        "schema_tokens": 431,
+        "annotations_tokens": 46,
+        "total": 973
+      },
+      "reportgroup_operations": {
+        "name_tokens": 3,
+        "description_tokens": 427,
+        "schema_tokens": 935,
+        "annotations_tokens": 46,
+        "total": 1411
+      },
+      "security_operations": {
+        "name_tokens": 2,
+        "description_tokens": 515,
+        "schema_tokens": 213,
+        "annotations_tokens": 48,
+        "total": 778
+      },
+      "sql_query_validate": {
+        "name_tokens": 3,
+        "description_tokens": 194,
+        "schema_tokens": 123,
+        "annotations_tokens": 45,
+        "total": 365
+      },
+      "style_operations": {
+        "name_tokens": 2,
+        "description_tokens": 656,
+        "schema_tokens": 477,
+        "annotations_tokens": 46,
+        "total": 1181
+      }
+    },
+    "total_tools_tokens": 21603,
+    "tools_list_envelope": {
+      "compact_tokens": 17277,
+      "indented_tokens": 22707
+    },
+    "defs_tokens": {
+      "ComponentSpec": 1134,
+      "WhereClause": 424,
+      "ReportGroupOptions": 394,
+      "BatchQueryParams": 341,
+      "LayoutSpec": 254,
+      "SelectField": 221,
+      "OrderClause": 163,
+      "BatchQuerySpec": 139,
+      "GroupClause": 106
+    },
+    "total_defs_tokens": 3176,
+    "per_prompt": {
+      "add_conditional_formatting": {
+        "name_tokens": 5,
+        "description_tokens": 87,
+        "arguments_tokens": 50,
+        "total": 142
+      },
+      "add_filters": {
+        "name_tokens": 2,
+        "description_tokens": 72,
+        "arguments_tokens": 50,
+        "total": 124
+      },
+      "analyze_dataset": {
+        "name_tokens": 2,
+        "description_tokens": 64,
+        "arguments_tokens": 26,
+        "total": 92
+      },
+      "create_dashboard": {
+        "name_tokens": 2,
+        "description_tokens": 121,
+        "arguments_tokens": 50,
+        "total": 173
+      },
+      "create_report_from_template": {
+        "name_tokens": 4,
+        "description_tokens": 84,
+        "arguments_tokens": 106,
+        "total": 194
+      },
+      "customize_component": {
+        "name_tokens": 2,
+        "description_tokens": 109,
+        "arguments_tokens": 73,
+        "total": 184
+      },
+      "export_report": {
+        "name_tokens": 2,
+        "description_tokens": 47,
+        "arguments_tokens": 49,
+        "total": 98
+      },
+      "manage_variables": {
+        "name_tokens": 2,
+        "description_tokens": 64,
+        "arguments_tokens": 26,
+        "total": 92
+      },
+      "query_data": {
+        "name_tokens": 2,
+        "description_tokens": 66,
+        "arguments_tokens": 49,
+        "total": 117
+      },
+      "style_report": {
+        "name_tokens": 2,
+        "description_tokens": 58,
+        "arguments_tokens": 50,
+        "total": 110
+      }
+    },
+    "total_prompts_tokens": 1326,
+    "per_category": {
+      "component": {
+        "count": 4,
+        "tokens": 5313
+      },
+      "dataset": {
+        "count": 3,
+        "tokens": 3110
+      },
+      "report": {
+        "count": 2,
+        "tokens": 2711
+      },
+      "query": {
+        "count": 3,
+        "tokens": 2541
+      },
+      "infra": {
+        "count": 5,
+        "tokens": 6980
+      },
+      "admin": {
+        "count": 2,
+        "tokens": 948
+      }
+    },
+    "grand_total_tokens": 23673,
+    "pct_of_200k_context": 11.84
+  },
+  "client_profiles": {
+    "anthropic_main_tools": {
+      "title": "Anthropic Tool Search — main tools",
+      "tokenizer": "cl100k_base",
+      "tokenizer_backend": "tiktoken:cl100k_base",
+      "tool_set": "HOT_TOOLS",
+      "tool_names": [
+        "component_crud",
+        "component_filters",
+        "component_styling",
+        "dataset_create_from_sql",
+        "dataset_operations",
+        "report_operations",
+        "report_template",
+        "style_operations"
+      ],
+      "tool_count": 8,
+      "note": "Local cl100k proxy for Claude; exact Anthropic API count requires ANTHROPIC_API_KEY.",
+      "surface": {
+        "timestamp": "2026-06-22T18:52:10.135436+00:00",
+        "tokenizer": "cl100k_base",
+        "tokenizer_backend": "tiktoken:cl100k_base",
+        "version": "1.0.0",
+        "tool_profile": {
+          "name": "anthropic_main_tools",
+          "tool_count": 8,
+          "tool_names": [
+            "component_crud",
+            "component_filters",
+            "component_styling",
+            "dataset_create_from_sql",
+            "dataset_operations",
+            "report_operations",
+            "report_template",
+            "style_operations"
+          ],
+          "missing_tools": []
+        },
+        "instructions": {
+          "chars": 2461,
+          "tokens": 744
+        },
+        "per_tool": {
+          "component_crud": {
+            "name_tokens": 3,
+            "description_tokens": 299,
+            "schema_tokens": 2084,
+            "annotations_tokens": 44,
+            "total": 2430
+          },
+          "component_filters": {
+            "name_tokens": 2,
+            "description_tokens": 248,
+            "schema_tokens": 623,
+            "annotations_tokens": 43,
+            "total": 916
+          },
+          "component_styling": {
+            "name_tokens": 3,
+            "description_tokens": 197,
+            "schema_tokens": 334,
+            "annotations_tokens": 43,
+            "total": 577
+          },
+          "dataset_create_from_sql": {
+            "name_tokens": 4,
+            "description_tokens": 194,
+            "schema_tokens": 207,
+            "annotations_tokens": 45,
+            "total": 450
+          },
+          "dataset_operations": {
+            "name_tokens": 2,
+            "description_tokens": 259,
+            "schema_tokens": 527,
+            "annotations_tokens": 46,
+            "total": 834
+          },
+          "report_operations": {
+            "name_tokens": 2,
+            "description_tokens": 291,
+            "schema_tokens": 1399,
+            "annotations_tokens": 46,
+            "total": 1738
+          },
+          "report_template": {
+            "name_tokens": 2,
+            "description_tokens": 494,
+            "schema_tokens": 431,
+            "annotations_tokens": 46,
+            "total": 973
+          },
+          "style_operations": {
+            "name_tokens": 2,
+            "description_tokens": 656,
+            "schema_tokens": 477,
+            "annotations_tokens": 46,
+            "total": 1181
+          }
+        },
+        "total_tools_tokens": 9099,
+        "tools_list_envelope": {
+          "compact_tokens": 7390,
+          "indented_tokens": 9531
+        },
+        "defs_tokens": {},
+        "total_defs_tokens": 0,
+        "per_prompt": {
+          "add_conditional_formatting": {
+            "name_tokens": 5,
+            "description_tokens": 87,
+            "arguments_tokens": 50,
+            "total": 142
+          },
+          "add_filters": {
+            "name_tokens": 2,
+            "description_tokens": 72,
+            "arguments_tokens": 50,
+            "total": 124
+          },
+          "analyze_dataset": {
+            "name_tokens": 2,
+            "description_tokens": 64,
+            "arguments_tokens": 26,
+            "total": 92
+          },
+          "create_dashboard": {
+            "name_tokens": 2,
+            "description_tokens": 121,
+            "arguments_tokens": 50,
+            "total": 173
+          },
+          "create_report_from_template": {
+            "name_tokens": 4,
+            "description_tokens": 84,
+            "arguments_tokens": 106,
+            "total": 194
+          },
+          "customize_component": {
+            "name_tokens": 2,
+            "description_tokens": 109,
+            "arguments_tokens": 73,
+            "total": 184
+          },
+          "export_report": {
+            "name_tokens": 2,
+            "description_tokens": 47,
+            "arguments_tokens": 49,
+            "total": 98
+          },
+          "manage_variables": {
+            "name_tokens": 2,
+            "description_tokens": 64,
+            "arguments_tokens": 26,
+            "total": 92
+          },
+          "query_data": {
+            "name_tokens": 2,
+            "description_tokens": 66,
+            "arguments_tokens": 49,
+            "total": 117
+          },
+          "style_report": {
+            "name_tokens": 2,
+            "description_tokens": 58,
+            "arguments_tokens": 50,
+            "total": 110
+          }
+        },
+        "total_prompts_tokens": 1326,
+        "per_category": {
+          "component": {
+            "count": 3,
+            "tokens": 3923
+          },
+          "dataset": {
+            "count": 2,
+            "tokens": 1284
+          },
+          "report": {
+            "count": 2,
+            "tokens": 2711
+          },
+          "query": {
+            "count": 0,
+            "tokens": 0
+          },
+          "infra": {
+            "count": 1,
+            "tokens": 1181
+          },
+          "admin": {
+            "count": 0,
+            "tokens": 0
+          }
+        },
+        "grand_total_tokens": 11169,
+        "pct_of_200k_context": 5.58
+      }
+    },
+    "openai_main_tools": {
+      "title": "OpenAI Agents Tool Search — main tools",
+      "tokenizer": "o200k_base",
+      "tokenizer_backend": "tiktoken:o200k_base",
+      "tool_set": "HOT_TOOLS",
+      "tool_names": [
+        "component_crud",
+        "component_filters",
+        "component_styling",
+        "dataset_create_from_sql",
+        "dataset_operations",
+        "report_operations",
+        "report_template",
+        "style_operations"
+      ],
+      "tool_count": 8,
+      "note": "OpenAI-style local tokenizer for GPT-4o/GPT-5 era models.",
+      "surface": {
+        "timestamp": "2026-06-22T18:52:10.149249+00:00",
+        "tokenizer": "o200k_base",
+        "tokenizer_backend": "tiktoken:o200k_base",
+        "version": "1.0.0",
+        "tool_profile": {
+          "name": "openai_main_tools",
+          "tool_count": 8,
+          "tool_names": [
+            "component_crud",
+            "component_filters",
+            "component_styling",
+            "dataset_create_from_sql",
+            "dataset_operations",
+            "report_operations",
+            "report_template",
+            "style_operations"
+          ],
+          "missing_tools": []
+        },
+        "instructions": {
+          "chars": 2461,
+          "tokens": 627
+        },
+        "per_tool": {
+          "component_crud": {
+            "name_tokens": 3,
+            "description_tokens": 294,
+            "schema_tokens": 2071,
+            "annotations_tokens": 45,
+            "total": 2413
+          },
+          "component_filters": {
+            "name_tokens": 2,
+            "description_tokens": 246,
+            "schema_tokens": 621,
+            "annotations_tokens": 44,
+            "total": 913
+          },
+          "component_styling": {
+            "name_tokens": 4,
+            "description_tokens": 198,
+            "schema_tokens": 337,
+            "annotations_tokens": 44,
+            "total": 583
+          },
+          "dataset_create_from_sql": {
+            "name_tokens": 4,
+            "description_tokens": 195,
+            "schema_tokens": 207,
+            "annotations_tokens": 46,
+            "total": 452
+          },
+          "dataset_operations": {
+            "name_tokens": 2,
+            "description_tokens": 258,
+            "schema_tokens": 529,
+            "annotations_tokens": 47,
+            "total": 836
+          },
+          "report_operations": {
+            "name_tokens": 2,
+            "description_tokens": 288,
+            "schema_tokens": 1406,
+            "annotations_tokens": 47,
+            "total": 1743
+          },
+          "report_template": {
+            "name_tokens": 2,
+            "description_tokens": 475,
+            "schema_tokens": 429,
+            "annotations_tokens": 47,
+            "total": 953
+          },
+          "style_operations": {
+            "name_tokens": 2,
+            "description_tokens": 650,
+            "schema_tokens": 478,
+            "annotations_tokens": 47,
+            "total": 1177
+          }
+        },
+        "total_tools_tokens": 9070,
+        "tools_list_envelope": {
+          "compact_tokens": 7459,
+          "indented_tokens": 9504
+        },
+        "defs_tokens": {},
+        "total_defs_tokens": 0,
+        "per_prompt": {
+          "add_conditional_formatting": {
+            "name_tokens": 5,
+            "description_tokens": 72,
+            "arguments_tokens": 50,
+            "total": 127
+          },
+          "add_filters": {
+            "name_tokens": 2,
+            "description_tokens": 56,
+            "arguments_tokens": 50,
+            "total": 108
+          },
+          "analyze_dataset": {
+            "name_tokens": 3,
+            "description_tokens": 39,
+            "arguments_tokens": 26,
+            "total": 68
+          },
+          "create_dashboard": {
+            "name_tokens": 2,
+            "description_tokens": 93,
+            "arguments_tokens": 50,
+            "total": 145
+          },
+          "create_report_from_template": {
+            "name_tokens": 4,
+            "description_tokens": 59,
+            "arguments_tokens": 106,
+            "total": 169
+          },
+          "customize_component": {
+            "name_tokens": 3,
+            "description_tokens": 100,
+            "arguments_tokens": 73,
+            "total": 176
+          },
+          "export_report": {
+            "name_tokens": 2,
+            "description_tokens": 30,
+            "arguments_tokens": 49,
+            "total": 81
+          },
+          "manage_variables": {
+            "name_tokens": 2,
+            "description_tokens": 53,
+            "arguments_tokens": 26,
+            "total": 81
+          },
+          "query_data": {
+            "name_tokens": 2,
+            "description_tokens": 45,
+            "arguments_tokens": 49,
+            "total": 96
+          },
+          "style_report": {
+            "name_tokens": 2,
+            "description_tokens": 41,
+            "arguments_tokens": 50,
+            "total": 93
+          }
+        },
+        "total_prompts_tokens": 1144,
+        "per_category": {
+          "component": {
+            "count": 3,
+            "tokens": 3909
+          },
+          "dataset": {
+            "count": 2,
+            "tokens": 1288
+          },
+          "report": {
+            "count": 2,
+            "tokens": 2696
+          },
+          "query": {
+            "count": 0,
+            "tokens": 0
+          },
+          "infra": {
+            "count": 1,
+            "tokens": 1177
+          },
+          "admin": {
+            "count": 0,
+            "tokens": 0
+          }
+        },
+        "grand_total_tokens": 10841,
+        "pct_of_200k_context": 5.42
+      }
+    },
+    "anthropic_deferred_tools": {
+      "title": "Anthropic — deferred tools on demand",
+      "tokenizer": "cl100k_base",
+      "tokenizer_backend": "tiktoken:cl100k_base",
+      "tool_set": "DEFERRED_TOOLS",
+      "tool_names": [
+        "batch_operations",
+        "component_axes",
+        "data_export_operations",
+        "dataset_query",
+        "datasource_operations",
+        "instance_operations",
+        "preflight_check_datasource",
+        "query_batch",
+        "reportgroup_operations",
+        "security_operations",
+        "sql_query_validate"
+      ],
+      "tool_count": 11,
+      "note": "Loaded only when Tool Search selects advanced tools.",
+      "surface": {
+        "timestamp": "2026-06-22T18:52:10.487125+00:00",
+        "tokenizer": "cl100k_base",
+        "tokenizer_backend": "tiktoken:cl100k_base",
+        "version": "1.0.0",
+        "tool_profile": {
+          "name": "anthropic_deferred_tools",
+          "tool_count": 11,
+          "tool_names": [
+            "batch_operations",
+            "component_axes",
+            "data_export_operations",
+            "dataset_query",
+            "datasource_operations",
+            "instance_operations",
+            "preflight_check_datasource",
+            "query_batch",
+            "reportgroup_operations",
+            "security_operations",
+            "sql_query_validate"
+          ],
+          "missing_tools": []
+        },
+        "instructions": {
+          "chars": 2461,
+          "tokens": 744
+        },
+        "per_tool": {
+          "batch_operations": {
+            "name_tokens": 2,
+            "description_tokens": 442,
+            "schema_tokens": 2351,
+            "annotations_tokens": 45,
+            "total": 2840
+          },
+          "component_axes": {
+            "name_tokens": 2,
+            "description_tokens": 408,
+            "schema_tokens": 933,
+            "annotations_tokens": 47,
+            "total": 1390
+          },
+          "data_export_operations": {
+            "name_tokens": 3,
+            "description_tokens": 251,
+            "schema_tokens": 469,
+            "annotations_tokens": 47,
+            "total": 770
+          },
+          "dataset_query": {
+            "name_tokens": 2,
+            "description_tokens": 327,
+            "schema_tokens": 1450,
+            "annotations_tokens": 47,
+            "total": 1826
+          },
+          "datasource_operations": {
+            "name_tokens": 3,
+            "description_tokens": 367,
+            "schema_tokens": 288,
+            "annotations_tokens": 43,
+            "total": 701
+          },
+          "instance_operations": {
+            "name_tokens": 2,
+            "description_tokens": 133,
+            "schema_tokens": 66,
+            "annotations_tokens": 46,
+            "total": 247
+          },
+          "preflight_check_datasource": {
+            "name_tokens": 5,
+            "description_tokens": 210,
+            "schema_tokens": 87,
+            "annotations_tokens": 48,
+            "total": 350
+          },
+          "query_batch": {
+            "name_tokens": 2,
+            "description_tokens": 191,
+            "schema_tokens": 1587,
+            "annotations_tokens": 46,
+            "total": 1826
+          },
+          "reportgroup_operations": {
+            "name_tokens": 3,
+            "description_tokens": 427,
+            "schema_tokens": 935,
+            "annotations_tokens": 46,
+            "total": 1411
+          },
+          "security_operations": {
+            "name_tokens": 2,
+            "description_tokens": 515,
+            "schema_tokens": 213,
+            "annotations_tokens": 48,
+            "total": 778
+          },
+          "sql_query_validate": {
+            "name_tokens": 3,
+            "description_tokens": 194,
+            "schema_tokens": 123,
+            "annotations_tokens": 45,
+            "total": 365
+          }
+        },
+        "total_tools_tokens": 12504,
+        "tools_list_envelope": {
+          "compact_tokens": 9890,
+          "indented_tokens": 13185
+        },
+        "defs_tokens": {
+          "ComponentSpec": 1134,
+          "WhereClause": 424,
+          "ReportGroupOptions": 394,
+          "BatchQueryParams": 341,
+          "LayoutSpec": 254,
+          "SelectField": 221,
+          "OrderClause": 163,
+          "BatchQuerySpec": 139,
+          "GroupClause": 106
+        },
+        "total_defs_tokens": 3176,
+        "per_prompt": {
+          "add_conditional_formatting": {
+            "name_tokens": 5,
+            "description_tokens": 87,
+            "arguments_tokens": 50,
+            "total": 142
+          },
+          "add_filters": {
+            "name_tokens": 2,
+            "description_tokens": 72,
+            "arguments_tokens": 50,
+            "total": 124
+          },
+          "analyze_dataset": {
+            "name_tokens": 2,
+            "description_tokens": 64,
+            "arguments_tokens": 26,
+            "total": 92
+          },
+          "create_dashboard": {
+            "name_tokens": 2,
+            "description_tokens": 121,
+            "arguments_tokens": 50,
+            "total": 173
+          },
+          "create_report_from_template": {
+            "name_tokens": 4,
+            "description_tokens": 84,
+            "arguments_tokens": 106,
+            "total": 194
+          },
+          "customize_component": {
+            "name_tokens": 2,
+            "description_tokens": 109,
+            "arguments_tokens": 73,
+            "total": 184
+          },
+          "export_report": {
+            "name_tokens": 2,
+            "description_tokens": 47,
+            "arguments_tokens": 49,
+            "total": 98
+          },
+          "manage_variables": {
+            "name_tokens": 2,
+            "description_tokens": 64,
+            "arguments_tokens": 26,
+            "total": 92
+          },
+          "query_data": {
+            "name_tokens": 2,
+            "description_tokens": 66,
+            "arguments_tokens": 49,
+            "total": 117
+          },
+          "style_report": {
+            "name_tokens": 2,
+            "description_tokens": 58,
+            "arguments_tokens": 50,
+            "total": 110
+          }
+        },
+        "total_prompts_tokens": 1326,
+        "per_category": {
+          "component": {
+            "count": 1,
+            "tokens": 1390
+          },
+          "dataset": {
+            "count": 1,
+            "tokens": 1826
+          },
+          "report": {
+            "count": 0,
+            "tokens": 0
+          },
+          "query": {
+            "count": 3,
+            "tokens": 2541
+          },
+          "infra": {
+            "count": 4,
+            "tokens": 5799
+          },
+          "admin": {
+            "count": 2,
+            "tokens": 948
+          }
+        },
+        "grand_total_tokens": 14574,
+        "pct_of_200k_context": 7.29
+      }
+    },
+    "openai_deferred_tools": {
+      "title": "OpenAI — deferred tools on demand",
+      "tokenizer": "o200k_base",
+      "tokenizer_backend": "tiktoken:o200k_base",
+      "tool_set": "DEFERRED_TOOLS",
+      "tool_names": [
+        "batch_operations",
+        "component_axes",
+        "data_export_operations",
+        "dataset_query",
+        "datasource_operations",
+        "instance_operations",
+        "preflight_check_datasource",
+        "query_batch",
+        "reportgroup_operations",
+        "security_operations",
+        "sql_query_validate"
+      ],
+      "tool_count": 11,
+      "note": "Loaded only when Tool Search selects advanced tools.",
+      "surface": {
+        "timestamp": "2026-06-22T18:52:10.514138+00:00",
+        "tokenizer": "o200k_base",
+        "tokenizer_backend": "tiktoken:o200k_base",
+        "version": "1.0.0",
+        "tool_profile": {
+          "name": "openai_deferred_tools",
+          "tool_count": 11,
+          "tool_names": [
+            "batch_operations",
+            "component_axes",
+            "data_export_operations",
+            "dataset_query",
+            "datasource_operations",
+            "instance_operations",
+            "preflight_check_datasource",
+            "query_batch",
+            "reportgroup_operations",
+            "security_operations",
+            "sql_query_validate"
+          ],
+          "missing_tools": []
+        },
+        "instructions": {
+          "chars": 2461,
+          "tokens": 627
+        },
+        "per_tool": {
+          "batch_operations": {
+            "name_tokens": 2,
+            "description_tokens": 436,
+            "schema_tokens": 2344,
+            "annotations_tokens": 46,
+            "total": 2828
+          },
+          "component_axes": {
+            "name_tokens": 2,
+            "description_tokens": 410,
+            "schema_tokens": 935,
+            "annotations_tokens": 48,
+            "total": 1395
+          },
+          "data_export_operations": {
+            "name_tokens": 3,
+            "description_tokens": 252,
+            "schema_tokens": 459,
+            "annotations_tokens": 48,
+            "total": 762
+          },
+          "dataset_query": {
+            "name_tokens": 2,
+            "description_tokens": 320,
+            "schema_tokens": 1447,
+            "annotations_tokens": 48,
+            "total": 1817
+          },
+          "datasource_operations": {
+            "name_tokens": 3,
+            "description_tokens": 366,
+            "schema_tokens": 289,
+            "annotations_tokens": 43,
+            "total": 701
+          },
+          "instance_operations": {
+            "name_tokens": 2,
+            "description_tokens": 133,
+            "schema_tokens": 66,
+            "annotations_tokens": 47,
+            "total": 248
+          },
+          "preflight_check_datasource": {
+            "name_tokens": 5,
+            "description_tokens": 207,
+            "schema_tokens": 87,
+            "annotations_tokens": 48,
+            "total": 347
+          },
+          "query_batch": {
+            "name_tokens": 2,
+            "description_tokens": 191,
+            "schema_tokens": 1586,
+            "annotations_tokens": 47,
+            "total": 1826
+          },
+          "reportgroup_operations": {
+            "name_tokens": 3,
+            "description_tokens": 423,
+            "schema_tokens": 937,
+            "annotations_tokens": 47,
+            "total": 1410
+          },
+          "security_operations": {
+            "name_tokens": 2,
+            "description_tokens": 511,
+            "schema_tokens": 213,
+            "annotations_tokens": 49,
+            "total": 775
+          },
+          "sql_query_validate": {
+            "name_tokens": 3,
+            "description_tokens": 195,
+            "schema_tokens": 123,
+            "annotations_tokens": 46,
+            "total": 367
+          }
+        },
+        "total_tools_tokens": 12476,
+        "tools_list_envelope": {
+          "compact_tokens": 10031,
+          "indented_tokens": 13154
+        },
+        "defs_tokens": {
+          "ComponentSpec": 1125,
+          "WhereClause": 425,
+          "ReportGroupOptions": 393,
+          "BatchQueryParams": 341,
+          "LayoutSpec": 254,
+          "SelectField": 220,
+          "OrderClause": 163,
+          "BatchQuerySpec": 139,
+          "GroupClause": 106
+        },
+        "total_defs_tokens": 3166,
+        "per_prompt": {
+          "add_conditional_formatting": {
+            "name_tokens": 5,
+            "description_tokens": 72,
+            "arguments_tokens": 50,
+            "total": 127
+          },
+          "add_filters": {
+            "name_tokens": 2,
+            "description_tokens": 56,
+            "arguments_tokens": 50,
+            "total": 108
+          },
+          "analyze_dataset": {
+            "name_tokens": 3,
+            "description_tokens": 39,
+            "arguments_tokens": 26,
+            "total": 68
+          },
+          "create_dashboard": {
+            "name_tokens": 2,
+            "description_tokens": 93,
+            "arguments_tokens": 50,
+            "total": 145
+          },
+          "create_report_from_template": {
+            "name_tokens": 4,
+            "description_tokens": 59,
+            "arguments_tokens": 106,
+            "total": 169
+          },
+          "customize_component": {
+            "name_tokens": 3,
+            "description_tokens": 100,
+            "arguments_tokens": 73,
+            "total": 176
+          },
+          "export_report": {
+            "name_tokens": 2,
+            "description_tokens": 30,
+            "arguments_tokens": 49,
+            "total": 81
+          },
+          "manage_variables": {
+            "name_tokens": 2,
+            "description_tokens": 53,
+            "arguments_tokens": 26,
+            "total": 81
+          },
+          "query_data": {
+            "name_tokens": 2,
+            "description_tokens": 45,
+            "arguments_tokens": 49,
+            "total": 96
+          },
+          "style_report": {
+            "name_tokens": 2,
+            "description_tokens": 41,
+            "arguments_tokens": 50,
+            "total": 93
+          }
+        },
+        "total_prompts_tokens": 1144,
+        "per_category": {
+          "component": {
+            "count": 1,
+            "tokens": 1395
+          },
+          "dataset": {
+            "count": 1,
+            "tokens": 1817
+          },
+          "report": {
+            "count": 0,
+            "tokens": 0
+          },
+          "query": {
+            "count": 3,
+            "tokens": 2540
+          },
+          "infra": {
+            "count": 4,
+            "tokens": 5775
+          },
+          "admin": {
+            "count": 2,
+            "tokens": 949
+          }
+        },
+        "grand_total_tokens": 14247,
+        "pct_of_200k_context": 7.12
+      }
+    },
+    "other_clients_full": {
+      "title": "Other/classic clients — full MCP surface",
+      "tokenizer": "cl100k_base",
+      "tokenizer_backend": "tiktoken:cl100k_base",
+      "tool_set": "HOT_TOOLS + DEFERRED_TOOLS",
+      "tool_names": [
+        "batch_operations",
+        "component_axes",
+        "component_crud",
+        "component_filters",
+        "component_styling",
+        "data_export_operations",
+        "dataset_create_from_sql",
+        "dataset_operations",
+        "dataset_query",
+        "datasource_operations",
+        "instance_operations",
+        "preflight_check_datasource",
+        "query_batch",
+        "report_operations",
+        "report_template",
+        "reportgroup_operations",
+        "security_operations",
+        "sql_query_validate",
+        "style_operations"
+      ],
+      "tool_count": 19,
+      "note": "Clients that ignore `_meta` defer hints receive all 19 tools upfront.",
+      "surface": {
+        "timestamp": "2026-06-22T18:52:10.547881+00:00",
+        "tokenizer": "cl100k_base",
+        "tokenizer_backend": "tiktoken:cl100k_base",
+        "version": "1.0.0",
+        "tool_profile": {
+          "name": "other_clients_full",
+          "tool_count": 19,
+          "tool_names": [
+            "batch_operations",
+            "component_axes",
+            "component_crud",
+            "component_filters",
+            "component_styling",
+            "data_export_operations",
+            "dataset_create_from_sql",
+            "dataset_operations",
+            "dataset_query",
+            "datasource_operations",
+            "instance_operations",
+            "preflight_check_datasource",
+            "query_batch",
+            "report_operations",
+            "report_template",
+            "reportgroup_operations",
+            "security_operations",
+            "sql_query_validate",
+            "style_operations"
+          ],
+          "missing_tools": []
+        },
+        "instructions": {
+          "chars": 2461,
+          "tokens": 744
+        },
+        "per_tool": {
+          "batch_operations": {
+            "name_tokens": 2,
+            "description_tokens": 442,
+            "schema_tokens": 2351,
+            "annotations_tokens": 45,
+            "total": 2840
+          },
+          "component_axes": {
+            "name_tokens": 2,
+            "description_tokens": 408,
+            "schema_tokens": 933,
+            "annotations_tokens": 47,
+            "total": 1390
+          },
+          "component_crud": {
+            "name_tokens": 3,
+            "description_tokens": 299,
+            "schema_tokens": 2084,
+            "annotations_tokens": 44,
+            "total": 2430
+          },
+          "component_filters": {
+            "name_tokens": 2,
+            "description_tokens": 248,
+            "schema_tokens": 623,
+            "annotations_tokens": 43,
+            "total": 916
+          },
+          "component_styling": {
+            "name_tokens": 3,
+            "description_tokens": 197,
+            "schema_tokens": 334,
+            "annotations_tokens": 43,
+            "total": 577
+          },
+          "data_export_operations": {
+            "name_tokens": 3,
+            "description_tokens": 251,
+            "schema_tokens": 469,
+            "annotations_tokens": 47,
+            "total": 770
+          },
+          "dataset_create_from_sql": {
+            "name_tokens": 4,
+            "description_tokens": 194,
+            "schema_tokens": 207,
+            "annotations_tokens": 45,
+            "total": 450
+          },
+          "dataset_operations": {
+            "name_tokens": 2,
+            "description_tokens": 259,
+            "schema_tokens": 527,
+            "annotations_tokens": 46,
+            "total": 834
+          },
+          "dataset_query": {
+            "name_tokens": 2,
+            "description_tokens": 327,
+            "schema_tokens": 1450,
+            "annotations_tokens": 47,
+            "total": 1826
+          },
+          "datasource_operations": {
+            "name_tokens": 3,
+            "description_tokens": 367,
+            "schema_tokens": 288,
+            "annotations_tokens": 43,
+            "total": 701
+          },
+          "instance_operations": {
+            "name_tokens": 2,
+            "description_tokens": 133,
+            "schema_tokens": 66,
+            "annotations_tokens": 46,
+            "total": 247
+          },
+          "preflight_check_datasource": {
+            "name_tokens": 5,
+            "description_tokens": 210,
+            "schema_tokens": 87,
+            "annotations_tokens": 48,
+            "total": 350
+          },
+          "query_batch": {
+            "name_tokens": 2,
+            "description_tokens": 191,
+            "schema_tokens": 1587,
+            "annotations_tokens": 46,
+            "total": 1826
+          },
+          "report_operations": {
+            "name_tokens": 2,
+            "description_tokens": 291,
+            "schema_tokens": 1399,
+            "annotations_tokens": 46,
+            "total": 1738
+          },
+          "report_template": {
+            "name_tokens": 2,
+            "description_tokens": 494,
+            "schema_tokens": 431,
+            "annotations_tokens": 46,
+            "total": 973
+          },
+          "reportgroup_operations": {
+            "name_tokens": 3,
+            "description_tokens": 427,
+            "schema_tokens": 935,
+            "annotations_tokens": 46,
+            "total": 1411
+          },
+          "security_operations": {
+            "name_tokens": 2,
+            "description_tokens": 515,
+            "schema_tokens": 213,
+            "annotations_tokens": 48,
+            "total": 778
+          },
+          "sql_query_validate": {
+            "name_tokens": 3,
+            "description_tokens": 194,
+            "schema_tokens": 123,
+            "annotations_tokens": 45,
+            "total": 365
+          },
+          "style_operations": {
+            "name_tokens": 2,
+            "description_tokens": 656,
+            "schema_tokens": 477,
+            "annotations_tokens": 46,
+            "total": 1181
+          }
+        },
+        "total_tools_tokens": 21603,
+        "tools_list_envelope": {
+          "compact_tokens": 17277,
+          "indented_tokens": 22707
+        },
+        "defs_tokens": {
+          "ComponentSpec": 1134,
+          "WhereClause": 424,
+          "ReportGroupOptions": 394,
+          "BatchQueryParams": 341,
+          "LayoutSpec": 254,
+          "SelectField": 221,
+          "OrderClause": 163,
+          "BatchQuerySpec": 139,
+          "GroupClause": 106
+        },
+        "total_defs_tokens": 3176,
+        "per_prompt": {
+          "add_conditional_formatting": {
+            "name_tokens": 5,
+            "description_tokens": 87,
+            "arguments_tokens": 50,
+            "total": 142
+          },
+          "add_filters": {
+            "name_tokens": 2,
+            "description_tokens": 72,
+            "arguments_tokens": 50,
+            "total": 124
+          },
+          "analyze_dataset": {
+            "name_tokens": 2,
+            "description_tokens": 64,
+            "arguments_tokens": 26,
+            "total": 92
+          },
+          "create_dashboard": {
+            "name_tokens": 2,
+            "description_tokens": 121,
+            "arguments_tokens": 50,
+            "total": 173
+          },
+          "create_report_from_template": {
+            "name_tokens": 4,
+            "description_tokens": 84,
+            "arguments_tokens": 106,
+            "total": 194
+          },
+          "customize_component": {
+            "name_tokens": 2,
+            "description_tokens": 109,
+            "arguments_tokens": 73,
+            "total": 184
+          },
+          "export_report": {
+            "name_tokens": 2,
+            "description_tokens": 47,
+            "arguments_tokens": 49,
+            "total": 98
+          },
+          "manage_variables": {
+            "name_tokens": 2,
+            "description_tokens": 64,
+            "arguments_tokens": 26,
+            "total": 92
+          },
+          "query_data": {
+            "name_tokens": 2,
+            "description_tokens": 66,
+            "arguments_tokens": 49,
+            "total": 117
+          },
+          "style_report": {
+            "name_tokens": 2,
+            "description_tokens": 58,
+            "arguments_tokens": 50,
+            "total": 110
+          }
+        },
+        "total_prompts_tokens": 1326,
+        "per_category": {
+          "component": {
+            "count": 4,
+            "tokens": 5313
+          },
+          "dataset": {
+            "count": 3,
+            "tokens": 3110
+          },
+          "report": {
+            "count": 2,
+            "tokens": 2711
+          },
+          "query": {
+            "count": 3,
+            "tokens": 2541
+          },
+          "infra": {
+            "count": 5,
+            "tokens": 6980
+          },
+          "admin": {
+            "count": 2,
+            "tokens": 948
+          }
+        },
+        "grand_total_tokens": 23673,
+        "pct_of_200k_context": 11.84
+      }
+    }
+  },
+  "flows": {
+    "create_dashboard": {
+      "flow": "create_dashboard",
+      "step_count": 5,
+      "total_request_tokens": 365,
+      "total_response_tokens": 139,
+      "total_flow_tokens": 504,
+      "steps": [
+        {
+          "tool": "report_operations",
+          "action": "create",
+          "request_tokens": 40,
+          "response_tokens": 25,
+          "step_total": 65
+        },
+        {
+          "tool": "dataset_operations",
+          "action": "create",
+          "request_tokens": 59,
+          "response_tokens": 24,
+          "step_total": 83
+        },
+        {
+          "tool": "component_crud",
+          "action": "add",
+          "request_tokens": 107,
+          "response_tokens": 37,
+          "step_total": 144
+        },
+        {
+          "tool": "component_crud",
+          "action": "add",
+          "request_tokens": 107,
+          "response_tokens": 37,
+          "step_total": 144
+        },
+        {
+          "tool": "style_operations",
+          "action": "update",
+          "request_tokens": 52,
+          "response_tokens": 16,
+          "step_total": 68
+        }
+      ]
+    },
+    "query_data": {
+      "flow": "query_data",
+      "step_count": 4,
+      "total_request_tokens": 128,
+      "total_response_tokens": 935,
+      "total_flow_tokens": 1063,
+      "steps": [
+        {
+          "tool": "datasource_operations",
+          "action": "list",
+          "request_tokens": 25,
+          "response_tokens": 163,
+          "step_total": 188
+        },
+        {
+          "tool": "datasource_operations",
+          "action": "tables_list",
+          "request_tokens": 35,
+          "response_tokens": 464,
+          "step_total": 499
+        },
+        {
+          "tool": "sql_query_validate",
+          "action": "(no-action)",
+          "request_tokens": 36,
+          "response_tokens": 69,
+          "step_total": 105
+        },
+        {
+          "tool": "dataset_query",
+          "action": "(no-action)",
+          "request_tokens": 32,
+          "response_tokens": 239,
+          "step_total": 271
+        }
+      ]
+    },
+    "export_report": {
+      "flow": "export_report",
+      "step_count": 2,
+      "total_request_tokens": 56,
+      "total_response_tokens": 891,
+      "total_flow_tokens": 947,
+      "steps": [
+        {
+          "tool": "report_operations",
+          "action": "list",
+          "request_tokens": 24,
+          "response_tokens": 862,
+          "step_total": 886
+        },
+        {
+          "tool": "report_operations",
+          "action": "export",
+          "request_tokens": 32,
+          "response_tokens": 29,
+          "step_total": 61
+        }
+      ]
+    },
+    "debug_unknown_action": {
+      "flow": "debug_unknown_action",
+      "step_count": 2,
+      "total_request_tokens": 53,
+      "total_response_tokens": 285,
+      "total_flow_tokens": 338,
+      "steps": [
+        {
+          "tool": "component_crud",
+          "action": "bogus_action",
+          "request_tokens": 28,
+          "response_tokens": 98,
+          "step_total": 126
+        },
+        {
+          "tool": "component_crud",
+          "action": "help",
+          "request_tokens": 25,
+          "response_tokens": 187,
+          "step_total": 212
+        }
+      ]
+    },
+    "help_deep_dive": {
+      "flow": "help_deep_dive",
+      "step_count": 5,
+      "total_request_tokens": 134,
+      "total_response_tokens": 1155,
+      "total_flow_tokens": 1289,
+      "steps": [
+        {
+          "tool": "component_crud",
+          "action": "help",
+          "request_tokens": 25,
+          "response_tokens": 187,
+          "step_total": 212
+        },
+        {
+          "tool": "dataset_operations",
+          "action": "help",
+          "request_tokens": 24,
+          "response_tokens": 156,
+          "step_total": 180
+        },
+        {
+          "tool": "report_operations",
+          "action": "help",
+          "request_tokens": 24,
+          "response_tokens": 201,
+          "step_total": 225
+        },
+        {
+          "tool": "component_crud",
+          "action": "list_slugs",
+          "request_tokens": 35,
+          "response_tokens": 356,
+          "step_total": 391
+        },
+        {
+          "tool": "component_crud",
+          "action": "types_list",
+          "request_tokens": 26,
+          "response_tokens": 255,
+          "step_total": 281
+        }
+      ]
+    }
+  },
+  "help_savings": {
+    "tokenizer": "cl100k_base",
+    "per_tool": {
+      "component_crud": {
+        "thin_tokens": 299,
+        "full_tokens": 1795,
+        "savings_tokens": 1496,
+        "savings_pct": 83.3
+      },
+      "component_filters": {
+        "thin_tokens": 248,
+        "full_tokens": 1042,
+        "savings_tokens": 794,
+        "savings_pct": 76.2
+      },
+      "component_axes": {
+        "thin_tokens": 408,
+        "full_tokens": 1671,
+        "savings_tokens": 1263,
+        "savings_pct": 75.6
+      },
+      "component_styling": {
+        "thin_tokens": 197,
+        "full_tokens": 1050,
+        "savings_tokens": 853,
+        "savings_pct": 81.2
+      },
+      "report_operations": {
+        "thin_tokens": 291,
+        "full_tokens": 1141,
+        "savings_tokens": 850,
+        "savings_pct": 74.5
+      },
+      "dataset_operations": {
+        "thin_tokens": 259,
+        "full_tokens": 706,
+        "savings_tokens": 447,
+        "savings_pct": 63.3
+      },
+      "report_template": {
+        "thin_tokens": 494,
+        "full_tokens": 557,
+        "savings_tokens": 63,
+        "savings_pct": 11.3
+      }
+    },
+    "totals": {
+      "thin": 2196,
+      "full": 7962,
+      "savings": 5766,
+      "savings_pct": 72.4
+    }
+  },
+  "flows_grand_total": 4141
+}

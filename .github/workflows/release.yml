@@ -1,0 +1,146 @@
+# Сборка бинарников ModusBI MCP Server под Linux / Windows / macOS и публикация в Release.
+#
+# PyInstaller не кросс-компилирует — каждая ОС собирается на своём раннере. Версия берётся из
+# app/__init__.py (__version__); тег релиза должен ей соответствовать (например, __version__=1.0.0
+# → тег v1.0.0). build/build.py кладёт бинарник в dist/<version>/<os>-<arch>/ и пишет .sha256.
+#
+# Ассеты релиза называются по версии и ОС: modusbi-mcp-server-<version>-<os>-<arch>[.exe].
+# Так Linux и macOS (оба без расширения) не перетирают друг друга, и из имени файла понятно,
+# под какую ОС и версию он собран.
+#
+# Job `prepare` пересоздаёт релиз с нуля (удаляет старые ассеты), чтобы не оставались файлы от
+# прошлых прогонов; матрица `build` затем грузит свежие бинарники.
+#
+# Запуск: push тега вида v1.0.0, либо вручную (workflow_dispatch).
+
+name: release
+
+on:
+  push:
+    tags: ['v*.*.*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Новый прогон по тому же тегу отменяет предыдущий — чтобы релиз не собирали два прогона разом.
+concurrency:
+  group: release-${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Recreate a clean release and attach the skills/agents bundle
+        if: github.ref_type == 'tag'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          tag="${{ github.ref_name }}"
+          ver="${tag#v}"   # v1.0.0 -> 1.0.0
+          # Удалить прежний релиз (с его ассетами), тег НЕ трогаем.
+          gh release delete "$tag" --repo "$REPO" --yes || echo "no existing release"
+
+          # Бандл скиллов и агентов для ИИ-ассистента (Claude Code) — OS-независимый, собираем один раз.
+          skills_zip="modusbi-mcp-skills-$ver.zip"
+          rm -rf skills_bundle && mkdir -p skills_bundle
+          cp -r .claude/skills .claude/agents skills_bundle/
+          cp docs/skills/install.md skills_bundle/INSTALL.md
+          ( cd skills_bundle && zip -qr "../$skills_zip" skills agents INSTALL.md )
+
+          printf '%s\n' \
+            "ModusBI MCP Server $tag" \
+            "" \
+            "## Сервер — скачайте файл под свою операционную систему" \
+            "" \
+            "| Операционная система | Файл |" \
+            "|---|---|" \
+            "| Linux (x86-64) | \`modusbi-mcp-server-$ver-linux-x86_64\` |" \
+            "| Windows (x86-64) | \`modusbi-mcp-server-$ver-windows-x86_64.exe\` |" \
+            "| macOS (Apple Silicon) | \`modusbi-mcp-server-$ver-macos-arm64\` |" \
+            "" \
+            "Рядом с каждым бинарником — файл \`.sha256\` для проверки загрузки." \
+            "Установка и подключение к ИИ-клиенту — см. \`build/INSTALL.md\`." \
+            "" \
+            "## Скиллы и агенты для ИИ-ассистента (опционально)" \
+            "" \
+            "\`$skills_zip\` — готовые скиллы и агенты Claude Code для работы с ModusBI." \
+            "Это НЕ часть MCP-сервера: распакуйте папки \`skills\`/\`agents\` в каталог \`.claude/\`" \
+            "вашего проекта Claude Code (или в \`~/.claude/\`). Инструкция — внутри архива" \
+            "(\`INSTALL.md\`) и в \`docs/skills/install.md\`." \
+            > release_notes.md
+          gh release create "$tag" --repo "$REPO" --title "$tag" --notes-file release_notes.md
+          gh release upload "$tag" "$skills_zip" --clobber --repo "$REPO"
+
+  build:
+    needs: prepare
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            label: linux
+            arch: x86_64
+          - os: windows-latest
+            label: windows
+            arch: x86_64
+          - os: macos-latest
+            label: macos
+            arch: arm64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build binary
+        shell: bash
+        run: |
+          cd build
+          python build.py --clean
+
+      - name: Stage release asset (version + OS in the name)
+        id: collect
+        shell: bash
+        run: |
+          dir=$(find build/dist -mindepth 2 -maxdepth 2 -type d -name '*-*' | head -1)
+          if [ -z "$dir" ]; then echo "No build artifact folder found"; exit 1; fi
+          ver=$(basename "$(dirname "$dir")")   # версия из dist/<version>/<os>-<arch>/
+          name="modusbi-mcp-server-${ver}-${{ matrix.label }}-${{ matrix.arch }}"
+          mkdir -p release_assets
+          # Бинарники переименовываем под версионное имя ассета; .sha256 ПЕРЕсобираем под новое имя
+          # (build.py пишет внутрь короткое имя — иначе `sha256sum -c` искал бы несуществующий файл).
+          for f in "$dir"/*; do
+            base=$(basename "$f")
+            case "$base" in
+              *.exe.sha256) awk -v n="$name.exe" '{print $1"  "n}' "$f" > "release_assets/$name.exe.sha256" ;;
+              *.sha256)     awk -v n="$name"     '{print $1"  "n}' "$f" > "release_assets/$name.sha256" ;;
+              *.exe)        cp "$f" "release_assets/$name.exe" ;;
+              *)            cp "$f" "release_assets/$name" ;;
+            esac
+          done
+          ls -la release_assets
+          echo "dir=release_assets" >> "$GITHUB_OUTPUT"
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: modusbi-mcp-server-${{ matrix.label }}-${{ matrix.arch }}
+          path: ${{ steps.collect.outputs.dir }}/*
+          if-no-files-found: error
+
+      - name: Attach to GitHub Release
+        if: github.ref_type == 'tag'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh release upload "${{ github.ref_name }}" ${{ steps.collect.outputs.dir }}/* --clobber --repo "$REPO"

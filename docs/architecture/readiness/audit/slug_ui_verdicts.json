@@ -1,0 +1,1647 @@
+{
+ "_meta": {
+  "desc": "Пер-слаговые вердикты UI-верификации (рендер в браузере). Источник для slug_ui_matrix.",
+  "codes": {
+   "ok": "✅ rendered",
+   "dead": "🔴 no-effect (config верный, фронт не рисует)",
+   "cfg": "config-only (A==C, визуал недостижим/интерактив)",
+   "amb": "⚠️ ambiguous (нужны спец-данные/контраст)",
+   "rej": "⚪ applied:0 (валидатор отклонил значение)",
+   "na": "⚪ not-applicable (на этом типе нет смысла)"
+  }
+ },
+ "verdicts": {
+  "legend.visible": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "legend.position": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "legend.order": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "legend.reverse": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "legend.fontSize": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "legend.orientation": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "legend.bgColor": {
+   "v": "ok",
+   "on": "bar",
+   "note": ""
+  },
+  "legend.borderColor": {
+   "v": "ok",
+   "on": "bar",
+   "note": ""
+  },
+  "legend.borderWidth": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "legend.percent": {
+   "v": "amb",
+   "on": "bar",
+   "note": ""
+  },
+  "data.baseColor": {
+   "v": "ok",
+   "on": "pie",
+   "note": ""
+  },
+  "data.colorStep": {
+   "v": "dead",
+   "on": "pie",
+   "note": ""
+  },
+  "style.autoColor": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "style.smoothing": {
+   "v": "ok",
+   "on": "line"
+  },
+  "style.lineWidth": {
+   "v": "ok",
+   "on": "line"
+  },
+  "style.lineMode": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "style.markerMode": {
+   "v": "ok",
+   "on": "area"
+  },
+  "style.markerWidth": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "style.labelsEnabled": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "style.outlineWidth": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "style.clustered": {
+   "v": "na",
+   "on": "area",
+   "note": ""
+  },
+  "style.visType": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "visuals.columnWidth": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "visuals.columnBorderRadius": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "visuals.chartType": {
+   "v": "ok",
+   "on": "bar",
+   "note": ""
+  },
+  "visuals.clustered": {
+   "v": "ok",
+   "on": "bar",
+   "note": ""
+  },
+  "visuals.lineWidth": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "visuals.lineDashStyle": {
+   "v": "dead",
+   "on": "line",
+   "note": ""
+  },
+  "visuals.markerSize": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "visuals.markerType": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "visuals.markerLabels": {
+   "v": "dead",
+   "on": "bubble",
+   "note": ""
+  },
+  "visuals.smoothing": {
+   "v": "ok",
+   "on": "area"
+  },
+  "subtitle": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "expandH": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "expandV": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "main.extraAxis": {
+   "v": "dead",
+   "on": "bar/line/area",
+   "note": ""
+  },
+  "axes.categoryGrid": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.valueGrid": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.categoryLabels": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.valueLabels": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.categoryScale": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.valueScale": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.categoryTitle": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.valueTitle": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.categoryScrollable": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.valueShowMin": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.valueShowMax": {
+   "v": "ok",
+   "on": "bar"
+  },
+  "axes.scaleType": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "axes.firstLabel": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "axes.lastLabel": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "axes.firstTick": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "axes.lastTick": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "axes.rangeMode": {
+   "v": "ok",
+   "on": "line",
+   "note": ""
+  },
+  "axes.customZoom": {
+   "v": "amb",
+   "on": "line",
+   "note": ""
+  },
+  "axes.categoryLabelAngle": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "axes.categoryScrollbar": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "axes.autoZoom": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "axes.categoryMaxLabelWidth": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "axes.categoryMinGridWidth": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "axes.labelsAccuracy": {
+   "v": "dead",
+   "on": "bar",
+   "note": ""
+  },
+  "axes.selectedFieldIndex": {
+   "v": "na",
+   "on": "bar",
+   "note": ""
+  },
+  "axes.sortable": {
+   "v": "cfg",
+   "on": "bar",
+   "note": ""
+  },
+  "showDonut": {
+   "v": "ok",
+   "on": "pie"
+  },
+  "radius": {
+   "v": "ok",
+   "on": "pie"
+  },
+  "summEnabled": {
+   "v": "ok",
+   "on": "pie"
+  },
+  "summFontSize": {
+   "v": "amb",
+   "on": "pie",
+   "note": ""
+  },
+  "summColor": {
+   "v": "dead",
+   "on": "pie",
+   "note": ""
+  },
+  "labelsTemplate": {
+   "v": "ok",
+   "on": "pie"
+  },
+  "balloonTemplate": {
+   "v": "cfg",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.template": {
+   "v": "ok",
+   "on": "pie"
+  },
+  "labels.visible": {
+   "v": "ok",
+   "on": "pie"
+  },
+  "labels.outer.color": {
+   "v": "ok",
+   "on": "pie"
+  },
+  "labels.outer.fontsize": {
+   "v": "ok",
+   "on": "pie"
+  },
+  "labels.inner.fontsize": {
+   "v": "na",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.fontSize": {
+   "v": "dead",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.labelsColor": {
+   "v": "dead",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.position": {
+   "v": "ok",
+   "on": "bar",
+   "note": ""
+  },
+  "labels.angle": {
+   "v": "amb",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.hidePercent": {
+   "v": "ok",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.bypassCollisions": {
+   "v": "amb",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.outerLabelsAngle": {
+   "v": "dead",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.groupCount": {
+   "v": "ok",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.groupPercent": {
+   "v": "ok",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.groupedTitle__ru": {
+   "v": "dead",
+   "on": "pie",
+   "note": ""
+  },
+  "labels.switchControlNumberOfSegments": {
+   "v": "cfg",
+   "on": "pie",
+   "note": ""
+  },
+  "visuals.innerRadius": {
+   "v": "dead",
+   "on": "pie",
+   "note": ""
+  },
+  "visuals.startAngle": {
+   "v": "dead",
+   "on": "pie",
+   "note": ""
+  },
+  "table.headersBackground": {
+   "v": "ok",
+   "on": "table"
+  },
+  "table.headersColor": {
+   "v": "ok",
+   "on": "table"
+  },
+  "table.zebraType": {
+   "v": "ok",
+   "on": "table"
+  },
+  "table.zebraColor": {
+   "v": "ok",
+   "on": "table"
+  },
+  "table.precision": {
+   "v": "ok",
+   "on": "table"
+  },
+  "table.linkByForRow": {
+   "v": "ok",
+   "on": "table"
+  },
+  "table.showNumberLineInHeader": {
+   "v": "dead",
+   "on": "table",
+   "note": ""
+  },
+  "table.theme": {
+   "v": "ok",
+   "on": "table",
+   "note": ""
+  },
+  "regimes.cellHeight": {
+   "v": "dead",
+   "on": "table",
+   "note": ""
+  },
+  "regimes.headerHeight": {
+   "v": "dead",
+   "on": "table",
+   "note": ""
+  },
+  "regimes.totals": {
+   "v": "ok",
+   "on": "table"
+  },
+  "regimes.subtotals": {
+   "v": "dead",
+   "on": "table",
+   "note": ""
+  },
+  "regimes.fixedColumns": {
+   "v": "ok",
+   "on": "table"
+  },
+  "regimes.autoWidth": {
+   "v": "ok",
+   "on": "table",
+   "note": ""
+  },
+  "regimes.multilineHeader": {
+   "v": "ok",
+   "on": "table",
+   "note": ""
+  },
+  "regimes.resizable": {
+   "v": "cfg",
+   "on": "table",
+   "note": ""
+  },
+  "regimes.columnDrag": {
+   "v": "cfg",
+   "on": "table",
+   "note": ""
+  },
+  "sort.headerClickSort": {
+   "v": "cfg",
+   "on": "table",
+   "note": ""
+  },
+  "sort.multiColumnSort": {
+   "v": "cfg",
+   "on": "table",
+   "note": ""
+  },
+  "margin.l": {
+   "v": "ok",
+   "on": "treemap",
+   "note": ""
+  },
+  "margin.r": {
+   "v": "ok",
+   "on": "treemap",
+   "note": ""
+  },
+  "margin.t": {
+   "v": "ok",
+   "on": "treemap",
+   "note": ""
+  },
+  "margin.b": {
+   "v": "ok",
+   "on": "treemap",
+   "note": ""
+  },
+  "margin.pad": {
+   "v": "ok",
+   "on": "treemap",
+   "note": ""
+  },
+  "outline.enabled": {
+   "v": "ok",
+   "on": "table"
+  },
+  "outline.color": {
+   "v": "ok",
+   "on": "table"
+  },
+  "outline.width": {
+   "v": "ok",
+   "on": "table"
+  },
+  "grid.gridType": {
+   "v": "ok",
+   "on": "radar"
+  },
+  "grid.radarLabels": {
+   "v": "ok",
+   "on": "radar"
+  },
+  "grid.filled": {
+   "v": "ok",
+   "on": "radar",
+   "note": ""
+  },
+  "visuals.colorMin": {
+   "v": "ok",
+   "on": "parallel",
+   "note": ""
+  },
+  "visuals.colorMax": {
+   "v": "ok",
+   "on": "parallel",
+   "note": ""
+  },
+  "delta.delta": {
+   "v": "cfg",
+   "on": "totals",
+   "note": ""
+  },
+  "delta.percent": {
+   "v": "cfg",
+   "on": "totals",
+   "note": ""
+  },
+  "flip": {
+   "v": "ok",
+   "on": "totals"
+  },
+  "bubble.bigNumberSuffixes": {
+   "v": "ok",
+   "on": "bubble",
+   "note": ""
+  },
+  "bubble.precision": {
+   "v": "ok",
+   "on": "bubble"
+  },
+  "bubble.showScrollbars": {
+   "v": "ok",
+   "on": "bubble",
+   "note": ""
+  },
+  "bubble.legendForColor": {
+   "v": "ok",
+   "on": "bubble"
+  },
+  "bubble.legendForSize": {
+   "v": "ok",
+   "on": "bubble"
+  },
+  "bubble.strictMinMax": {
+   "v": "ok",
+   "on": "bubble"
+  },
+  "bubble.zoomToEdges": {
+   "v": "dead",
+   "on": "bubble",
+   "note": ""
+  },
+  "bubble.filterMode": {
+   "v": "cfg",
+   "on": "bubble",
+   "note": ""
+  },
+  "visuals.bubbleMinSize": {
+   "v": "ok",
+   "on": "bubble"
+  },
+  "visuals.bubbleMaxSize": {
+   "v": "ok",
+   "on": "bubble"
+  },
+  "pivot.headerBackgroundColor": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.headerTextColor": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.headerFontSize": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.headerHeight": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.headerAling": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.headerHorWordWrapEnabled": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.hideMeasuresHeader": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.fontFamily": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.borderColor": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.numbersEnabled": {
+   "v": "ok",
+   "on": "pivot",
+   "note": ""
+  },
+  "pivot.precision": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "pivot.nullVisible": {
+   "v": "na",
+   "on": "pivot",
+   "note": ""
+  },
+  "pivot.theme": {
+   "v": "amb",
+   "on": "pivot",
+   "note": ""
+  },
+  "pivot.showPanel": {
+   "v": "dead",
+   "on": "pivot",
+   "note": ""
+  },
+  "pivot.autoHeightEnabled": {
+   "v": "cfg",
+   "on": "pivot",
+   "note": ""
+  },
+  "pivot.autoWidthEnabled": {
+   "v": "cfg",
+   "on": "pivot",
+   "note": ""
+  },
+  "pivot.groupByOptimization": {
+   "v": "cfg",
+   "on": "pivot",
+   "note": ""
+  },
+  "pivot.dateFormat": {
+   "v": "na",
+   "on": "pivot",
+   "note": ""
+  },
+  "totals.grandSumsFixed": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "totals.sumRowAtTop": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "totals.noGrandSumsY": {
+   "v": "ok",
+   "on": "pivot"
+  },
+  "totals.sumColumnAtLeft": {
+   "v": "ok",
+   "on": "pivot",
+   "note": ""
+  },
+  "totals.noGrandSumsX": {
+   "v": "ok",
+   "on": "pivot",
+   "note": ""
+  },
+  "totals.noSums": {
+   "v": "na",
+   "on": "pivot",
+   "note": ""
+  },
+  "sunburst.colorsEnabled": {
+   "v": "ok",
+   "on": "sunburst"
+  },
+  "sunburst.fontFamily": {
+   "v": "ok",
+   "on": "sunburst"
+  },
+  "sunburst.fontSize": {
+   "v": "ok",
+   "on": "sunburst",
+   "note": ""
+  },
+  "sunburst.darkLabels": {
+   "v": "ok",
+   "on": "sunburst"
+  },
+  "sunburst.ellipsisLength": {
+   "v": "ok",
+   "on": "sunburst"
+  },
+  "sunburst.layerButtons": {
+   "v": "ok",
+   "on": "sunburst",
+   "note": ""
+  },
+  "sunburst.visibleLayers": {
+   "v": "ok",
+   "on": "sunburst",
+   "note": ""
+  },
+  "sunburst.splittedMode": {
+   "v": "amb",
+   "on": "sunburst",
+   "note": ""
+  },
+  "sunburst.minPercent": {
+   "v": "dead",
+   "on": "sunburst",
+   "note": ""
+  },
+  "sunburst.precision": {
+   "v": "na",
+   "on": "sunburst",
+   "note": ""
+  },
+  "sunburst.layerExpand": {
+   "v": "cfg",
+   "on": "sunburst",
+   "note": ""
+  },
+  "sunburst.filterMode": {
+   "v": "cfg",
+   "on": "sunburst",
+   "note": ""
+  },
+  "treemap.precision": {
+   "v": "ok",
+   "on": "treemap"
+  },
+  "labels.valuesFontSize": {
+   "v": "ok",
+   "on": "treemap",
+   "note": ""
+  },
+  "labels.valuesTopMargin": {
+   "v": "ok",
+   "on": "treemap",
+   "note": ""
+  },
+  "treemap.filterMode": {
+   "v": "cfg",
+   "on": "treemap",
+   "note": ""
+  },
+  "graph.layout": {
+   "v": "ok",
+   "on": "treegraph",
+   "note": ""
+  },
+  "graph.initialZoom": {
+   "v": "ok",
+   "on": "treegraph"
+  },
+  "graph.zoomable": {
+   "v": "ok",
+   "on": "treegraph",
+   "note": ""
+  },
+  "tilemap.legendX": {
+   "v": "dead",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.legendY": {
+   "v": "dead",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.startColor": {
+   "v": "ok",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.endColor": {
+   "v": "ok",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.bgTileColor": {
+   "v": "dead",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.legendVisible": {
+   "v": "ok",
+   "on": "tilemap"
+  },
+  "tilemap.tileSize": {
+   "v": "ok",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.tileType": {
+   "v": "dead",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.nameFontSize": {
+   "v": "ok",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.specialTiles": {
+   "v": "ok",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.popup": {
+   "v": "cfg",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.autoZoom": {
+   "v": "cfg",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.allowTiles": {
+   "v": "cfg",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.grouping": {
+   "v": "ok",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.deltaK": {
+   "v": "ok",
+   "on": "tilemap",
+   "note": ""
+  },
+  "tilemap.filterMode": {
+   "v": "cfg",
+   "on": "tilemap",
+   "note": ""
+  },
+  "grid.tickCount": {
+   "v": "ok",
+   "on": "speedometer"
+  },
+  "grid.minorTickCount": {
+   "v": "ok",
+   "on": "speedometer"
+  },
+  "grid.color": {
+   "v": "ok",
+   "on": "speedometer",
+   "note": ""
+  },
+  "grid.labelsColor": {
+   "v": "ok",
+   "on": "speedometer"
+  },
+  "grid.startAngle": {
+   "v": "ok",
+   "on": "speedometer",
+   "note": ""
+  },
+  "grid.endAngle": {
+   "v": "ok",
+   "on": "speedometer"
+  },
+  "grid.labelFrequency": {
+   "v": "ok",
+   "on": "speedometer",
+   "note": ""
+  },
+  "grid.width": {
+   "v": "dead",
+   "on": "speedometer",
+   "note": ""
+  },
+  "grid.min": {
+   "v": "ok",
+   "on": "speedometer"
+  },
+  "grid.max": {
+   "v": "ok",
+   "on": "speedometer"
+  },
+  "grid.roundLimits": {
+   "v": "ok",
+   "on": "speedometer"
+  },
+  "grid.gradeCount": {
+   "v": "dead",
+   "on": "speedometer",
+   "note": ""
+  },
+  "grid.paletteColors": {
+   "v": "dead",
+   "on": "speedometer",
+   "note": ""
+  },
+  "grid.paletteInvert": {
+   "v": "dead",
+   "on": "speedometer",
+   "note": ""
+  },
+  "grid.gradientMode": {
+   "v": "dead",
+   "on": "speedometer",
+   "note": ""
+  },
+  "gauge.backgroundColor": {
+   "v": "ok",
+   "on": "speedometer",
+   "note": ""
+  },
+  "viewType.displayType": {
+   "v": "ok",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.multiselect": {
+   "v": "ok",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.addInvertedSwitch": {
+   "v": "dead",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.searchEnabled": {
+   "v": "cfg",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.clearSelection": {
+   "v": "cfg",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.resetEnabled": {
+   "v": "rej",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.showAll": {
+   "v": "rej",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.inversed": {
+   "v": "cfg",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.hideEmptyLines": {
+   "v": "cfg",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.sortSelectedOptionsToTop": {
+   "v": "cfg",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.unlimitedSearch": {
+   "v": "cfg",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.updateOnApply": {
+   "v": "cfg",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.updateOnCloseDropdown": {
+   "v": "cfg",
+   "on": "filterControl",
+   "note": ""
+  },
+  "viewType.autoApply": {
+   "v": "cfg",
+   "on": "filterControl",
+   "note": ""
+  },
+  "switch.selectorTitleOverride": {
+   "v": "ok",
+   "on": "switch",
+   "note": ""
+  },
+  "switch.filterType": {
+   "v": "ok",
+   "on": "switch",
+   "note": ""
+  },
+  "hierFilter.filterTitle": {
+   "v": "ok",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.headerWidth": {
+   "v": "ok",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.hideTitle": {
+   "v": "ok",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.multipleChoice": {
+   "v": "ok",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.bothChoice": {
+   "v": "ok",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.updateOnApply": {
+   "v": "ok",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.searchInBaseMode": {
+   "v": "amb",
+   "on": "hierfilter",
+   "note": ""
+  },
+  "hierFilter.inversed": {
+   "v": "cfg",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.noLoadOptions": {
+   "v": "cfg",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.searchInBaseMinNumber": {
+   "v": "cfg",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.sortSelectedOptionsToTop": {
+   "v": "cfg",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "hierFilter.updateOnCloseDropdown": {
+   "v": "cfg",
+   "on": "hierFilter",
+   "note": ""
+  },
+  "image.src": {
+   "v": "ok",
+   "on": "imagePanel",
+   "note": ""
+  },
+  "image.backgroundSize": {
+   "v": "ok",
+   "on": "imagePanel",
+   "note": ""
+  },
+  "image.backgroundPosition": {
+   "v": "ok",
+   "on": "imagePanel",
+   "note": ""
+  },
+  "image.backgroundStyle": {
+   "v": "ok",
+   "on": "imagePanel",
+   "note": ""
+  },
+  "image.titleColor": {
+   "v": "cfg",
+   "on": "imagePanel",
+   "note": ""
+  },
+  "image.titleSize": {
+   "v": "cfg",
+   "on": "imagePanel",
+   "note": ""
+  },
+  "image.linkName": {
+   "v": "cfg",
+   "on": "imagePanel",
+   "note": ""
+  },
+  "image.linkTarget": {
+   "v": "cfg",
+   "on": "imagePanel",
+   "note": ""
+  },
+  "iframe.linkName": {
+   "v": "ok",
+   "on": "iframe",
+   "note": ""
+  },
+  "iframe.linkTarget": {
+   "v": "ok",
+   "on": "iframe",
+   "note": ""
+  },
+  "text.maximizable": {
+   "v": "ok",
+   "on": "textBlock",
+   "note": ""
+  },
+  "text.noexport": {
+   "v": "cfg",
+   "on": "textBlock",
+   "note": ""
+  },
+  "tabs.orientation": {
+   "v": "ok",
+   "on": "tabsPanel",
+   "note": ""
+  },
+  "tabs.height": {
+   "v": "ok",
+   "on": "tabsPanel",
+   "note": ""
+  },
+  "tabs.autoApply": {
+   "v": "cfg",
+   "on": "tabsPanel",
+   "note": ""
+  },
+  "tabs.visuals": {
+   "v": "amb",
+   "on": "tabsPanel",
+   "note": ""
+  },
+  "stock.dateZoomPanel": {
+   "v": "ok",
+   "on": "stock",
+   "note": ""
+  },
+  "stock.dateRangePanel": {
+   "v": "ok",
+   "on": "stock",
+   "note": ""
+  },
+  "stock.scrollbarDisabled": {
+   "v": "ok",
+   "on": "stock",
+   "note": ""
+  },
+  "stock.altAxisEnabled": {
+   "v": "ok",
+   "on": "stock",
+   "note": ""
+  },
+  "stock.dateAxisZigzag": {
+   "v": "ok",
+   "on": "stock",
+   "note": ""
+  },
+  "stock.dateAxisMinGridDistance": {
+   "v": "ok",
+   "on": "stock",
+   "note": ""
+  },
+  "stock.dateAxisTickangle": {
+   "v": "ok",
+   "on": "stock",
+   "note": ""
+  },
+  "stock.dateFormat": {
+   "v": "dead",
+   "on": "stock",
+   "note": ""
+  },
+  "stock.dateAxisMaxWidth": {
+   "v": "amb",
+   "on": "stock",
+   "note": ""
+  },
+  "stock.refresh": {
+   "v": "cfg",
+   "on": "stock",
+   "note": ""
+  },
+  "bgColor": {
+   "v": "ok",
+   "on": "generic@bar",
+   "note": ""
+  },
+  "showtitle": {
+   "v": "ok",
+   "on": "generic@bar",
+   "note": ""
+  },
+  "orientation": {
+   "v": "ok",
+   "on": "generic@bar",
+   "note": ""
+  },
+  "stacking": {
+   "v": "ok",
+   "on": "generic@bar",
+   "note": ""
+  },
+  "numberPrecision": {
+   "v": "ok",
+   "on": "generic@totals",
+   "note": ""
+  },
+  "fontSize": {
+   "v": "dead",
+   "on": "generic@bar",
+   "note": ""
+  },
+  "gradient": {
+   "v": "ok",
+   "on": "totals",
+   "note": ""
+  },
+  "visuals.mainColor": {
+   "v": "dead",
+   "on": "generic@bar",
+   "note": ""
+  },
+  "visuals.autoColor": {
+   "v": "ok",
+   "on": "bar",
+   "note": ""
+  },
+  "visuals.colorPalette": {
+   "v": "dead",
+   "on": "generic@bar",
+   "note": ""
+  },
+  "bgColor2": {
+   "v": "ok",
+   "on": "totals",
+   "note": ""
+  },
+  "scrollbars": {
+   "v": "dead",
+   "on": "generic@bar",
+   "note": ""
+  },
+  "percentPrecision": {
+   "v": "cfg",
+   "on": "generic@totals",
+   "note": ""
+  },
+  "nocopy": {
+   "v": "cfg",
+   "on": "generic",
+   "note": ""
+  },
+  "noexport": {
+   "v": "cfg",
+   "on": "generic",
+   "note": ""
+  },
+  "hideSpinner": {
+   "v": "cfg",
+   "on": "generic",
+   "note": ""
+  },
+  "link.operation": {
+   "v": "cfg",
+   "on": "generic",
+   "note": ""
+  },
+  "map.background.allowTiles": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.background.tileUrl": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.legend.discrete": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.legend.gradeNumber": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.legend.position": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.legend.visible": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.labelsSize": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.showLabels": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.showValues": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.valuesPrecision": {
+   "v": "ok",
+   "on": "map",
+   "note": ""
+  },
+  "map.center.lat": {
+   "v": "dead",
+   "on": "map",
+   "note": ""
+  },
+  "map.center.lng": {
+   "v": "dead",
+   "on": "map",
+   "note": ""
+  },
+  "map.initialZoom": {
+   "v": "dead",
+   "on": "map",
+   "note": ""
+  },
+  "map.autoCenter": {
+   "v": "dead",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.minSize": {
+   "v": "amb",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.maxSize": {
+   "v": "amb",
+   "on": "map",
+   "note": ""
+  },
+  "map.background.backgroundColor": {
+   "v": "dead",
+   "on": "map",
+   "note": ""
+  },
+  "map.legend.invertColors": {
+   "v": "amb",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.clustering": {
+   "v": "amb",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.clusteringThreshold": {
+   "v": "amb",
+   "on": "map",
+   "note": ""
+  },
+  "map.annotationOpacity": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.annotationText": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.background.allowTiles2": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.filterMode": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.legend.withFilters": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.fixedExtent": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.gradeNumberForSize": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.isLinearScale": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.labelMinZoom": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.maxValue": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.maxValueColor": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.showMaxValue": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.showTooltip": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.tooltipSize": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.markers.tooltipWordWrap": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.multilayerMode": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.showSmallObjects": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "map.titleBrightness": {
+   "v": "cfg",
+   "on": "map",
+   "note": ""
+  },
+  "audio.backgroundColor": {
+   "v": "na",
+   "on": "audioplayer",
+   "note": ""
+  },
+  "audio.progressBarBackgroundColor": {
+   "v": "na",
+   "on": "audioplayer",
+   "note": ""
+  },
+  "audio.progressBarColor": {
+   "v": "na",
+   "on": "audioplayer",
+   "note": ""
+  },
+  "balloon.bgColor": {
+   "v": "cfg",
+   "on": "balloon",
+   "note": ""
+  },
+  "balloon.combine": {
+   "v": "cfg",
+   "on": "balloon",
+   "note": ""
+  },
+  "balloon.fontColor": {
+   "v": "cfg",
+   "on": "balloon",
+   "note": ""
+  },
+  "balloon.fontSize": {
+   "v": "cfg",
+   "on": "balloon",
+   "note": ""
+  },
+  "balloon.template": {
+   "v": "cfg",
+   "on": "balloon",
+   "note": ""
+  },
+  "balloon.visible": {
+   "v": "cfg",
+   "on": "balloon",
+   "note": ""
+  },
+  "comparison.object1": {
+   "v": "na",
+   "on": "comparison",
+   "note": ""
+  },
+  "comparison.object2": {
+   "v": "na",
+   "on": "comparison",
+   "note": ""
+  },
+  "comparison.precision": {
+   "v": "na",
+   "on": "comparison",
+   "note": ""
+  },
+  "comparison.showDelta": {
+   "v": "na",
+   "on": "comparison",
+   "note": ""
+  },
+  "comparison.showPercent": {
+   "v": "na",
+   "on": "comparison",
+   "note": ""
+  },
+  "data.autofillEmptySeries": {
+   "v": "cfg",
+   "on": "data",
+   "note": ""
+  },
+  "data.intervalRefresh": {
+   "v": "cfg",
+   "on": "data",
+   "note": ""
+  },
+  "data.intervalSeconds": {
+   "v": "cfg",
+   "on": "data",
+   "note": ""
+  },
+  "data.rowsLimit": {
+   "v": "cfg",
+   "on": "data",
+   "note": ""
+  },
+  "data.rowsLimitToExport": {
+   "v": "cfg",
+   "on": "data",
+   "note": ""
+  },
+  "data.rowsLimitToShow": {
+   "v": "cfg",
+   "on": "data",
+   "note": ""
+  },
+  "data.seriesLimitToShow": {
+   "v": "cfg",
+   "on": "data",
+   "note": ""
+  },
+  "map.clusterMarkers": {
+   "v": "na",
+   "on": "deprecated",
+   "note": ""
+  },
+  "visuals.fillOpacity": {
+   "v": "na",
+   "on": "deprecated",
+   "note": ""
+  },
+  "audio.uploadURL": {
+   "v": "amb",
+   "on": "audioplayer",
+   "note": ""
+  },
+  "audio.url": {
+   "v": "amb",
+   "on": "audioplayer",
+   "note": ""
+  },
+  "parallel.tableSize": {
+   "v": "ok",
+   "on": "parallel",
+   "note": ""
+  }
+ }
+}

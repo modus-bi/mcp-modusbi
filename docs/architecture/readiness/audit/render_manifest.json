@@ -1,0 +1,3920 @@
+{
+ "_meta": {
+  "purpose": "per-component render-contract: какие config-ключи фронт-РЕНДЕР реально читает",
+  "source": "ИСТИНА (render) — empirical UI-verify (browser); evidence.bundle — слабый статический приор",
+  "legend": {
+   "ok": "renders",
+   "dead": "render-dead",
+   "cfg": "config-only",
+   "amb": "ambiguous",
+   "na": "not-applicable",
+   "rej": "value-rejected"
+  },
+  "components_count": 28,
+  "evidence_fields": {
+   "browser": "authoritative — что рендер реально показал (verdicts.json)",
+   "bundle": "слабый приор из gen_render_candidates (минифай-бандл) — НЕ источник истины",
+   "bundle_agrees_browser": "согласуется ли бандл-кандидат с браузером (False = бандл ввёл бы в заблуждение)"
+  },
+  "bundle_would_mislead": "0/0 размеченных (бандл расходится с браузером)",
+  "note": "render!=panel: ключ может читаться панелью настроек, но игнорироваться рендером (см. render-dead)"
+ },
+ "components": {
+  "FilterControlPanel": {
+   "viewType.addInvertedSwitch": {
+    "writes": "addInversedFilter",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.autoApply": {
+    "writes": "autoApply",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.clearSelection": {
+    "writes": "clearSelection",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.displayType": {
+    "writes": "filterType",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.hideEmptyLines": {
+    "writes": "hideEmptyLines",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.inversed": {
+    "writes": "inversed",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.multiselect": {
+    "writes": "multipleChoice",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.resetEnabled": {
+    "writes": "(deprecated → не пишется)",
+    "render": "value-rejected",
+    "reason": "",
+    "evidence": {
+     "browser": "value-rejected",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.searchEnabled": {
+    "writes": "searchInBaseMode",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.showAll": {
+    "writes": "(deprecated → не пишется)",
+    "render": "value-rejected",
+    "reason": "",
+    "evidence": {
+     "browser": "value-rejected",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.sortSelectedOptionsToTop": {
+    "writes": "sortSelectedOptionsToTop",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.unlimitedSearch": {
+    "writes": "unlimitedSearch",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.updateOnApply": {
+    "writes": "updateOnApply",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "viewType.updateOnCloseDropdown": {
+    "writes": "updateOnCloseDropdown",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "GENERIC": {
+   "axes.autoZoom": {
+    "writes": "axes[1].autoZoom",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.categoryGrid": {
+    "writes": "axes[0].showgrid",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.categoryLabelAngle": {
+    "writes": "axes[0].tickangle",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.categoryLabels": {
+    "writes": "axes[0].showlabels",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.categoryMaxLabelWidth": {
+    "writes": "axes[0].maxLabelWidth",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.categoryMinGridWidth": {
+    "writes": "axes[0].minGridWidth",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.categoryScale": {
+    "writes": "axes[0].showscale",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.categoryScrollable": {
+    "writes": "axes[0].scrollable",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.categoryScrollbar": {
+    "writes": "axes[0].fixedZoom",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.categoryTitle": {
+    "writes": "axes[0].showtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.customZoom": {
+    "writes": "axes[0].customZoom",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.firstLabel": {
+    "writes": "axes[1].showFirstLabel",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.firstTick": {
+    "writes": "axes[1].showFirstTick",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.labelsAccuracy": {
+    "writes": "axes[1].labelsAccuracy",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.lastLabel": {
+    "writes": "axes[1].showLastLabel",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.lastTick": {
+    "writes": "axes[1].showLastTick",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.rangeMode": {
+    "writes": "axes[1].rangeMode",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.scaleType": {
+    "writes": "axes[1].scaleType",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.selectedFieldIndex": {
+    "writes": "axes[1].selectedFieldIndex",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.sortable": {
+    "writes": "axes[1].sortable",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.valueGrid": {
+    "writes": "axes[1].showgrid",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.valueLabels": {
+    "writes": "axes[1].showlabels",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.valueScale": {
+    "writes": "axes[1].showscale",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.valueShowMax": {
+    "writes": "axes[1].showMax",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.valueShowMin": {
+    "writes": "axes[1].showMin",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "axes.valueTitle": {
+    "writes": "axes[1].showtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "balloon.bgColor": {
+    "writes": "balloon.bgcolor",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "balloon.combine": {
+    "writes": "balloon.allSeriesPop (inverted)",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "balloon.fontColor": {
+    "writes": "balloon.color",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "balloon.fontSize": {
+    "writes": "balloon.fontsize",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "balloon.template": {
+    "writes": "balloonTemplate",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "balloon.visible": {
+    "writes": "balloon.visible",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "bgColor": {
+    "writes": "bgColor  [per-type: totalsPanelV2→backgroundColor, imagePanel→backgroundColor, iframe→backgroundColor, speedometerV2→backgroundColor]",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "bgColor2": {
+    "writes": "bgColor2  [per-type: totalsPanelV2→backgroundColor2]",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.autofillEmptySeries": {
+    "writes": "series.autoFill",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.intervalRefresh": {
+    "writes": "refresh",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.intervalSeconds": {
+    "writes": "refreshTime",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.rowsLimit": {
+    "writes": "rowsLimit",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.rowsLimitToExport": {
+    "writes": "rowsLimitToExport",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.rowsLimitToShow": {
+    "writes": "rowsLimitToShow",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.seriesLimitToShow": {
+    "writes": "seriesLimitToShow",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "fontSize": {
+    "writes": "fontSize",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "gradient": {
+    "writes": "gradient  [per-type: totalsPanelV2→gradientEnabled]",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hideSpinner": {
+    "writes": "hideSpinner",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.angle": {
+    "writes": "labels.angle",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.bypassCollisions": {
+    "writes": "bypassCheckCollisions",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.fontSize": {
+    "writes": "labels.inner.fontsize",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.hidePercent": {
+    "writes": "labels.hidePercent",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.inner.fontsize": {
+    "writes": "labels.inner.fontsize",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.labelsColor": {
+    "writes": "labels.inner.color",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.outer.color": {
+    "writes": "labels.outer.color",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.outer.fontsize": {
+    "writes": "labels.outer.fontsize",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.position": {
+    "writes": "labels.position",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.template": {
+    "writes": "labels.template",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.visible": {
+    "writes": "labels.visible",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.bgColor": {
+    "writes": "legend.bgcolor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.borderColor": {
+    "writes": "legend.bordercolor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.borderWidth": {
+    "writes": "legend.borderwidth",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.fontSize": {
+    "writes": "legend.fontSize",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.order": {
+    "writes": "legend.order",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.orientation": {
+    "writes": "legend.orientation",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.percent": {
+    "writes": "legend.percent",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.position": {
+    "writes": "legend.position",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.reverse": {
+    "writes": "(section-derived / transform)",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "legend.visible": {
+    "writes": "legend.visible",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "link.operation": {
+    "writes": "link.operation",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "margin.b": {
+    "writes": "margin.b",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "margin.l": {
+    "writes": "margin.l",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "margin.pad": {
+    "writes": "margin.pad",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "margin.r": {
+    "writes": "margin.r",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "margin.t": {
+    "writes": "margin.t",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "nocopy": {
+    "writes": "nocopy",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "noexport": {
+    "writes": "noexport",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "numberPrecision": {
+    "writes": "numberPrecision  [per-type: totalsPanelV2→precision]",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "orientation": {
+    "writes": "orientation",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "outline.color": {
+    "writes": "outline.color",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "outline.enabled": {
+    "writes": "outline.enabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "outline.width": {
+    "writes": "outline.width",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "percentPrecision": {
+    "writes": "percentPrecision",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "regimes.autoWidth": {
+    "writes": "settings.AllowAutoWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "regimes.cellHeight": {
+    "writes": "settings.CellHeight",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "regimes.columnDrag": {
+    "writes": "settings.AllowColumnDnD",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "regimes.fixedColumns": {
+    "writes": "fixNumber",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "regimes.headerHeight": {
+    "writes": "fixHeaderHeight",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "regimes.multilineHeader": {
+    "writes": "settings.AllowMultilineHeader",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "regimes.resizable": {
+    "writes": "settings.AllowResizable",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "regimes.subtotals": {
+    "writes": "subMode",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "regimes.totals": {
+    "writes": "subAllMode",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "scrollbars": {
+    "writes": "scrollbars",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "showtitle": {
+    "writes": "showtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sort.headerClickSort": {
+    "writes": "sortTapable",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sort.multiColumnSort": {
+    "writes": "sortMultiple",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stacking": {
+    "writes": "stacking",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.autoColor": {
+    "writes": "styleCommons.autoColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.colorPalette": {
+    "writes": "visuals[0].colorPalette",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.mainColor": {
+    "writes": "visuals[0].mainColor",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "SwitchControlPanel": {
+   "switch.filterType": {
+    "writes": "filterType",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "switch.selectorTitleOverride": {
+    "writes": "selectorTitleOverride",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "areaChart": {
+   "expandH": {
+    "writes": "expandH",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "expandV": {
+    "writes": "expandV",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "main.extraAxis": {
+    "writes": "main.extraAxis",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.autoColor": {
+    "writes": "styleCommons.autoColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.clustered": {
+    "writes": "styleCommons.clustered",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.labelsEnabled": {
+    "writes": "labels.visible",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.lineMode": {
+    "writes": "styleCommons.lineMode",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.lineWidth": {
+    "writes": "styleCommons.lineWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.markerMode": {
+    "writes": "styleCommons.markerMode",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.markerWidth": {
+    "writes": "styleCommons.markerWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.outlineWidth": {
+    "writes": "styleCommons.outlineWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.smoothing": {
+    "writes": "styleCommons.smoothing",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.visType": {
+    "writes": "styleCommons.visType",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.fillOpacity": {
+    "writes": "(deprecated → не пишется)",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.lineDashStyle": {
+    "writes": "styleCommons.lineMode",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.lineWidth": {
+    "writes": "visuals[0].lineWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.markerLabels": {
+    "writes": "visuals[0].markerLabels",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.markerSize": {
+    "writes": "styleCommons.markerWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.markerType": {
+    "writes": "styleCommons.markerMode",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.smoothing": {
+    "writes": "visuals[0].smoothing",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "audioplayer": {
+   "audio.backgroundColor": {
+    "writes": "backgroundColor",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "audio.progressBarBackgroundColor": {
+    "writes": "progressBarBackgroundColor",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "audio.progressBarColor": {
+    "writes": "progressBarColor",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "audio.uploadURL": {
+    "writes": "resource.uploadURL",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "audio.url": {
+    "writes": "resource.url",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "barChart": {
+   "data.baseColor": {
+    "writes": "baseColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.colorStep": {
+    "writes": "colorStep",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "expandH": {
+    "writes": "expandH",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "expandV": {
+    "writes": "expandV",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "main.extraAxis": {
+    "writes": "main.extraAxis",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.autoColor": {
+    "writes": "styleCommons.autoColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.smoothing": {
+    "writes": "styleCommons.smoothing",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.chartType": {
+    "writes": "visualType",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.clustered": {
+    "writes": "styleCommons.clustered (inverted)",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.columnBorderRadius": {
+    "writes": "visuals[0].columnBorderRadius",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.columnWidth": {
+    "writes": "styleCommons.columnWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "bubbleChart": {
+   "bubble.bigNumberSuffixes": {
+    "writes": "bigNumberSuffixes",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "bubble.filterMode": {
+    "writes": "filterMode",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "bubble.legendForColor": {
+    "writes": "legendForColor.enabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "bubble.legendForSize": {
+    "writes": "legendForSize.enabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "bubble.precision": {
+    "writes": "precision",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "bubble.showScrollbars": {
+    "writes": "hideScrollbars (inverted)",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "bubble.strictMinMax": {
+    "writes": "strictMinMaxEnabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "bubble.zoomToEdges": {
+    "writes": "zoomToBubbleEdges",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.bubbleMaxSize": {
+    "writes": "maxRadius",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.bubbleMinSize": {
+    "writes": "minRadius",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.markerLabels": {
+    "writes": "visuals[0].markerLabels",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "comparisonChart": {
+   "comparison.object1": {
+    "writes": "object1",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "comparison.object2": {
+    "writes": "object2",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "comparison.precision": {
+    "writes": "precision",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "comparison.showDelta": {
+    "writes": "showDelta",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "comparison.showPercent": {
+    "writes": "showPercent",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "hierarchicalFilterPanel": {
+   "hierFilter.bothChoice": {
+    "writes": "bothChoice",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.filterTitle": {
+    "writes": "filterTitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.headerWidth": {
+    "writes": "headerWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.hideTitle": {
+    "writes": "hideTitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.inversed": {
+    "writes": "inversed",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.multipleChoice": {
+    "writes": "multipleChoice",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.noLoadOptions": {
+    "writes": "noLoadOptions",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.searchInBaseMinNumber": {
+    "writes": "searchInBaseMinNumber",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.searchInBaseMode": {
+    "writes": "searchInBaseMode",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.sortSelectedOptionsToTop": {
+    "writes": "sortSelectedOptionsToTop",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.updateOnApply": {
+    "writes": "updateOnApply",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "hierFilter.updateOnCloseDropdown": {
+    "writes": "updateOnCloseDropdown",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "iframe": {
+   "iframe.linkName": {
+    "writes": "link.name",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "iframe.linkTarget": {
+    "writes": "link.target",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "imagePanel": {
+   "image.backgroundPosition": {
+    "writes": "backgroundPosition",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "image.backgroundSize": {
+    "writes": "backgroundSize",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "image.backgroundStyle": {
+    "writes": "backgroundStyle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "image.linkName": {
+    "writes": "link.name",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "image.linkTarget": {
+    "writes": "link.target",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "image.src": {
+    "writes": "image.path",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "image.titleColor": {
+    "writes": "titleColor",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "image.titleSize": {
+    "writes": "titleSize",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "lineChart": {
+   "expandH": {
+    "writes": "expandH",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "expandV": {
+    "writes": "expandV",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "main.extraAxis": {
+    "writes": "main.extraAxis",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.autoColor": {
+    "writes": "styleCommons.autoColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.clustered": {
+    "writes": "styleCommons.clustered",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.labelsEnabled": {
+    "writes": "labels.visible",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.lineMode": {
+    "writes": "styleCommons.lineMode",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.lineWidth": {
+    "writes": "styleCommons.lineWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.markerMode": {
+    "writes": "styleCommons.markerMode",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.markerWidth": {
+    "writes": "styleCommons.markerWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.outlineWidth": {
+    "writes": "styleCommons.outlineWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.smoothing": {
+    "writes": "styleCommons.smoothing",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "style.visType": {
+    "writes": "styleCommons.visType",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.lineDashStyle": {
+    "writes": "styleCommons.lineMode",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.lineWidth": {
+    "writes": "visuals[0].lineWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.markerLabels": {
+    "writes": "visuals[0].markerLabels",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.markerSize": {
+    "writes": "styleCommons.markerWidth",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.markerType": {
+    "writes": "styleCommons.markerMode",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.smoothing": {
+    "writes": "visuals[0].smoothing",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "mapLeaflet": {
+   "map.annotationOpacity": {
+    "writes": "annotationOpacity",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.annotationText": {
+    "writes": "annotation",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.autoCenter": {
+    "writes": "autoCenter",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.background.allowTiles": {
+    "writes": "background.allowTiles",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.background.allowTiles2": {
+    "writes": "background.allowTiles2",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.background.backgroundColor": {
+    "writes": "background.backgroundColor",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.background.tileUrl": {
+    "writes": "background.tileUrl",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.center.lat": {
+    "writes": "center.lat",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.center.lng": {
+    "writes": "center.lng",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.clusterMarkers": {
+    "writes": "(deprecated → не пишется)",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.filterMode": {
+    "writes": "filterMode",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.initialZoom": {
+    "writes": "initialZoom",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.legend.discrete": {
+    "writes": "legend.discrete",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.legend.gradeNumber": {
+    "writes": "legend.gradeNumber",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.legend.invertColors": {
+    "writes": "legend.invertColors",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.legend.position": {
+    "writes": "legend.position",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.legend.visible": {
+    "writes": "legend.visible",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.legend.withFilters": {
+    "writes": "legend.withFilters",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.clustering": {
+    "writes": "markers.clusterizationOff (inverted)",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.clusteringThreshold": {
+    "writes": "markers.clusterizationSize",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.fixedExtent": {
+    "writes": "markers.fixedExtent",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.gradeNumberForSize": {
+    "writes": "markers.gradeNumberForSize",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.isLinearScale": {
+    "writes": "markers.isLinearScale",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.labelMinZoom": {
+    "writes": "markers.minZoomLevel",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.labelsSize": {
+    "writes": "markers.labelsSize",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.maxSize": {
+    "writes": "markers.maxSize",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.maxValue": {
+    "writes": "markers.maxValue",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.maxValueColor": {
+    "writes": "markers.maxValueColor",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.minSize": {
+    "writes": "markers.minSize",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.showLabels": {
+    "writes": "markers.showLabels",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.showMaxValue": {
+    "writes": "markers.maxValueShow",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.showTooltip": {
+    "writes": "markers.showTooltip",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.showValues": {
+    "writes": "markers.showValues",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.tooltipSize": {
+    "writes": "markers.tooltipTextSize",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.tooltipWordWrap": {
+    "writes": "markers.lineWrap",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.markers.valuesPrecision": {
+    "writes": "markers.valuesPrecision",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.multilayerMode": {
+    "writes": "multilayerMode",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.showSmallObjects": {
+    "writes": "showSmallObjects",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "map.titleBrightness": {
+    "writes": "titleOpacity",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "parallelCoordsChart": {
+   "parallel.tableSize": {
+    "writes": "tableSize",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.colorMax": {
+    "writes": "colorMax",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.colorMin": {
+    "writes": "colorMin",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "pieChart": {
+   "balloonTemplate": {
+    "writes": "balloonTemplate",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.baseColor": {
+    "writes": "baseColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "data.colorStep": {
+    "writes": "colorStep",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "expandH": {
+    "writes": "expandH",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "expandV": {
+    "writes": "expandV",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.groupCount": {
+    "writes": "labels.groupCount",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.groupPercent": {
+    "writes": "labels.groupPercent",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.groupedTitle__ru": {
+    "writes": "labels.groupedTitle__ru",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.outerLabelsAngle": {
+    "writes": "labels.outerLabelsAngle",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.switchControlNumberOfSegments": {
+    "writes": "labels.switchControlNumberOfSegments",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labelsTemplate": {
+    "writes": "labelsTemplate",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "radius": {
+    "writes": "radius",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "showDonut": {
+    "writes": "showDonut",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "summColor": {
+    "writes": "summColor",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "summEnabled": {
+    "writes": "summEnabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "summFontSize": {
+    "writes": "summFontSize",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.innerRadius": {
+    "writes": "innerRadius",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "visuals.startAngle": {
+    "writes": "startAngle",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "pivotChart": {
+   "pivot.autoHeightEnabled": {
+    "writes": "autoHeightEnabled",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.autoWidthEnabled": {
+    "writes": "autoWidthEnabled",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.borderColor": {
+    "writes": "borderColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.dateFormat": {
+    "writes": "dateFormat",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.fontFamily": {
+    "writes": "fontFamily",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.groupByOptimization": {
+    "writes": "groupByOptimization",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.headerAling": {
+    "writes": "headerHorTextAlignment",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.headerBackgroundColor": {
+    "writes": "headerBackgroundColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.headerFontSize": {
+    "writes": "headerFontSize",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.headerHeight": {
+    "writes": "headerHorCellHeight",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.headerHorWordWrapEnabled": {
+    "writes": "headerHorWordWrapEnabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.headerTextColor": {
+    "writes": "headerTextColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.hideMeasuresHeader": {
+    "writes": "hideMeasuresHeader",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.nullVisible": {
+    "writes": "nullVisible",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.numbersEnabled": {
+    "writes": "numbers.enabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.precision": {
+    "writes": "precision",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.showPanel": {
+    "writes": "showPanel",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "pivot.theme": {
+    "writes": "theme",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "totals.grandSumsFixed": {
+    "writes": "isGrandSumsFixed",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "totals.noGrandSumsX": {
+    "writes": "isNoGrandSumsX",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "totals.noGrandSumsY": {
+    "writes": "isNoGrandSumsY",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "totals.noSums": {
+    "writes": "isNoSums",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "totals.sumColumnAtLeft": {
+    "writes": "sumColumnAtLeft",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "totals.sumRowAtTop": {
+    "writes": "sumRowAtTop",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "radarChart": {
+   "grid.filled": {
+    "writes": "filled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.gridType": {
+    "writes": "axes[1].gridType",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.radarLabels": {
+    "writes": "axes[1].radarlabels",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "radius": {
+    "writes": "radius",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "speedometerV2": {
+   "gauge.backgroundColor": {
+    "writes": "backgroundColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.color": {
+    "writes": "grid.color",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.endAngle": {
+    "writes": "endAngle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.gradeCount": {
+    "writes": "grid.palette.gradeCount",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.gradientMode": {
+    "writes": "grid.palette.gradientMode",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.labelFrequency": {
+    "writes": "grid.labelFrequency",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.labelsColor": {
+    "writes": "grid.labelsColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.max": {
+    "writes": "grid.maximum",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.min": {
+    "writes": "grid.minimum",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.minorTickCount": {
+    "writes": "grid.minorTickCount",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.paletteColors": {
+    "writes": "grid.palette.colors",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.paletteInvert": {
+    "writes": "grid.palette.invert",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.roundLimits": {
+    "writes": "roundLimits",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.startAngle": {
+    "writes": "startAngle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.tickCount": {
+    "writes": "grid.tickCount",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "grid.width": {
+    "writes": "grid.width",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "stockChart": {
+   "expandH": {
+    "writes": "expandH",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "expandV": {
+    "writes": "expandV",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.altAxisEnabled": {
+    "writes": "altAxis.enabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.dateAxisMaxWidth": {
+    "writes": "dateAxis.maxWidth",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.dateAxisMinGridDistance": {
+    "writes": "dateAxis.minGridDistance",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.dateAxisTickangle": {
+    "writes": "dateAxis.tickangle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.dateAxisZigzag": {
+    "writes": "dateAxis.zigzag",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.dateFormat": {
+    "writes": "dateFormat",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.dateRangePanel": {
+    "writes": "dateRangePanel",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.dateZoomPanel": {
+    "writes": "dateZoomPanel",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.refresh": {
+    "writes": "refresh",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "stock.scrollbarDisabled": {
+    "writes": "scrollbar.disabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "subheader": {
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "sunburstChart": {
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.colorsEnabled": {
+    "writes": "colorsEnabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.darkLabels": {
+    "writes": "darkLabels",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.ellipsisLength": {
+    "writes": "ellipsisLength",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.filterMode": {
+    "writes": "filterMode",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.fontFamily": {
+    "writes": "font.family",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.fontSize": {
+    "writes": "font.size",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.layerButtons": {
+    "writes": "layerButtons",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.layerExpand": {
+    "writes": "layerExpand",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.minPercent": {
+    "writes": "minPercent",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.precision": {
+    "writes": "precision",
+    "render": "not-applicable",
+    "reason": "",
+    "evidence": {
+     "browser": "not-applicable",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.splittedMode": {
+    "writes": "splittedMode",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "sunburst.visibleLayers": {
+    "writes": "visibleLayersNumber",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "table": {
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "table.headersBackground": {
+    "writes": "headersBackground",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "table.headersColor": {
+    "writes": "headersColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "table.linkByForRow": {
+    "writes": "linkByForRow",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "table.precision": {
+    "writes": "precision",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "table.showNumberLineInHeader": {
+    "writes": "showNumberLineInHeader",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "table.theme": {
+    "writes": "theme",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "table.zebraColor": {
+    "writes": "zebraColor",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "table.zebraType": {
+    "writes": "zebraType",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "tabsPanel": {
+   "tabs.autoApply": {
+    "writes": "autoApply",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tabs.height": {
+    "writes": "height",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tabs.orientation": {
+    "writes": "orientation",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tabs.visuals": {
+    "writes": "visuals",
+    "render": "ambiguous",
+    "reason": "",
+    "evidence": {
+     "browser": "ambiguous",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "textBlock": {
+   "text.maximizable": {
+    "writes": "maximizable",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "text.noexport": {
+    "writes": "noexport",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "tilemapChart": {
+   "tilemap.allowTiles": {
+    "writes": "background.allowTiles",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.autoZoom": {
+    "writes": "autoZoom",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.bgTileColor": {
+    "writes": "background.backgroundColor",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.deltaK": {
+    "writes": "grouping.deltaK",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.endColor": {
+    "writes": "legend.color[1]",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.filterMode": {
+    "writes": "filterMode",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.grouping": {
+    "writes": "grouping.enabled",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.legendVisible": {
+    "writes": "legend.visible",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.legendX": {
+    "writes": "legend.positionX",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.legendY": {
+    "writes": "legend.positionY",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.nameFontSize": {
+    "writes": "tiles.nameFontSize",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.popup": {
+    "writes": "popupEnabled",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.specialTiles": {
+    "writes": "tiles.specialTiles",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.startColor": {
+    "writes": "legend.color[0]",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.tileSize": {
+    "writes": "tileSize",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "tilemap.tileType": {
+    "writes": "tiles.type",
+    "render": "render-dead",
+    "reason": "",
+    "evidence": {
+     "browser": "render-dead",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "totalsPanelV2": {
+   "delta.delta": {
+    "writes": "visuals[0].hasTarget",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "delta.percent": {
+    "writes": "visuals[trend].absolute (inverted)",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "flip": {
+    "writes": "flip",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "treeGraph": {
+   "graph.initialZoom": {
+    "writes": "initialZoom",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "graph.layout": {
+    "writes": "layout",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "graph.zoomable": {
+    "writes": "zoomable",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  },
+  "treeMap": {
+   "labels.valuesFontSize": {
+    "writes": "labels.value.fontsize",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "labels.valuesTopMargin": {
+    "writes": "labels.value.topMargin",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "subtitle": {
+    "writes": "subtitle",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "treemap.filterMode": {
+    "writes": "filterMode",
+    "render": "config-only",
+    "reason": "",
+    "evidence": {
+     "browser": "config-only",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   },
+   "treemap.precision": {
+    "writes": "precision",
+    "render": "renders",
+    "reason": "",
+    "evidence": {
+     "browser": "renders",
+     "bundle": "n/a (leaf нечитаем/не сканировался)",
+     "bundle_agrees_browser": null
+    }
+   }
+  }
+ }
+}

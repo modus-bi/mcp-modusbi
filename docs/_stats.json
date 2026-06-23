@@ -1,0 +1,8 @@
+{
+  "slugs": 365,
+  "component_types_creatable": 28,
+  "tools": 19,
+  "prompts": 10,
+  "frontend_version": "3.15.3",
+  "generated_note": "регенерируется scripts/gen_public_docs.py"
+}

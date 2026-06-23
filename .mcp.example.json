@@ -1,0 +1,46 @@
+{
+  "_comment": "Пример конфигурации MCP-серверов. Скопируйте нужные блоки в свой MCP-клиент (.mcp.json / claude_desktop_config.json). Реальный .mcp.json в .gitignore. Значения env берите из .env (см. .env.example). Описание — MCP_SERVERS.md.",
+  "mcpServers": {
+    "modusbi": {
+      "_required": "ОБЯЗАТЕЛЬНЫЙ сервер — ядро всех скиллов. По умолчанию --readonly (безопасно); для записи запускайте с --readwrite.",
+      "_alt_binary": "Без Python: command = абсолютный путь к бинарнику modusbi-mcp-server (Releases v1.0.0, см. build/INSTALL.md), args = [\"--readonly\"], PYTHONPATH из env убрать; env MODUSBI_* те же.",
+      "command": "python",
+      "args": [
+        "-m",
+        "app.server",
+        "--readonly"
+      ],
+      "env": {
+        "PYTHONPATH": "/path/to/modusbi-mcp",
+        "MODUSBI_URL": "https://your-portal.example.com",
+        "MODUSBI_USERNAME": "your_api_user",
+        "MODUSBI_PASSWORD": "your_api_password"
+      }
+    },
+    "playwright": {
+      "_optional": "Только для UI-верификации (component-visual-verify, portal-component-probe).",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--headless",
+        "--no-sandbox",
+        "--browser",
+        "chromium"
+      ]
+    },
+    "postgres": {
+      "_optional": "Только для аналитических скиллов (create-dashboard, mcp-analyst и т.п.), если данные тянутся напрямую из БД.",
+      "command": "npx",
+      "args": [
+        "-y",
+        "pg-mcp-server",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "DATABASE_URL": "postgresql://user:password@host:5432/dbname"
+      }
+    }
+  }
+}

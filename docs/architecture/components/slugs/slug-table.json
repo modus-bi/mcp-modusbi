@@ -1,0 +1,4236 @@
+{
+ "count": 365,
+ "rows": [
+  {
+   "slug": "audio.backgroundColor",
+   "json": "",
+   "effective": "backgroundColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "audioplayer"
+   ]
+  },
+  {
+   "slug": "audio.progressBarBackgroundColor",
+   "json": "",
+   "effective": "progressBarBackgroundColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "audioplayer"
+   ]
+  },
+  {
+   "slug": "audio.progressBarColor",
+   "json": "",
+   "effective": "progressBarColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "audioplayer"
+   ]
+  },
+  {
+   "slug": "audio.uploadURL",
+   "json": "resource.uploadURL",
+   "effective": "resource.uploadURL",
+   "type": "str",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "audioplayer"
+   ]
+  },
+  {
+   "slug": "audio.url",
+   "json": "resource.url",
+   "effective": "resource.url",
+   "type": "str",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "audioplayer"
+   ]
+  },
+  {
+   "slug": "axes.autoZoom",
+   "json": "axes[values].autoZoom",
+   "effective": "axes[1].autoZoom",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.categoryGrid",
+   "json": "axes[categories].showgrid",
+   "effective": "axes[0].showgrid",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.categoryLabelAngle",
+   "json": "axes[categories].tickangle",
+   "effective": "axes[0].tickangle",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.categoryLabels",
+   "json": "axes[categories].showlabels",
+   "effective": "axes[0].showlabels",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.categoryMaxLabelWidth",
+   "json": "axes[categories].maxLabelWidth",
+   "effective": "axes[0].maxLabelWidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.categoryMinGridWidth",
+   "json": "axes[categories].minGridWidth",
+   "effective": "axes[0].minGridWidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.categoryScale",
+   "json": "axes[categories].showscale",
+   "effective": "axes[0].showscale",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.categoryScrollable",
+   "json": "axes[categories].scrollable",
+   "effective": "axes[0].scrollable",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.categoryScrollbar",
+   "json": "axes[categories].fixedZoom",
+   "effective": "axes[0].fixedZoom",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.categoryTitle",
+   "json": "axes[categories].showtitle",
+   "effective": "axes[0].showtitle",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.customZoom",
+   "json": "axes[categories].customZoom",
+   "effective": "axes[0].customZoom",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.firstLabel",
+   "json": "axes[values].showFirstLabel",
+   "effective": "axes[1].showFirstLabel",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.firstTick",
+   "json": "axes[values].showFirstTick",
+   "effective": "axes[1].showFirstTick",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.labelsAccuracy",
+   "json": "axes[values].labelsAccuracy",
+   "effective": "axes[1].labelsAccuracy",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.lastLabel",
+   "json": "axes[values].showLastLabel",
+   "effective": "axes[1].showLastLabel",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.lastTick",
+   "json": "axes[values].showLastTick",
+   "effective": "axes[1].showLastTick",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.rangeMode",
+   "json": "axes[values].rangeMode",
+   "effective": "axes[1].rangeMode",
+   "type": "enum",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.scaleType",
+   "json": "axes[values].scaleType",
+   "effective": "axes[1].scaleType",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.selectedFieldIndex",
+   "json": "axes[values].selectedFieldIndex",
+   "effective": "axes[1].selectedFieldIndex",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.sortable",
+   "json": "axes[values].sortable",
+   "effective": "axes[1].sortable",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.valueGrid",
+   "json": "axes[values].showgrid",
+   "effective": "axes[1].showgrid",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.valueLabels",
+   "json": "axes[values].showlabels",
+   "effective": "axes[1].showlabels",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.valueScale",
+   "json": "axes[values].showscale",
+   "effective": "axes[1].showscale",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.valueShowMax",
+   "json": "axes[values].showMax",
+   "effective": "axes[1].showMax",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.valueShowMin",
+   "json": "axes[values].showMin",
+   "effective": "axes[1].showMin",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "axes.valueTitle",
+   "json": "axes[values].showtitle",
+   "effective": "axes[1].showtitle",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "balloon.bgColor",
+   "json": "balloon.bgcolor",
+   "effective": "balloon.bgcolor",
+   "type": "color",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "balloon.combine",
+   "json": "balloon.allSeriesPop",
+   "effective": "balloon.allSeriesPop (inverted)",
+   "type": "bool",
+   "path_write": true,
+   "invert": true,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "balloon.fontColor",
+   "json": "balloon.color",
+   "effective": "balloon.color",
+   "type": "color",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "balloon.fontSize",
+   "json": "balloon.fontsize",
+   "effective": "balloon.fontsize",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "balloon.template",
+   "json": "balloonTemplate",
+   "effective": "balloonTemplate",
+   "type": "str",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "balloon.visible",
+   "json": "",
+   "effective": "balloon.visible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "balloonTemplate",
+   "json": "",
+   "effective": "balloonTemplate",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "bgColor",
+   "json": "",
+   "effective": "bgColor  [per-type: totalsPanelV2→backgroundColor, imagePanel→backgroundColor, iframe→backgroundColor, speedometerV2→backgroundColor]",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "bgColor2",
+   "json": "",
+   "effective": "bgColor2  [per-type: totalsPanelV2→backgroundColor2]",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "bubble.bigNumberSuffixes",
+   "json": "bigNumberSuffixes",
+   "effective": "bigNumberSuffixes",
+   "type": "any",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "bubble.filterMode",
+   "json": "filterMode",
+   "effective": "filterMode",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "bubble.legendForColor",
+   "json": "legendForColor.enabled",
+   "effective": "legendForColor.enabled",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "bubble.legendForSize",
+   "json": "legendForSize.enabled",
+   "effective": "legendForSize.enabled",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "bubble.precision",
+   "json": "precision",
+   "effective": "precision",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "bubble.showScrollbars",
+   "json": "hideScrollbars",
+   "effective": "hideScrollbars (inverted)",
+   "type": "bool",
+   "path_write": true,
+   "invert": true,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "bubble.strictMinMax",
+   "json": "strictMinMaxEnabled",
+   "effective": "strictMinMaxEnabled",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "bubble.zoomToEdges",
+   "json": "zoomToBubbleEdges",
+   "effective": "zoomToBubbleEdges",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "comparison.object1",
+   "json": "",
+   "effective": "object1",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "comparisonChart"
+   ]
+  },
+  {
+   "slug": "comparison.object2",
+   "json": "",
+   "effective": "object2",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "comparisonChart"
+   ]
+  },
+  {
+   "slug": "comparison.precision",
+   "json": "",
+   "effective": "precision",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "comparisonChart"
+   ]
+  },
+  {
+   "slug": "comparison.showDelta",
+   "json": "",
+   "effective": "showDelta",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "comparisonChart"
+   ]
+  },
+  {
+   "slug": "comparison.showPercent",
+   "json": "",
+   "effective": "showPercent",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "comparisonChart"
+   ]
+  },
+  {
+   "slug": "data.autofillEmptySeries",
+   "json": "series.autoFill",
+   "effective": "series.autoFill",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "data.baseColor",
+   "json": "",
+   "effective": "baseColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "barChart",
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "data.colorStep",
+   "json": "",
+   "effective": "colorStep",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "barChart",
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "data.intervalRefresh",
+   "json": "refresh",
+   "effective": "refresh",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "data.intervalSeconds",
+   "json": "refreshTime",
+   "effective": "refreshTime",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "data.rowsLimit",
+   "json": "rowsLimit",
+   "effective": "rowsLimit",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "data.rowsLimitToExport",
+   "json": "rowsLimitToExport",
+   "effective": "rowsLimitToExport",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "data.rowsLimitToShow",
+   "json": "rowsLimitToShow",
+   "effective": "rowsLimitToShow",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "data.seriesLimitToShow",
+   "json": "seriesLimitToShow",
+   "effective": "seriesLimitToShow",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "delta.delta",
+   "json": "visuals[trend].hasTarget",
+   "effective": "visuals[0].hasTarget",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "delta.percent",
+   "json": "visuals[trend].absolute (inverted)",
+   "effective": "visuals[trend].absolute (inverted)",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "expandH",
+   "json": "",
+   "effective": "expandH",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "barChart",
+    "lineChart",
+    "areaChart",
+    "pieChart",
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "expandV",
+   "json": "",
+   "effective": "expandV",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "barChart",
+    "lineChart",
+    "areaChart",
+    "pieChart",
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "flip",
+   "json": "",
+   "effective": "flip",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "fontSize",
+   "json": "",
+   "effective": "fontSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "gauge.backgroundColor",
+   "json": "backgroundColor",
+   "effective": "backgroundColor",
+   "type": "color",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "gradient",
+   "json": "",
+   "effective": "gradient  [per-type: totalsPanelV2→gradientEnabled]",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "gradientDirection",
+   "json": "gradientDirection",
+   "effective": "gradientDirection",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "graph.initialZoom",
+   "json": "",
+   "effective": "initialZoom",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "treeGraph"
+   ]
+  },
+  {
+   "slug": "graph.layout",
+   "json": "",
+   "effective": "layout",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "treeGraph"
+   ]
+  },
+  {
+   "slug": "graph.zoomable",
+   "json": "",
+   "effective": "zoomable",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "treeGraph"
+   ]
+  },
+  {
+   "slug": "grid.color",
+   "json": "",
+   "effective": "grid.color",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.endAngle",
+   "json": "endAngle",
+   "effective": "endAngle",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.filled",
+   "json": "filled",
+   "effective": "filled",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "radarChart"
+   ]
+  },
+  {
+   "slug": "grid.gradeCount",
+   "json": "grid.palette.gradeCount",
+   "effective": "grid.palette.gradeCount",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.gradientMode",
+   "json": "grid.palette.gradientMode",
+   "effective": "grid.palette.gradientMode",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.gridType",
+   "json": "axes[values].gridType",
+   "effective": "axes[1].gridType",
+   "type": "enum",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "radarChart"
+   ]
+  },
+  {
+   "slug": "grid.labelFrequency",
+   "json": "",
+   "effective": "grid.labelFrequency",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.labelsColor",
+   "json": "",
+   "effective": "grid.labelsColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.max",
+   "json": "grid.maximum",
+   "effective": "grid.maximum",
+   "type": "float",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.min",
+   "json": "grid.minimum",
+   "effective": "grid.minimum",
+   "type": "float",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.minorTickCount",
+   "json": "",
+   "effective": "grid.minorTickCount",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.paletteColors",
+   "json": "grid.palette.colors",
+   "effective": "grid.palette.colors",
+   "type": "any",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.paletteInvert",
+   "json": "grid.palette.invert",
+   "effective": "grid.palette.invert",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.radarLabels",
+   "json": "axes[values].radarlabels",
+   "effective": "axes[1].radarlabels",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "radarChart"
+   ]
+  },
+  {
+   "slug": "grid.roundLimits",
+   "json": "roundLimits",
+   "effective": "roundLimits",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.startAngle",
+   "json": "startAngle",
+   "effective": "startAngle",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.tickCount",
+   "json": "",
+   "effective": "grid.tickCount",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "grid.width",
+   "json": "",
+   "effective": "grid.width",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "speedometerV2"
+   ]
+  },
+  {
+   "slug": "hideSpinner",
+   "json": "",
+   "effective": "hideSpinner",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "hierFilter.bothChoice",
+   "json": "",
+   "effective": "bothChoice",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.filterTitle",
+   "json": "",
+   "effective": "filterTitle",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.headerWidth",
+   "json": "",
+   "effective": "headerWidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.hideTitle",
+   "json": "",
+   "effective": "hideTitle",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.inversed",
+   "json": "",
+   "effective": "inversed",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.multipleChoice",
+   "json": "",
+   "effective": "multipleChoice",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.noLoadOptions",
+   "json": "",
+   "effective": "noLoadOptions",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.searchInBaseMinNumber",
+   "json": "",
+   "effective": "searchInBaseMinNumber",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.searchInBaseMode",
+   "json": "",
+   "effective": "searchInBaseMode",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.sortSelectedOptionsToTop",
+   "json": "",
+   "effective": "sortSelectedOptionsToTop",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.updateOnApply",
+   "json": "",
+   "effective": "updateOnApply",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "hierFilter.updateOnCloseDropdown",
+   "json": "",
+   "effective": "updateOnCloseDropdown",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "hierarchicalFilterPanel"
+   ]
+  },
+  {
+   "slug": "iframe.linkName",
+   "json": "link.name",
+   "effective": "link.name",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "iframe"
+   ]
+  },
+  {
+   "slug": "iframe.linkTarget",
+   "json": "link.target",
+   "effective": "link.target",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "iframe"
+   ]
+  },
+  {
+   "slug": "image.backgroundPosition",
+   "json": "",
+   "effective": "backgroundPosition",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "imagePanel"
+   ]
+  },
+  {
+   "slug": "image.backgroundSize",
+   "json": "",
+   "effective": "backgroundSize",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "imagePanel"
+   ]
+  },
+  {
+   "slug": "image.backgroundStyle",
+   "json": "",
+   "effective": "backgroundStyle",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "imagePanel"
+   ]
+  },
+  {
+   "slug": "image.linkName",
+   "json": "link.name",
+   "effective": "link.name",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "imagePanel"
+   ]
+  },
+  {
+   "slug": "image.linkTarget",
+   "json": "link.target",
+   "effective": "link.target",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "imagePanel"
+   ]
+  },
+  {
+   "slug": "image.src",
+   "json": "image",
+   "effective": "image.path",
+   "type": "any",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "imagePanel"
+   ]
+  },
+  {
+   "slug": "image.titleColor",
+   "json": "",
+   "effective": "titleColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "imagePanel"
+   ]
+  },
+  {
+   "slug": "image.titleSize",
+   "json": "",
+   "effective": "titleSize",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "imagePanel"
+   ]
+  },
+  {
+   "slug": "labels.angle",
+   "json": "",
+   "effective": "labels.angle",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.bypassCollisions",
+   "json": "bypassCheckCollisions",
+   "effective": "bypassCheckCollisions",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.fontSize",
+   "json": "labels.inner.fontsize",
+   "effective": "labels.inner.fontsize",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.groupCount",
+   "json": "",
+   "effective": "labels.groupCount",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "labels.groupPercent",
+   "json": "",
+   "effective": "labels.groupPercent",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "labels.groupedTitle__ru",
+   "json": "",
+   "effective": "labels.groupedTitle__ru",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "labels.hidePercent",
+   "json": "",
+   "effective": "labels.hidePercent",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.inner.fontsize",
+   "json": "",
+   "effective": "labels.inner.fontsize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.labelsColor",
+   "json": "labels.inner.color",
+   "effective": "labels.inner.color",
+   "type": "color",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.outer.color",
+   "json": "",
+   "effective": "labels.outer.color",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.outer.fontsize",
+   "json": "",
+   "effective": "labels.outer.fontsize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.outerLabelsAngle",
+   "json": "",
+   "effective": "labels.outerLabelsAngle",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "labels.position",
+   "json": "",
+   "effective": "labels.position",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.switchControlNumberOfSegments",
+   "json": "",
+   "effective": "labels.switchControlNumberOfSegments",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "labels.template",
+   "json": "",
+   "effective": "labels.template",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labels.valuesFontSize",
+   "json": "labels.value.fontsize",
+   "effective": "labels.value.fontsize",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "treeMap"
+   ]
+  },
+  {
+   "slug": "labels.valuesTopMargin",
+   "json": "labels.value.topMargin",
+   "effective": "labels.value.topMargin",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "treeMap"
+   ]
+  },
+  {
+   "slug": "labels.visible",
+   "json": "",
+   "effective": "labels.visible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "labelsTemplate",
+   "json": "",
+   "effective": "labelsTemplate",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "legend.bgColor",
+   "json": "",
+   "effective": "legend.bgcolor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "legend.borderColor",
+   "json": "",
+   "effective": "legend.bordercolor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "legend.borderWidth",
+   "json": "",
+   "effective": "legend.borderwidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "legend.fontSize",
+   "json": "",
+   "effective": "legend.fontSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "legend.order",
+   "json": "",
+   "effective": "legend.order",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "legend.orientation",
+   "json": "",
+   "effective": "legend.orientation",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "legend.percent",
+   "json": "",
+   "effective": "legend.percent",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "legend.position",
+   "json": "",
+   "effective": "legend.position",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "legend.reverse",
+   "json": "",
+   "effective": "(section-derived / transform)",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "legend.visible",
+   "json": "",
+   "effective": "legend.visible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "link.operation",
+   "json": "",
+   "effective": "link.operation",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "main.extraAxis",
+   "json": "",
+   "effective": "main.extraAxis",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "barChart",
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "map.annotationOpacity",
+   "json": "annotationOpacity",
+   "effective": "annotationOpacity",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.annotationText",
+   "json": "annotation",
+   "effective": "annotation",
+   "type": "str",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.autoCenter",
+   "json": "",
+   "effective": "autoCenter",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.background.allowTiles",
+   "json": "",
+   "effective": "background.allowTiles",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.background.allowTiles2",
+   "json": "",
+   "effective": "background.allowTiles2",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.background.backgroundColor",
+   "json": "",
+   "effective": "background.backgroundColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.background.tileUrl",
+   "json": "",
+   "effective": "background.tileUrl",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.center.lat",
+   "json": "",
+   "effective": "center.lat",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.center.lng",
+   "json": "",
+   "effective": "center.lng",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.clusterMarkers",
+   "json": "clusterMarkers",
+   "effective": "(deprecated → не пишется)",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": true,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.filterMode",
+   "json": "",
+   "effective": "filterMode",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.initialZoom",
+   "json": "initialZoom",
+   "effective": "initialZoom",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.legend.discrete",
+   "json": "",
+   "effective": "legend.discrete",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.legend.gradeNumber",
+   "json": "",
+   "effective": "legend.gradeNumber",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.legend.invertColors",
+   "json": "",
+   "effective": "legend.invertColors",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.legend.position",
+   "json": "",
+   "effective": "legend.position",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.legend.visible",
+   "json": "",
+   "effective": "legend.visible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.legend.withFilters",
+   "json": "",
+   "effective": "legend.withFilters",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.clustering",
+   "json": "markers.clusterizationOff",
+   "effective": "markers.clusterizationOff (inverted)",
+   "type": "bool",
+   "path_write": true,
+   "invert": true,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.clusteringThreshold",
+   "json": "markers.clusterizationSize",
+   "effective": "markers.clusterizationSize",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.fixedExtent",
+   "json": "",
+   "effective": "markers.fixedExtent",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.gradeNumberForSize",
+   "json": "",
+   "effective": "markers.gradeNumberForSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.isLinearScale",
+   "json": "",
+   "effective": "markers.isLinearScale",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.labelMinZoom",
+   "json": "markers.minZoomLevel",
+   "effective": "markers.minZoomLevel",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.labelsSize",
+   "json": "",
+   "effective": "markers.labelsSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.maxSize",
+   "json": "",
+   "effective": "markers.maxSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.maxValue",
+   "json": "",
+   "effective": "markers.maxValue",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.maxValueColor",
+   "json": "",
+   "effective": "markers.maxValueColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.minSize",
+   "json": "",
+   "effective": "markers.minSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.showLabels",
+   "json": "",
+   "effective": "markers.showLabels",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.showMaxValue",
+   "json": "markers.maxValueShow",
+   "effective": "markers.maxValueShow",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.showTooltip",
+   "json": "",
+   "effective": "markers.showTooltip",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.showValues",
+   "json": "",
+   "effective": "markers.showValues",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.tooltipSize",
+   "json": "markers.tooltipTextSize",
+   "effective": "markers.tooltipTextSize",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.tooltipWordWrap",
+   "json": "markers.lineWrap",
+   "effective": "markers.lineWrap",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.markers.valuesPrecision",
+   "json": "",
+   "effective": "markers.valuesPrecision",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.multilayerMode",
+   "json": "",
+   "effective": "multilayerMode",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.showSmallObjects",
+   "json": "",
+   "effective": "showSmallObjects",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "map.titleBrightness",
+   "json": "titleOpacity",
+   "effective": "titleOpacity",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "mapLeaflet"
+   ]
+  },
+  {
+   "slug": "margin.b",
+   "json": "",
+   "effective": "margin.b",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "margin.l",
+   "json": "",
+   "effective": "margin.l",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "margin.pad",
+   "json": "",
+   "effective": "margin.pad",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "margin.r",
+   "json": "",
+   "effective": "margin.r",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "margin.t",
+   "json": "",
+   "effective": "margin.t",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "nocopy",
+   "json": "",
+   "effective": "nocopy",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "noexport",
+   "json": "",
+   "effective": "noexport",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "numberPrecision",
+   "json": "",
+   "effective": "numberPrecision  [per-type: totalsPanelV2→precision]",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "orientation",
+   "json": "",
+   "effective": "orientation",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "outline.color",
+   "json": "",
+   "effective": "outline.color",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "outline.enabled",
+   "json": "",
+   "effective": "outline.enabled",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "outline.width",
+   "json": "",
+   "effective": "outline.width",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "parallel.tableSize",
+   "json": "tableSize",
+   "effective": "tableSize",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "parallelCoordsChart"
+   ]
+  },
+  {
+   "slug": "percentPrecision",
+   "json": "",
+   "effective": "percentPrecision",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "pivot.autoHeightEnabled",
+   "json": "",
+   "effective": "autoHeightEnabled",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.autoWidthEnabled",
+   "json": "",
+   "effective": "autoWidthEnabled",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.borderColor",
+   "json": "",
+   "effective": "borderColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.dateFormat",
+   "json": "",
+   "effective": "dateFormat",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.fontFamily",
+   "json": "",
+   "effective": "fontFamily",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.groupByOptimization",
+   "json": "",
+   "effective": "groupByOptimization",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.headerAling",
+   "json": "headerHorTextAlignment",
+   "effective": "headerHorTextAlignment",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.headerBackgroundColor",
+   "json": "",
+   "effective": "headerBackgroundColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.headerFontSize",
+   "json": "",
+   "effective": "headerFontSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.headerHeight",
+   "json": "headerHorCellHeight",
+   "effective": "headerHorCellHeight",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.headerHorWordWrapEnabled",
+   "json": "headerHorWordWrapEnabled",
+   "effective": "headerHorWordWrapEnabled",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.headerTextColor",
+   "json": "",
+   "effective": "headerTextColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.hideMeasuresHeader",
+   "json": "",
+   "effective": "hideMeasuresHeader",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.nullVisible",
+   "json": "",
+   "effective": "nullVisible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.numbersEnabled",
+   "json": "numbers.enabled",
+   "effective": "numbers.enabled",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.precision",
+   "json": "precision",
+   "effective": "precision",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.showPanel",
+   "json": "",
+   "effective": "showPanel",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "pivot.theme",
+   "json": "",
+   "effective": "theme",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "radius",
+   "json": "",
+   "effective": "radius",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart",
+    "radarChart"
+   ]
+  },
+  {
+   "slug": "regimes.autoWidth",
+   "json": "settings.AllowAutoWidth",
+   "effective": "settings.AllowAutoWidth",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "regimes.cellHeight",
+   "json": "fixCellHeight",
+   "effective": "fixCellHeight",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "regimes.columnDrag",
+   "json": "settings.AllowColumnDnD",
+   "effective": "settings.AllowColumnDnD",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "regimes.fixedColumns",
+   "json": "fixNumber",
+   "effective": "fixNumber",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "regimes.headerHeight",
+   "json": "fixHeaderHeight",
+   "effective": "fixHeaderHeight",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "regimes.multilineHeader",
+   "json": "settings.AllowMultilineHeader",
+   "effective": "settings.AllowMultilineHeader",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "regimes.resizable",
+   "json": "settings.AllowResizable",
+   "effective": "settings.AllowResizable",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "regimes.subtotals",
+   "json": "subMode",
+   "effective": "subMode",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "regimes.totals",
+   "json": "subAllMode",
+   "effective": "subAllMode",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "scrollbars",
+   "json": "",
+   "effective": "scrollbars",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "showDonut",
+   "json": "",
+   "effective": "showDonut",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "showtitle",
+   "json": "",
+   "effective": "showtitle",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "sort.headerClickSort",
+   "json": "sortTapable",
+   "effective": "sortTapable",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "sort.multiColumnSort",
+   "json": "sortMultiple",
+   "effective": "sortMultiple",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "stacking",
+   "json": "",
+   "effective": "stacking",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "stock.altAxisEnabled",
+   "json": "altAxis.enabled",
+   "effective": "altAxis.enabled",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "stock.dateAxisMaxWidth",
+   "json": "dateAxis.maxWidth",
+   "effective": "dateAxis.maxWidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "stock.dateAxisMinGridDistance",
+   "json": "dateAxis.minGridDistance",
+   "effective": "dateAxis.minGridDistance",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "stock.dateAxisTickangle",
+   "json": "dateAxis.tickangle",
+   "effective": "dateAxis.tickangle",
+   "type": "int_or_null",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "stock.dateAxisZigzag",
+   "json": "dateAxis.zigzag",
+   "effective": "dateAxis.zigzag",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "stock.dateFormat",
+   "json": "",
+   "effective": "dateFormat",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "stock.dateRangePanel",
+   "json": "",
+   "effective": "dateRangePanel",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "stock.dateZoomPanel",
+   "json": "",
+   "effective": "dateZoomPanel",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "stock.refresh",
+   "json": "",
+   "effective": "refresh",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "stock.scrollbarDisabled",
+   "json": "scrollbar.disabled",
+   "effective": "scrollbar.disabled",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "stockChart"
+   ]
+  },
+  {
+   "slug": "style.autoColor",
+   "json": "",
+   "effective": "styleCommons.autoColor",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart",
+    "barChart"
+   ]
+  },
+  {
+   "slug": "style.clustered",
+   "json": "",
+   "effective": "styleCommons.clustered",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "style.labelsEnabled",
+   "json": "labels.visible",
+   "effective": "labels.visible",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "style.lineMode",
+   "json": "",
+   "effective": "styleCommons.lineMode",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "style.lineWidth",
+   "json": "",
+   "effective": "styleCommons.lineWidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "style.markerMode",
+   "json": "",
+   "effective": "styleCommons.markerMode",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "style.markerWidth",
+   "json": "",
+   "effective": "styleCommons.markerWidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "style.outlineWidth",
+   "json": "",
+   "effective": "styleCommons.outlineWidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "style.smoothing",
+   "json": "",
+   "effective": "styleCommons.smoothing",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart",
+    "barChart"
+   ]
+  },
+  {
+   "slug": "style.visType",
+   "json": "",
+   "effective": "styleCommons.visType",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "subtitle",
+   "json": "",
+   "effective": "subtitle",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "barChart",
+    "lineChart",
+    "pieChart",
+    "stockChart",
+    "sunburstChart",
+    "parallelCoordsChart",
+    "treeGraph",
+    "treeMap",
+    "totalsPanelV2",
+    "subheader",
+    "table"
+   ]
+  },
+  {
+   "slug": "summColor",
+   "json": "",
+   "effective": "summColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "summEnabled",
+   "json": "",
+   "effective": "summEnabled",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "summFontSize",
+   "json": "",
+   "effective": "summFontSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "sunburst.colorsEnabled",
+   "json": "",
+   "effective": "colorsEnabled",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.darkLabels",
+   "json": "",
+   "effective": "darkLabels",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.ellipsisLength",
+   "json": "",
+   "effective": "ellipsisLength",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.filterMode",
+   "json": "",
+   "effective": "filterMode",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.fontFamily",
+   "json": "",
+   "effective": "font.family",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.fontSize",
+   "json": "",
+   "effective": "font.size",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.layerButtons",
+   "json": "",
+   "effective": "layerButtons",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.layerExpand",
+   "json": "",
+   "effective": "layerExpand",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.minPercent",
+   "json": "",
+   "effective": "minPercent",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.precision",
+   "json": "",
+   "effective": "precision",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.splittedMode",
+   "json": "",
+   "effective": "splittedMode",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "sunburst.visibleLayers",
+   "json": "visibleLayersNumber",
+   "effective": "visibleLayersNumber",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "sunburstChart"
+   ]
+  },
+  {
+   "slug": "switch.filterType",
+   "json": "",
+   "effective": "filterType",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "SwitchControlPanel"
+   ]
+  },
+  {
+   "slug": "switch.selectorTitleOverride",
+   "json": "",
+   "effective": "selectorTitleOverride",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "SwitchControlPanel"
+   ]
+  },
+  {
+   "slug": "table.headersBackground",
+   "json": "headersBackground",
+   "effective": "headersBackground",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "table"
+   ]
+  },
+  {
+   "slug": "table.headersColor",
+   "json": "headersColor",
+   "effective": "headersColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "table"
+   ]
+  },
+  {
+   "slug": "table.linkByForRow",
+   "json": "linkByForRow",
+   "effective": "linkByForRow",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "table"
+   ]
+  },
+  {
+   "slug": "table.precision",
+   "json": "precision",
+   "effective": "precision",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "table"
+   ]
+  },
+  {
+   "slug": "table.showNumberLineInHeader",
+   "json": "showNumberLineInHeader",
+   "effective": "showNumberLineInHeader",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "table"
+   ]
+  },
+  {
+   "slug": "table.theme",
+   "json": "theme",
+   "effective": "theme",
+   "type": "enum",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "table"
+   ]
+  },
+  {
+   "slug": "table.zebraColor",
+   "json": "zebraColor",
+   "effective": "zebraColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "table"
+   ]
+  },
+  {
+   "slug": "table.zebraType",
+   "json": "zebraType",
+   "effective": "zebraType",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "table"
+   ]
+  },
+  {
+   "slug": "tabs.autoApply",
+   "json": "",
+   "effective": "autoApply",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tabsPanel"
+   ]
+  },
+  {
+   "slug": "tabs.height",
+   "json": "",
+   "effective": "height",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tabsPanel"
+   ]
+  },
+  {
+   "slug": "tabs.orientation",
+   "json": "",
+   "effective": "orientation",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tabsPanel"
+   ]
+  },
+  {
+   "slug": "tabs.visuals",
+   "json": "visuals",
+   "effective": "visuals",
+   "type": "any",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tabsPanel"
+   ]
+  },
+  {
+   "slug": "text.maximizable",
+   "json": "",
+   "effective": "maximizable",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "textBlock"
+   ]
+  },
+  {
+   "slug": "text.noexport",
+   "json": "",
+   "effective": "noexport",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "textBlock"
+   ]
+  },
+  {
+   "slug": "textAlign",
+   "json": "textAlign",
+   "effective": "textAlign",
+   "type": "enum",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "tilemap.allowTiles",
+   "json": "",
+   "effective": "background.allowTiles",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.autoZoom",
+   "json": "",
+   "effective": "autoZoom",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.bgTileColor",
+   "json": "",
+   "effective": "background.backgroundColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.deltaK",
+   "json": "grouping.deltaK",
+   "effective": "grouping.deltaK",
+   "type": "float",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.endColor",
+   "json": "",
+   "effective": "legend.color[1]",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.filterMode",
+   "json": "",
+   "effective": "filterMode",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.grouping",
+   "json": "grouping.enabled",
+   "effective": "grouping.enabled",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.legendVisible",
+   "json": "",
+   "effective": "legend.visible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.legendX",
+   "json": "legend.positionX",
+   "effective": "legend.positionX",
+   "type": "enum",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.legendY",
+   "json": "legend.positionY",
+   "effective": "legend.positionY",
+   "type": "enum",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.nameFontSize",
+   "json": "",
+   "effective": "tiles.nameFontSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.popup",
+   "json": "popupEnabled",
+   "effective": "popupEnabled",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.specialTiles",
+   "json": "",
+   "effective": "tiles.specialTiles",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.startColor",
+   "json": "",
+   "effective": "legend.color[0]",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.tileSize",
+   "json": "",
+   "effective": "tileSize",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "tilemap.tileType",
+   "json": "",
+   "effective": "tiles.type",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "tilemapChart"
+   ]
+  },
+  {
+   "slug": "totals.grandSumsFixed",
+   "json": "isGrandSumsFixed",
+   "effective": "isGrandSumsFixed",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "totals.noGrandSumsX",
+   "json": "isNoGrandSumsX",
+   "effective": "isNoGrandSumsX",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "totals.noGrandSumsY",
+   "json": "isNoGrandSumsY",
+   "effective": "isNoGrandSumsY",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "totals.noSums",
+   "json": "isNoSums",
+   "effective": "isNoSums",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "totals.sumColumnAtLeft",
+   "json": "sumColumnAtLeft",
+   "effective": "sumColumnAtLeft",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "totals.sumRowAtTop",
+   "json": "sumRowAtTop",
+   "effective": "sumRowAtTop",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pivotChart"
+   ]
+  },
+  {
+   "slug": "treemap.filterMode",
+   "json": "filterMode",
+   "effective": "filterMode",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "treeMap"
+   ]
+  },
+  {
+   "slug": "treemap.precision",
+   "json": "precision",
+   "effective": "precision",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "treeMap"
+   ]
+  },
+  {
+   "slug": "truncateTitle",
+   "json": "truncateTitle",
+   "effective": "truncateTitle",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "viewType.addInvertedSwitch",
+   "json": "addInversedFilter",
+   "effective": "addInversedFilter",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.autoApply",
+   "json": "autoApply",
+   "effective": "autoApply",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.clearSelection",
+   "json": "clearSelection",
+   "effective": "clearSelection",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.displayType",
+   "json": "filterType",
+   "effective": "filterType",
+   "type": "enum",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.hideEmptyLines",
+   "json": "hideEmptyLines",
+   "effective": "hideEmptyLines",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.inversed",
+   "json": "inversed",
+   "effective": "inversed",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.multiselect",
+   "json": "multipleChoice",
+   "effective": "multipleChoice",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.resetEnabled",
+   "json": "resetEnabled",
+   "effective": "(deprecated → не пишется)",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": true,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.searchEnabled",
+   "json": "searchInBaseMode",
+   "effective": "searchInBaseMode",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.showAll",
+   "json": "showAll",
+   "effective": "(deprecated → не пишется)",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": true,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.sortSelectedOptionsToTop",
+   "json": "sortSelectedOptionsToTop",
+   "effective": "sortSelectedOptionsToTop",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.unlimitedSearch",
+   "json": "unlimitedSearch",
+   "effective": "unlimitedSearch",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.updateOnApply",
+   "json": "updateOnApply",
+   "effective": "updateOnApply",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "viewType.updateOnCloseDropdown",
+   "json": "updateOnCloseDropdown",
+   "effective": "updateOnCloseDropdown",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "FilterControlPanel"
+   ]
+  },
+  {
+   "slug": "visuals.autoColor",
+   "json": "styleCommons.autoColor",
+   "effective": "styleCommons.autoColor",
+   "type": "bool",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "visuals.bubbleMaxSize",
+   "json": "maxRadius",
+   "effective": "maxRadius",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "visuals.bubbleMinSize",
+   "json": "minRadius",
+   "effective": "minRadius",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "visuals.caption.color",
+   "json": "",
+   "effective": "visuals[0].color",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.caption.font.size",
+   "json": "",
+   "effective": "visuals[0].font.size",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.caption.font.weight",
+   "json": "",
+   "effective": "visuals[0].font.weight",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.caption.visible",
+   "json": "",
+   "effective": "visuals[0].visible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.chartType",
+   "json": "visualType",
+   "effective": "visualType",
+   "type": "str",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "barChart"
+   ]
+  },
+  {
+   "slug": "visuals.clustered",
+   "json": "styleCommons.clustered",
+   "effective": "styleCommons.clustered (inverted)",
+   "type": "bool",
+   "path_write": true,
+   "invert": true,
+   "deprecated": false,
+   "applies_to": [
+    "barChart"
+   ]
+  },
+  {
+   "slug": "visuals.colorMax",
+   "json": "colorMax",
+   "effective": "colorMax",
+   "type": "color",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "parallelCoordsChart"
+   ]
+  },
+  {
+   "slug": "visuals.colorMin",
+   "json": "colorMin",
+   "effective": "colorMin",
+   "type": "color",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "parallelCoordsChart"
+   ]
+  },
+  {
+   "slug": "visuals.colorPalette",
+   "json": "",
+   "effective": "visuals[0].colorPalette",
+   "type": "any",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "visuals.columnBorderRadius",
+   "json": "",
+   "effective": "visuals[0].columnBorderRadius",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "barChart"
+   ]
+  },
+  {
+   "slug": "visuals.columnWidth",
+   "json": "styleCommons.columnWidth",
+   "effective": "styleCommons.columnWidth",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "barChart"
+   ]
+  },
+  {
+   "slug": "visuals.fillOpacity",
+   "json": "",
+   "effective": "(deprecated → не пишется)",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": true,
+   "applies_to": [
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "visuals.innerRadius",
+   "json": "innerRadius",
+   "effective": "innerRadius",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "visuals.lineDashStyle",
+   "json": "styleCommons.lineMode",
+   "effective": "styleCommons.lineMode",
+   "type": "enum",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "visuals.lineWidth",
+   "json": "",
+   "effective": "visuals[0].lineWidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "visuals.mainColor",
+   "json": "",
+   "effective": "visuals[0].mainColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": []
+  },
+  {
+   "slug": "visuals.markerLabels",
+   "json": "",
+   "effective": "visuals[0].markerLabels",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart",
+    "bubbleChart"
+   ]
+  },
+  {
+   "slug": "visuals.markerSize",
+   "json": "styleCommons.markerWidth",
+   "effective": "styleCommons.markerWidth",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "visuals.markerType",
+   "json": "styleCommons.markerMode",
+   "effective": "styleCommons.markerMode",
+   "type": "enum",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "visuals.smoothing",
+   "json": "",
+   "effective": "visuals[0].smoothing",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "lineChart",
+    "areaChart"
+   ]
+  },
+  {
+   "slug": "visuals.startAngle",
+   "json": "startAngle",
+   "effective": "startAngle",
+   "type": "int",
+   "path_write": true,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "pieChart"
+   ]
+  },
+  {
+   "slug": "visuals.subcaption.color",
+   "json": "",
+   "effective": "visuals[0].color",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.subcaption.font.size",
+   "json": "",
+   "effective": "visuals[0].font.size",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.subcaption.visible",
+   "json": "",
+   "effective": "visuals[0].visible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.trend.color",
+   "json": "",
+   "effective": "visuals[0].color",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.trend.visible",
+   "json": "",
+   "effective": "visuals[0].visible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.color",
+   "json": "",
+   "effective": "visuals[0].color",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.decimals",
+   "json": "",
+   "effective": "visuals[0].decimals",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.font.family",
+   "json": "",
+   "effective": "visuals[0].font.family",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.font.size",
+   "json": "",
+   "effective": "visuals[0].font.size",
+   "type": "float",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.font.style",
+   "json": "",
+   "effective": "visuals[0].font.style",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.font.weight",
+   "json": "",
+   "effective": "visuals[0].font.weight",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.link",
+   "json": "",
+   "effective": "visuals[0].link",
+   "type": "str",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.linkTarget",
+   "json": "",
+   "effective": "visuals[0].linkTarget",
+   "type": "enum",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.outlineColor",
+   "json": "",
+   "effective": "visuals[0].outlineColor",
+   "type": "color",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.outlineWidth",
+   "json": "",
+   "effective": "visuals[0].outlineWidth",
+   "type": "int",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  },
+  {
+   "slug": "visuals.value.visible",
+   "json": "",
+   "effective": "visuals[0].visible",
+   "type": "bool",
+   "path_write": false,
+   "invert": false,
+   "deprecated": false,
+   "applies_to": [
+    "totalsPanelV2"
+   ]
+  }
+ ],
+ "uniformity_issues": []
+}
