@@ -1903,6 +1903,9 @@ def main():
     )
     parser.add_argument("--transport", choices=["stdio", "http"], default="stdio",
                         help="Transport type (default: stdio)")
+    parser.add_argument("--tool-profile", choices=["standard", "gigachat"],
+                        default=os.environ.get("MODUSBI_TOOL_PROFILE", "standard"),
+                        help="Opt-in compact GigaChat tool catalogue; standard preserves existing tools.")
     parser.add_argument("--log-level", default="INFO",
                         choices=["DEBUG", "INFO", "WARNING", "ERROR"],
                         help="Logging verbosity (to stderr)")
@@ -1977,6 +1980,14 @@ def main():
     else:
         logger.info("Server started in READONLY mode (use --readwrite to enable writes).")
 
+    if args.tool_profile == "gigachat":
+        from .tools.gigachat_tools import register_gigachat_tools
+
+        async def profile_client():
+            return await get_instance_manager().get_client()
+
+        register_gigachat_tools(mcp, profile_client)
+        logger.info("GigaChat tool profile selected (security mode unchanged).")
     mcp.run(transport=args.transport)
 
 

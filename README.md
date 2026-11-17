@@ -22,6 +22,9 @@ MCP (Model Context Protocol) сервер для интеграции LLM-кли
 
 ## Быстрый старт
 
+Для GigaChat доступен отдельный, явно включаемый [экспериментальный профиль инструментов](docs/start/gigachat.md).
+Перед использованием прочитайте [результаты проверок и ограничения](docs/start/gigachat-validation.md).
+
 ```bash
 # Установка зависимостей
 python -m venv .venv

@@ -86,6 +86,7 @@ async def _get_dataset(client, dataset_id: int) -> dict[str, Any]:
             "alias": f.get("alias") or f.get("caption") or f.get("name"),
             "type": f.get("type"),
             "units": f.get("units"),
+            "description": f.get("description") or f.get("comment"),
             "format": f.get("format")
         }
         for f in data.get("fields", [])

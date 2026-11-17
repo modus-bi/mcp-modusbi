@@ -135,16 +135,19 @@ def test_security_ceiling_matrix() -> None:
 
     for cli_mode, ceiling, expected in cases:
         cli_flag = f"--{cli_mode}"
+        # This test owns CLI mode resolution, not DNS/authentication. Stop at
+        # the transport boundary so an unreachable test host cannot turn the
+        # nine-case matrix into a network timeout (lifespan has separate tests).
+        launch = "import app.server as s; s.mcp.run = lambda **kwargs: None; s.main()"
         proc = subprocess.run(
-            [sys.executable, "-m", "app.server", cli_flag, "--security-ceiling", ceiling],
+            [sys.executable, "-c", launch, cli_flag, "--security-ceiling", ceiling],
             env={**os.environ, **base_env},
             input="",
             capture_output=True,
             text=True,
-            timeout=8,
+            timeout=30,  # Cold Python/MCP imports on Windows can exceed 8 s.
         )
-        # Сервер запускается, но mcp.run() ждёт stdin → завершится по timeout/EOF.
-        # Нам важно что в stderr сообщает корректный mode.
+        # Transport is stubbed; verify the actual CLI's resolved mode log.
         # READONLY/READWRITE/DEMO logged in main()
         expected_log = expected.upper()
         check(
