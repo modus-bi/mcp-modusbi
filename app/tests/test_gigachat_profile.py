@@ -145,6 +145,95 @@ async def test_public_kpi_repeated_and_after_reconnect(fixture):
 
 
 @pytest.mark.asyncio
+async def test_field_display_changes_presentation_and_preserves_binding(fixture):
+    portal, mcp, _ = fixture
+    portal.fields[0]["type"] = "date"
+    portal.db.execute("UPDATE source SET customer=CASE customer WHEN 'А' THEN '2026-03-01' ELSE '2026-01-01' END")
+    chart = {"key": "by_month", "kind": "bar", "title": "По месяцам", "dataset_id": 1,
+             "category": "customer", "metrics": [{"label": "План", "field": "plan"}]}
+    assert (await call(mcp, "giga_upsert_components", report_id=42, components=[chart]))["success"]
+    args = {"report_id": 42, "key": "by_month", "field": "customer", "label": "Месяц", "order": "asc", "date_format": "MMM YYYY"}
+    result = await call(mcp, "giga_set_field_display", **args)
+    assert result["success"] and result["changed"]
+    assert not (await call(mcp, "giga_set_field_display", **args))["changed"]
+    assert (await call(mcp, "giga_upsert_components", report_id=42, components=[{**chart, "title": "Новый заголовок"}]))["success"]
+    cfg = portal.reports[42]["grid"]["components"]["0"]["config"]
+    for axes in (cfg["axes"], cfg["axesDefault"]):
+        date_field = next(a for a in axes if a["type"] == "categories")["fields"][0]
+        assert (date_field["name"], date_field["alias"], date_field["order"]) == ("customer", "Месяц", "asc")
+    assert cfg["dateFormat"] == "MMM YYYY"
+    assert not (await call(mcp, "giga_inspect_report", report_id=42, include_data=False))["issues"]
+    before = portal.calls[("reports", "update")]
+    assert not (await call(mcp, "giga_set_field_display", **{**args, "field": "plan"}))["success"]
+    assert portal.calls[("reports", "update")] == before
+
+
+@pytest.mark.asyncio
+async def test_chart_axis_title_leaves_component_and_field_names_intact(fixture):
+    portal, mcp, _ = fixture
+    portal.fields[0]["type"] = "date"
+    portal.db.execute("UPDATE source SET customer=CASE customer WHEN 'А' THEN '2026-03-01' ELSE '2026-01-01' END")
+    chart = {"key":"by_month", "kind":"bar", "title":"По месяцам", "dataset_id":1, "category":"customer",
+             "metrics":[{"label":"План", "field":"plan"}]}
+    assert (await call(mcp, "giga_upsert_components", report_id=42, components=[chart]))["success"]
+    args = {"report_id":42, "key":"by_month", "axis":"categories", "title":"Месяц отчёта", "order":"desc", "date_format":"MMMM YYYY"}
+    first = await call(mcp, "giga_set_chart_axis", **args)
+    assert first["success"] and first["changed"]
+    assert not (await call(mcp, "giga_set_chart_axis", **args))["changed"]
+    assert (await call(mcp, "giga_upsert_components", report_id=42, components=[{**chart,"title":"Название графика"}]))["success"]
+    cfg = portal.reports[42]["grid"]["components"]["0"]["config"]
+    assert cfg["caption"] == "Название графика" and cfg["dateFormat"] == "MMMM YYYY"
+    for axes in (cfg["axes"], cfg["axesDefault"]):
+        axis = next(a for a in axes if a["type"] == "categories")
+        assert axis["title"] == "Месяц отчёта" and axis["showtitle"]
+        assert (axis["fields"][0]["name"],axis["fields"][0]["alias"],axis["fields"][0]["order"]) == ("customer","customer","desc")
+    assert not (await call(mcp, "giga_set_chart_axis", **{**args,"axis":"values"}))["success"]
+
+
+@pytest.mark.asyncio
+async def test_update_existing_kpi_preserves_title_filter_and_layout(fixture):
+    portal, mcp, _ = fixture
+    args = {"report_id": 42, "key": "plan", "title": "План за период", "dataset_id": 1,
+            "metric": {"label": "План", "kind": "sum", "field": "plan", "format": "rubles", "decimals": 2}}
+    assert (await call(mcp, "giga_set_kpi", **args))["success"]
+    assert (await call(mcp, "giga_bind_report_filter", report_id=42, key="customer", label="Заказчик",
+                       bindings=[{"dataset_id": 1, "field": "customer"}]))["success"]
+    assert (await call(mcp, "giga_select_filter", report_id=42, key="customer", values=["Б"]))["success"]
+    before = copy.deepcopy(portal.reports[42])
+    result = await call(mcp, "giga_update_kpi", report_id=42, key="plan", field="actual", aggregation="avg")
+    assert result["success"] and result["changed"]
+    after = portal.reports[42]
+    assert before["grid"]["layouts"] == after["grid"]["layouts"]
+    assert before["globalFilters"] == after["globalFilters"]
+    assert before["grid"]["components"]["1"] == after["grid"]["components"]["1"]
+    cfg = after["grid"]["components"]["0"]["config"]
+    assert cfg["caption"] == "План за период"
+    metric = cfg[META]["spec"]["metrics"][0]
+    assert (metric["field"], metric["kind"], metric["format"], metric["decimals"]) == ("actual", "avg", "rubles", 2)
+    assert cfg["subtitle__ru"] == "Среднее · actual"
+    assert next(v for v in cfg["visuals"] if v["anchor"] == "subcaption")["visible"] is True
+    assert not (await call(mcp, "giga_update_kpi", report_id=42, key="plan", aggregation="avg"))["changed"]
+    assert not (await call(mcp, "giga_update_kpi", report_id=42, key="plan", field="customer"))["success"]
+
+
+@pytest.mark.asyncio
+async def test_filter_supports_visible_multi_selection_without_duplicates(fixture):
+    portal, mcp, _ = fixture
+    args = dict(report_id=42, key="customer", label="Заказчик", bindings=[{"dataset_id": 1, "field": "customer"}])
+    assert (await call(mcp, "giga_bind_report_filter", **args))["success"]
+    assert (await call(mcp, "giga_select_filter", report_id=42, key="customer", values=["А", "Б", "А"]))["success"]
+    before_read = copy.deepcopy(portal.reports[42])
+    values = await call(mcp, "giga_list_filter_values", report_id=42, key="customer")
+    assert values == {"success": True, "key": "customer", "label": "Заказчик", "values": ["А", "Б"]}
+    assert portal.reports[42] == before_read
+    assert (await call(mcp, "giga_bind_report_filter", **args))["success"]
+    report = portal.reports[42]
+    cfg = report["grid"]["components"]["0"]["config"]
+    assert cfg["multipleChoice"] is True and cfg["selectedValue"] == ["А", "Б"]
+    assert report["globalFilters"]["Заказчик"]["selected"] == ["А", "Б"]
+
+
+@pytest.mark.asyncio
 async def test_filter_subset_reset_and_rename_preserve_selection(fixture):
     portal, mcp, _ = fixture
     await kpi(mcp)
@@ -303,7 +392,7 @@ def test_ratio_sql_independent_weighted_oracle():
 async def test_wire_schemas_no_refs_unions_or_json_encoded_objects(fixture):
     _, mcp, _ = fixture
     tools = await mcp.list_tools()
-    assert len(tools) == 25
+    assert len(tools) == 29
     for tool in tools:
         wire = json.dumps(tool.inputSchema, ensure_ascii=False)
         assert '"$ref"' not in wire and '"anyOf"' not in wire

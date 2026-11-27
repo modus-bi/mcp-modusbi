@@ -162,11 +162,71 @@ def _find(report, key):
     return matches[0] if matches else (None, None)
 
 
+FIELD_DATE_FORMATS = ("DD.MM.YYYY", "DD.MM.YYYY HH:mm", "MM.YYYY", "MMM YYYY", "MMMM YYYY", "MMM", "MMMM", "YYYY", "YYYY-MM-DD")
+DATE_TYPES = {"date", "datetime", "timestamp"}
+
+
+def _apply_field_display(component, field_id, options):
+    cfg = component["config"]
+    if label := options.get("label"):
+        for axes in (cfg.get("axes", []), cfg.get("axesDefault", [])):
+            for axis in axes:
+                for field in axis.get("fields", []):
+                    if field.get("id") == field_id:
+                        field.update(alias=label, title=label, title__ru=label)
+        if component["type"] == TYPES["table"]:
+            cfg.setdefault("columns", {}).setdefault(field_id, {}).update(title=label, title__ru=label)
+    if order := options.get("order"):
+        for axes in (cfg.get("axes", []), cfg.get("axesDefault", [])):
+            for axis in axes:
+                for field in axis.get("fields", []):
+                    if field.get("id") == field_id:
+                        field.update(order=order, orderIndex=0)
+                        for name in ("sortByFieldName", "sortByFieldValue", "sortByAgg"):
+                            field.pop(name, None)
+                    elif field.get("order") in {"asc", "desc"}:
+                        field["orderIndex"] = max(1, field.get("orderIndex") or 0)
+    if format_name := options.get("date_format"):
+        if component["type"] == TYPES["table"]:
+            cfg.setdefault("columns", {}).setdefault(field_id, {})["dateFormat"] = format_name
+            if options.get("date_type"):
+                for axes in (cfg.get("axes", []), cfg.get("axesDefault", [])):
+                    for axis in axes:
+                        for field in axis.get("fields", []):
+                            if field.get("id") == field_id:
+                                field["type"] = options["date_type"]
+        else:
+            cfg["dateFormat"] = format_name
+    cfg[META].setdefault("field_display", {}).setdefault(field_id, {}).update(options)
+
+
+def _apply_axis_title(cfg, role, title):
+    for axes in (cfg.get("axes", []), cfg.get("axesDefault", [])):
+        for axis in axes:
+            if axis.get("type") == role:
+                axis.update(title=title, title__ru=title, showtitle=True)
+    cfg[META].setdefault("axis_titles", {})[role] = title
+
+
 def _summaries(report, details=True):
     result = [{"key": c.get("config", {}).get(META, {}).get("key"), "component_idx": int(i),
              "kind": c.get("config", {}).get(META, {}).get("kind"), "title": c.get("config", {}).get("caption"),
-             "dataset_id": _dataset_id(c), "fields": [{"name": f.get("name"), "label": f.get("title") or f.get("alias"), "aggregation": f.get("agg")} for f in _fields(c) if f.get("name")],
+             "dataset_id": _dataset_id(c) if c.get("config", {}).get(META) else None,
+             "fields": [{"name": f.get("name"), "label": f.get("title") or f.get("alias"), "aggregation": f.get("agg")} for f in _fields(c) if f.get("name")],
              "spec": c.get("config", {}).get(META, {}).get("spec")} for i, c in _components(report).items()]
+    if details:
+        for item, component in zip(result, _components(report).values()):
+            meta = component.get("config", {}).get(META, {})
+            if meta.get("kind") == "filter":
+                item["filter"] = meta["filter"]
+            if display := meta.get("field_display"):
+                item["field_display"] = list(display.values())
+            if component.get("type") in {TYPES["bar"], TYPES["line"]}:
+                cfg = component["config"]
+                item["chart_type"] = "bar" if component["type"] == TYPES["bar"] else "line"
+                item["chart_axes"] = {a["type"]: {"title":a.get("title__ru") or a.get("title"),
+                    "fields":[{k:f.get(k) for k in ("name", "type", "alias", "order")} for f in a.get("fields", [])]}
+                    for a in cfg.get("axes", []) if a.get("type") in {"categories", "values"}}
     if not details:
         for item in result:
             item.pop("fields")
@@ -282,9 +342,11 @@ def build(spec: DashboardComponent, report_id, field_map):
     for index, metric in enumerate(spec.metrics):
         uid = "giga_" + _digest([report_id, spec.key, index])[:20]
         raw_text = metric.kind == "raw" and metric.format in {"text", "html"}
+        source_type = field_map.get(metric.field, {}).get("type")
+        raw_type = source_type if metric.format == "text" and source_type in DATE_TYPES else "string"
         expression = display_sql(metric, spec.kind)
         values.append({"id": uid, "name": metric.field if raw_text else "{Вычисляемое поле}_" + uid + "_name",
-                       "datasetId": spec.dataset_id, "type": "string" if raw_text else "calculated",
+                       "datasetId": spec.dataset_id, "type": raw_type if raw_text else "calculated",
                        "alias": metric.label, "title": metric.label, "title__ru": metric.label,
                        "calc": "" if raw_text else expression, "draft": None if raw_text else True,
                        "agg": None, "units": None, "expression": []})
@@ -720,6 +782,7 @@ class GigaChatProfile:
                 if idx is None:
                     idx = str(max((int(i) for i in _components(candidate)), default=-1) + 1)
                 compiled = build(spec, report_id, field_map)
+                display = previous["config"][META].get("field_display", {}) if previous and previous["type"] == compiled["type"] and _dataset_id(previous) == spec.dataset_id else {}
                 if merge_table:
                     preserved = copy.deepcopy(previous)
                     old_cfg, new_cfg = preserved["config"], compiled["config"]
@@ -734,6 +797,13 @@ class GigaChatProfile:
                     old_cfg["columns"] = {field_id: {**old_cfg.get("columns", {}).get(field_id, {}), **column} for field_id, column in new_cfg["columns"].items()}
                     old_cfg.setdefault("settings", {}).update(new_cfg["settings"])
                     compiled = preserved
+                current_fields = {f.get("id") for f in _fields(compiled)}
+                for field_id, options in display.items():
+                    if field_id in current_fields:
+                        _apply_field_display(compiled, field_id, options)
+                if previous and previous["type"] == compiled["type"]:
+                    for role, title in previous["config"][META].get("axis_titles", {}).items():
+                        _apply_axis_title(compiled["config"], role, title)
                 _components(candidate)[idx] = compiled
                 changed_ids.append(idx)
             await self._rebind(candidate)
@@ -830,9 +900,10 @@ class GigaChatProfile:
             for field in _fields(panel, "filters"):
                 field["alias"] = label
             panel["config"][META] = {"version": 1, "key": key, "kind": "filter", "spec": {"row": row, "width": 1, "height": 4}, "filter": {"alias": label, "bindings": [b.model_dump() for b in bindings]}}
-            panel["config"].update(multipleChoice=False, bothChoice=True, updateOnCloseDropdown=False,
-                                   updateOnApply=False, applyButtonMode=False)
             selected = state.get("selected", [])
+            keeps_multi = bool(existing and existing["config"].get("multipleChoice"))
+            panel["config"].update(multipleChoice=keeps_multi or len(selected) > 1, bothChoice=True, updateOnCloseDropdown=False,
+                                   updateOnApply=False, applyButtonMode=False)
             panel["config"].update(selectedValue=selected, filterApplied=bool(selected))
             _components(candidate)[idx] = panel
             candidate.setdefault("globalFilters", {}).setdefault(label, {"enabled": True, "selected": [], "filterMode": "by value", "sourceValues": {}})
@@ -841,6 +912,27 @@ class GigaChatProfile:
             arrange(candidate)
             apply_theme(candidate)
             return await self.save(before, candidate, report_id)
+
+    async def _filter_domain(self, definition):
+        first = definition["bindings"][0]
+        name = first["field"]
+        query_field = {"lvl": 0, "name": name, "alias": name, "calc": "", "aggr": "", "fieldAlias": name}
+        params = {"select": [query_field], "group": [query_field], "where": [], "order": [], "having": {"condition": ""}, "series": {"enable": 0}, "limit": 1001}
+        rs = await self.client.api_call("recordsets", "create", object_id=first["dataset_id"], data=[params])
+        rows = _rows(rs)
+        if len(rows) > 1000:
+            raise ValueError("Filter has >1000 values; bounded validation requires a narrower dataset")
+        values = [r.get(name, next(iter(r.values())) if len(r) == 1 else None) for r in rows]
+        return {str(value): value for value in values}
+
+    async def list_filter_values(self, report_id, key):
+        check_action("get")
+        report = await self.fetch(report_id)
+        _, panel = _find(report, key)
+        if not panel or panel["config"][META]["kind"] != "filter":
+            raise ValueError("Filter key not found")
+        definition = panel["config"][META]["filter"]
+        return {"success": True, "key": key, "label": definition["alias"], "values": sorted(await self._filter_domain(definition))}
 
     async def select_filter(self, report_id, key, values):
         check_action("update")
@@ -851,22 +943,16 @@ class GigaChatProfile:
             if not panel or panel["config"][META]["kind"] != "filter":
                 raise ValueError("Filter key not found")
             definition = panel["config"][META]["filter"]
-            first = definition["bindings"][0]
             if values:
-                name = first["field"]
-                query_field = {"lvl": 0, "name": name, "alias": name, "calc": "", "aggr": "", "fieldAlias": name}
-                params = {"select": [query_field], "group": [query_field], "where": [], "order": [], "having": {"condition": ""}, "series": {"enable": 0}, "limit": 1001}
-                rs = await self.client.api_call("recordsets", "create", object_id=first["dataset_id"], data=[params])
-                rows = _rows(rs)
-                if len(rows) > 1000:
-                    raise ValueError("Filter has >1000 values; bounded validation requires a narrower dataset")
-                allowed = {str(r.get(name, next(iter(r.values())) if len(r) == 1 else None)): r.get(name, next(iter(r.values())) if len(r) == 1 else None) for r in rows}
+                allowed = await self._filter_domain(definition)
                 if any(v not in allowed for v in values):
                     raise ValueError(f"Unknown filter values. Allowed examples: {list(allowed)[:20]}")
-                selected = [allowed[v] for v in values]
+                selected = [allowed[v] for v in dict.fromkeys(values)]
             else:
                 selected = []
             panel["config"].update(selectedValue=selected, filterApplied=bool(selected))
+            if len(selected) > 1:
+                panel["config"]["multipleChoice"] = True
             candidate["globalFilters"][definition["alias"]].update(selected=selected, enabled=True)
             await self.validate_report_geography(candidate)
             return await self.save(before, candidate, report_id)
@@ -951,6 +1037,131 @@ class GigaChatProfile:
             if issues:
                 raise ValueError("; ".join(issues))
             preview = await _get_component_data(_Preview(self.client, candidate), report_id, int(idx), limit=20)
+            if not preview.get("success"):
+                raise ValueError("QUERY_PREFLIGHT_FAILED: " + str(preview.get("error")))
+            result = await self.save(before, candidate, report_id)
+            result["preview_rows"] = {key: preview.get("rows", [])}
+            return result
+
+    async def set_field_display(self, report_id, key, field, label="", order="", date_format=""):
+        check_action("update")
+        options = {k: v for k, v in {"label": label.strip(), "order": order, "date_format": date_format}.items() if v}
+        if not options or order not in {"", "asc", "desc"} or date_format and date_format not in FIELD_DATE_FORMATS:
+            raise ValueError("Supply a label, asc/desc or a supported date format")
+        async with _lock(report_id):
+            before = await self.fetch(report_id)
+            candidate = copy.deepcopy(before)
+            idx, component = _find(candidate, key)
+            if not component or component["type"] not in {TYPES[k] for k in ("bar", "line", "donut", "table")}:
+                raise ValueError("Select an existing bar, line, donut or table component")
+            is_table = component["type"] == TYPES["table"]
+            cfg = component["config"]
+            matches = [(axis["type"], f) for axis in cfg.get("axes", []) if axis["type"] not in {"filters", "tooltip"}
+                       for f in axis.get("fields", []) if f.get("name") == field and f.get("id")]
+            if not matches and is_table:
+                values = next((axis.get("fields", []) for axis in cfg["axes"] if axis["type"] == "values"), [])
+                matches = [("values", native) for native, metric in zip(values, cfg[META]["spec"]["metrics"])
+                           if metric["field"] == field and native.get("id")]
+            if len(matches) != 1:
+                raise ValueError(f"Expected one bound field {field!r}; inspect the component and use its exact source field")
+            axis, target = matches[0]
+            if order and axis not in ({"values"} if is_table else {"categories", "series"}):
+                raise ValueError("Use a table column or a chart category/series for sorting")
+            if date_format:
+                _, schema = await self.schema(_dataset_id(component))
+                date_type = str(schema.get(field, {}).get("type", "")).lower()
+                if date_type not in DATE_TYPES or not is_table and axis != "categories" or target.get("type") == "calculated":
+                    raise ValueError("Date format requires a date column or the chart's date category; select a typed date field")
+                if is_table:
+                    options["date_type"] = date_type
+            _apply_field_display(component, target["id"], {"field": field, **options})
+            preview = await _get_component_data(_Preview(self.client, candidate), report_id, int(idx), limit=12)
+            if not preview.get("success"):
+                raise ValueError("QUERY_PREFLIGHT_FAILED: " + str(preview.get("error")))
+            result = await self.save(before, candidate, report_id)
+            result["field_display"] = component["config"][META]["field_display"][target["id"]]
+            return result
+
+    async def set_chart_axis(self, report_id, key, axis, title="", order="", date_format=""):
+        """Change the native axis caption and date presentation without relabeling fields."""
+        check_action("update")
+        title = title.strip()
+        if axis not in {"categories", "values"} or not (title or order or date_format):
+            raise ValueError("Choose an axis and at least one setting")
+        if order not in {"", "asc", "desc"} or date_format and date_format not in FIELD_DATE_FORMATS:
+            raise ValueError("Use a supported date format or asc/desc")
+        if (order or date_format) and axis != "categories":
+            raise ValueError("Sort and format dates on the categories axis")
+        async with _lock(report_id):
+            before = await self.fetch(report_id)
+            candidate = copy.deepcopy(before)
+            idx, component = _find(candidate, key)
+            if not component or component["type"] not in {TYPES["bar"], TYPES["line"]}:
+                raise ValueError("Select a supported existing bar or line chart")
+            cfg = component["config"]
+            bound = next((a for a in cfg.get("axes", []) if a.get("type") == axis), None)
+            if bound is None:
+                raise ValueError("The selected axis is unavailable in this chart")
+            if date_format or order:
+                fields = bound.get("fields", [])
+                if len(fields) != 1 or not fields[0].get("id") or fields[0].get("type") not in DATE_TYPES:
+                    raise ValueError("Select a chart with one bound date field on its categories axis")
+                field = fields[0]
+                changes = {k:v for k,v in {"order":order,"date_format":date_format}.items() if v}
+                _apply_field_display(component, field["id"], {"field":field["name"], **changes})
+                preview = await _get_component_data(_Preview(self.client, candidate), report_id, int(idx), limit=12)
+                if not preview.get("success"):
+                    raise ValueError("QUERY_PREFLIGHT_FAILED: " + str(preview.get("error")))
+            if title:
+                _apply_axis_title(cfg, axis, title)
+            result = await self.save(before, candidate, report_id)
+            result["axis"] = {"role":axis, "title":bound.get("title"), "date_format":cfg.get("dateFormat"),
+                              "order":next((f.get("order") for f in bound.get("fields", [])),None)}
+            return result
+
+    async def update_kpi(self, report_id, key, field="", aggregation=""):
+        """Patch an existing card while retaining its layout, title and formatting."""
+        check_action("update")
+        if not (field or aggregation):
+            raise ValueError("Choose a new source field or aggregation")
+        if aggregation and aggregation not in {"sum", "avg", "min", "max", "count"}:
+            raise ValueError("Unsupported aggregation; use the full KPI tool for formulas")
+        async with _lock(report_id):
+            before = await self.fetch(report_id)
+            candidate = copy.deepcopy(before)
+            idx, component = _find(candidate, key)
+            if not component or component["config"][META]["kind"] != "kpi":
+                raise ValueError("Select the key of an existing KPI card")
+            cfg = component["config"]
+            spec = DashboardComponent.model_validate(cfg[META]["spec"])
+            metric = spec.metrics[0].model_dump()
+            _, schema = await self.schema(spec.dataset_id)
+            if field:
+                if field not in schema:
+                    raise ValueError("Use the exact field name from the card's dataset")
+                if field != metric["field"]:
+                    metric.update(field=field, label=schema[field].get("alias") or field)
+            if aggregation:
+                metric.update(kind=aggregation, numerator="", denominator="", constant=0.0)
+            if metric["kind"] not in {"sum", "avg", "min", "max", "count"}:
+                raise ValueError("Existing formula requires the full KPI tool; choose aggregation explicitly to replace it")
+            spec = DashboardComponent.model_validate({**spec.model_dump(), "metrics": [metric]})
+            updated = build(spec, report_id, schema)["config"]
+            fields = next(a["fields"] for a in updated["axes"] if a["type"] == "values")
+            for axes in (cfg["axes"], cfg.get("axesDefault", [])):
+                for axis in axes:
+                    if axis["type"] == "values":
+                        axis["fields"] = copy.deepcopy(fields)
+            cfg[META]["spec"] = spec.model_dump()
+            # The Totals renderer uses the card title for its main caption.
+            # Show the actual measure and aggregation on the separate subtitle line.
+            operation = {"sum":"Сумма", "avg":"Среднее", "min":"Минимум", "max":"Максимум", "count":"Количество"}[metric["kind"]]
+            subtitle = f"{operation} · {metric['label']}"
+            cfg.update(subtitle=subtitle, subtitle__ru=subtitle)
+            for visual in cfg.get("visuals", []):
+                if visual.get("anchor") == "subcaption":
+                    visual["visible"] = True
+            preview = await _get_component_data(_Preview(self.client, candidate), report_id, int(idx), limit=1)
             if not preview.get("success"):
                 raise ValueError("QUERY_PREFLIGHT_FAILED: " + str(preview.get("error")))
             result = await self.save(before, candidate, report_id)
@@ -1058,6 +1269,10 @@ class GigaChatProfile:
                     schemas[spec.dataset_id] = (await self.schema(spec.dataset_id))[1] if spec.dataset_id else {}
                 await self.validate_geography(spec, schemas[spec.dataset_id], report, component)
                 expected_component = build(spec, report_id, schemas[spec.dataset_id])
+                for field_id, options in meta.get("field_display", {}).items():
+                    _apply_field_display(expected_component, field_id, options)
+                for role, title in meta.get("axis_titles", {}).items():
+                    _apply_axis_title(expected_component["config"], role, title)
                 expected = expected_component["config"]
                 cfg = component["config"]
                 def signature(config):

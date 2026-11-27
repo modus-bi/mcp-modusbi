@@ -34,7 +34,8 @@ python -m app.server --tool-profile gigachat
    для HTML из данных — `giga_set_rich_text`, для заголовка и периода —
    `giga_set_header`.
 6. `giga_bind_report_filter` — сопоставить поле общего фильтра каждому датасету.
-7. `giga_select_filter` — проверить выбранный срез; `values: []` сбрасывает выбор.
+7. `giga_list_filter_values` читает допустимые значения перед выбором.
+   `giga_select_filter` применяет срез. `values: []` сбрасывает выбор.
 8. `giga_arrange_report` — расположить компоненты по логическим рядам.
 9. `giga_inspect_report` — проверить сохранённую структуру и фактические строки.
 10. Для оформления прочитайте `giga_inspect_report(include_style=true)` и вызовите

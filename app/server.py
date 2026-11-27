@@ -149,6 +149,7 @@ from .prompts import get_prompts, get_prompt_messages
 
 # Глобальный менеджер инстансов (инициализируется в lifespan)
 _instance_manager: InstanceManager | None = None
+_dashboard_arm_http = False
 
 
 def get_instance_manager() -> InstanceManager:
@@ -269,6 +270,10 @@ async def server_lifespan(server):
     любой print() в процессе init уходит в stderr, не ломая JSON-RPC протокол.
     """
     global _instance_manager
+    if _dashboard_arm_http and _instance_manager is not None:
+        # HTTP owns the instance across both chat requests and MCP sessions.
+        yield {"instances": _instance_manager}
+        return
 
     with contextlib.redirect_stdout(sys.stderr):
         # Проверяем обязательные env vars
@@ -1903,6 +1908,10 @@ def main():
     )
     parser.add_argument("--transport", choices=["stdio", "http"], default="stdio",
                         help="Transport type (default: stdio)")
+    parser.add_argument("--dashboard-arm", action="store_true",
+                        help="Enable shared dashboard chat on the GigaChat HTTP profile.")
+    parser.add_argument("--http-host", default="127.0.0.1", help="HTTP bind address (loopback by default).")
+    parser.add_argument("--http-port", type=int, default=8000, help="HTTP listen port.")
     parser.add_argument("--tool-profile", choices=["standard", "gigachat"],
                         default=os.environ.get("MODUSBI_TOOL_PROFILE", "standard"),
                         help="Opt-in compact GigaChat tool catalogue; standard preserves existing tools.")
@@ -1988,7 +1997,35 @@ def main():
 
         register_gigachat_tools(mcp, profile_client)
         logger.info("GigaChat tool profile selected (security mode unchanged).")
-    mcp.run(transport=args.transport)
+    if args.transport == "http":
+        if not 1 <= args.http_port <= 65535:
+            parser.error("--http-port must be between 1 and 65535")
+        mcp.settings.host, mcp.settings.port = args.http_host, args.http_port
+    if args.dashboard_arm:
+        if args.transport != "http" or args.tool_profile != "gigachat":
+            parser.error("--dashboard-arm requires --transport http --tool-profile gigachat")
+        from .dashboard_arm.http import register_dashboard_arm
+
+        close_dashboard_arm = register_dashboard_arm(mcp, profile_client)
+        import uvicorn
+
+        global _dashboard_arm_http
+        _dashboard_arm_http = True
+        app = mcp.streamable_http_app()
+        transport_lifespan = app.router.lifespan_context
+
+        @asynccontextmanager
+        async def lifespan(http_app):
+            async with server_lifespan(mcp), transport_lifespan(http_app):
+                try:
+                    yield
+                finally:
+                    await close_dashboard_arm()
+
+        app.router.lifespan_context = lifespan
+        uvicorn.run(app, host=mcp.settings.host, port=mcp.settings.port, log_level=args.log_level.lower())
+        return
+    mcp.run(transport="streamable-http" if args.transport == "http" else "stdio")
 
 
 if __name__ == "__main__":

@@ -9,8 +9,8 @@ from pydantic import Field
 
 from ..core.exceptions import APIError, NotFoundError, SecurityError, ValidationError
 from ..core.security import check_action
-from .gigachat_models import DashboardComponent, ChartComponent, TableColumn, CellRule, DatasetFilter, Metric, Placement, ValueFilter, NativeVisualization, VisualizationMetric
-from .gigachat_profile import GigaChatProfile, WriteOutcomeError
+from .gigachat_models import DashboardComponent, ChartComponent, TableColumn, CellRule, DatasetFilter, Metric, Placement, ValueFilter, NativeVisualization, VisualizationMetric, DateDisplayFormat, SimpleAggregation
+from .gigachat_profile import FIELD_DATE_FORMATS, GigaChatProfile, WriteOutcomeError
 from .schema_slim import slim_schema, strip_titles
 from .gigachat_styles import STYLES
 
@@ -61,6 +61,9 @@ def inline_schema(schema):
 
 
 def register_gigachat_tools(mcp, get_client):
+    from .gigachat_request_skill import register_request_skill
+
+    register_request_skill(mcp)
     """Replace catalogue only when explicitly selected, preserving native logic."""
     if getattr(mcp, "_modus_tool_profile", "standard") == "gigachat":
         return
@@ -183,6 +186,30 @@ def register_gigachat_tools(mcp, get_client):
         """Изменить только название компонента данных. Сохраняет вид, все поля, роли, ID, формулы, фильтры, размеры и стиль. Для переименования не пересоздавайте компонент через text или другой вид. Статический заголовок отчёта: giga_set_header; подпись фильтра: giga_bind_report_filter."""
         return await invoke("update", "rename", report_id=report_id, key=key, title=title)
 
+    @mcp.tool(annotations=annotation("Настроить подпись поля, сортировку и вид даты"))
+    async def giga_set_field_display(report_id: int, key: str, field: str,
+                                     label: Annotated[str, Field(max_length=160, description="Новый видимый алиас поля. Пусто — оставить прежний.")] = "",
+                                     order: Annotated[Literal["", "asc", "desc"], Field(description="Хронологическая сортировка по исходному полю даты: asc или desc. Пусто — прежняя.")] = "",
+                                     date_format: Annotated[DateDisplayFormat, Field(description="Пусто — оставить прежний. Явное соответствие: янв. 2026 → MMM YYYY; январь 2026 → MMMM YYYY; 01.2026 → MM.YYYY; только год → YYYY. Допустимы: " + ", ".join(FIELD_DATE_FORMATS))] = "") -> dict:
+        """Меняет вид существующего поля по key и точному source field. Заполняйте ТОЛЬКО запрошенные настройки. Сортировка: только order, без label и date_format. Переименование: только label, точно как сказал пользователь. Смена вида дат: только date_format. Совмещайте только явно перечисленные правки. Сохраняет привязки и расчёты."""
+        return await invoke("update", "set_field_display", report_id=report_id, key=key, field=field, label=label, order=order, date_format=date_format)
+
+    @mcp.tool(annotations=annotation("Изменить настройки оси существующего графика"))
+    async def giga_set_chart_axis(report_id: int, key: str,
+                                  axis: Annotated[Literal["categories", "values"], Field(description="categories — ось категорий или дат; values — ось значений. Горизонтальный бар разворачивает направления.")],
+                                  title: Annotated[str, Field(max_length=160, description="Точный новый видимый заголовок самой оси. Пусто — сохранить заголовок оси.")] = "",
+                                  order: Annotated[Literal["", "asc", "desc"], Field(description="Порядок по исходной дате. Пусто — сохранить текущий.")] = "",
+                                  date_format: Annotated[DateDisplayFormat, Field(description="Формат подписей дат. MMM YYYY — краткий месяц и год. MMMM — полное название месяца. Пусто — сохранить текущий.")] = "") -> dict:
+        """Меняет заголовок оси, порядок или подписи дат у линии и столбчатой диаграммы. Заголовок графика, алиасы полей, расчёты и фильтры сохраняются. Для названия всего графика используйте giga_rename_component, для алиаса столбца — giga_set_field_display."""
+        return await invoke("update", "set_chart_axis", report_id=report_id, key=key, axis=axis, title=title, order=order, date_format=date_format)
+
+    @mcp.tool(annotations=annotation("Изменить расчёт существующей карточки KPI"))
+    async def giga_update_kpi(report_id: int, key: str,
+                              field: Annotated[str, Field(description="Точное поле нового показателя. Пусто — сохранить текущее.")] = "",
+                              aggregation: Annotated[SimpleAggregation, Field(description="sum — сумма, avg — среднее, min — минимум, max — максимум, count — количество. Пусто — сохранить текущую операцию.")] = "") -> dict:
+        """Для существующей KPI-карточки меняет исходное поле или простую агрегацию. Сохраняет заголовок компонента, формат, позицию и фильтры. Показывает фактический показатель и агрегацию отдельной строкой. Для нового KPI или сложной формулы используйте giga_set_kpi."""
+        return await invoke("update", "update_kpi", report_id=report_id, key=key, field=field, aggregation=aggregation)
+
     @mcp.tool(annotations=annotation("Задать статический заголовок и период отчёта"))
     async def giga_set_header(report_id: Annotated[int, Field(gt=0, description="ID текущего отчёта.")],
                               key: Annotated[str, Field(description="Стабильный ключ заголовка, например header.")],
@@ -243,6 +270,11 @@ def register_gigachat_tools(mcp, get_client):
                                        row: Annotated[int, Field(ge=0, le=100, description="Ряд фильтра.")] = 2) -> dict:
         """Создать одну панель и связать ВСЕ компоненты отчёта атомарно. Например customer_name во всех трёх витринах, не денежное поле. Новые компоненты связываются автоматически. Отсутствующее/несовместимое поле даёт ошибку до записи."""
         return await invoke("update", "bind_filter", report_id=report_id, key=key, label=label, bindings=bindings, row=row)
+
+    @mcp.tool(annotations=annotation("Прочитать допустимые значения общего фильтра", True))
+    async def giga_list_filter_values(report_id: int, key: str) -> dict:
+        """Возвращает точные значения из источника существующего фильтра. Используйте для уточнения и проверки выбора до изменения отчёта."""
+        return await invoke("get", "list_filter_values", report_id=report_id, key=key)
 
     @mcp.tool(annotations=annotation("Выбрать значения общего фильтра или сбросить"))
     async def giga_select_filter(report_id: Annotated[int, Field(gt=0, description="ID текущего отчёта.")],

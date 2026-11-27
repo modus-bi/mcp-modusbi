@@ -8,6 +8,9 @@ import re
 from typing import Literal
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+DateDisplayFormat = Literal["", "DD.MM.YYYY", "DD.MM.YYYY HH:mm", "MM.YYYY", "MMM YYYY", "MMMM YYYY", "MMM", "MMMM", "YYYY", "YYYY-MM-DD"]
+SimpleAggregation = Literal["", "sum", "avg", "min", "max", "count"]
+
 
 class Contract(BaseModel):
     model_config = ConfigDict(extra="forbid")
