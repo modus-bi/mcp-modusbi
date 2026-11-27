@@ -6,6 +6,41 @@ Used to generate configurations for different component types.
 
 import uuid
 from typing import Any
+COMPONENT_TYPE_MAP = {
+    "HsBarAMchartsChart": ("barChart", "column"),
+    "HsLineAMchartsChart": ("lineChart", "line"),
+    "HsAreaAMchartsChart": ("areaChart", "area"),
+    "HsPieAMchartsChart": ("pieChart", "pie"),
+    "HsRadarAMchartsChart": ("radarChart", "radar"),
+    "HsStockAMchartsChart": ("stock", "stock"),
+    "HsSpeedometerV2AMcharts": ("speedometer_v2", "gauge"),
+    # фронт ждёт chartType="bubble" (c "bubbleChart" UI-панель
+    # настроек компонента открывается пустой)
+    "HsBubbleAMchartsChart": ("bubble", "bubble"),
+    "HsSunburstChart": ("sunburstChart", "sunburst"),
+    "HsTreeMap": ("treeMap", "treemap"),
+    "HsParallelCoordsChart": ("parallelCoordsChart", "parallel"),
+    "HsPivotChart": ("pivotChart", "pivot"),
+    "HsComparisonChart": ("comparisonChart", "comparison"),
+    "HsTreeGraph": ("treeGraph", "tree"),
+    "HsMapLeafletChart": ("mapLeaflet", "map"),
+    "HsTilemapChart": ("tilemapChart", "tilemap"),
+    "HsFilterControlPanel": ("FilterControlPanel", None),
+    "HsHierarchicalFilterPanel": ("hierarchicalFilter", None),
+    "HsSubheaderComponent": ("subheader", None),
+    "HsIframe": ("iframe", None),
+    "HsImagePanel": ("imagePanel", None),
+    "HsPageContainer": ("pageContainer", None),
+    "HsTotalsPanelV2": ("totalsPanelV2", None),
+    "HsTableReactabularChart": ("table", "table"),
+    "HsTextBlock": ("textBlock", None),
+    "HsTabsPanel": ("tabsPanel", None),
+    # Remaining types (not API-creatable)
+    "HsSwitchControlPanel": ("SwitchControlPanel", None),
+    "HsAudioplayer": ("audioplayer", "area"),
+}
+
+
 
 
 # component_types которые принимают column_fields в свой config.
@@ -264,39 +299,7 @@ def build_component_config(
     # They may differ from config_schema.py CHART_TYPE_MAP which is used only
     # for slug validation (applies_to matching). Both maps are intentionally
     # separate: this one = frontend contract, that one = slug namespace.
-    chart_type_map = {
-        "HsBarAMchartsChart": ("barChart", "column"),
-        "HsLineAMchartsChart": ("lineChart", "line"),
-        "HsAreaAMchartsChart": ("areaChart", "area"),
-        "HsPieAMchartsChart": ("pieChart", "pie"),
-        "HsRadarAMchartsChart": ("radarChart", "radar"),
-        "HsStockAMchartsChart": ("stock", "stock"),
-        "HsSpeedometerV2AMcharts": ("speedometer_v2", "gauge"),
-        # фронт ждёт chartType="bubble" (c "bubbleChart" UI-панель
-        # настроек компонента открывается пустой)
-        "HsBubbleAMchartsChart": ("bubble", "bubble"),
-        "HsSunburstChart": ("sunburstChart", "sunburst"),
-        "HsTreeMap": ("treeMap", "treemap"),
-        "HsParallelCoordsChart": ("parallelCoordsChart", "parallel"),
-        "HsPivotChart": ("pivotChart", "pivot"),
-        "HsComparisonChart": ("comparisonChart", "comparison"),
-        "HsTreeGraph": ("treeGraph", "tree"),
-        "HsMapLeafletChart": ("mapLeaflet", "map"),
-        "HsTilemapChart": ("tilemapChart", "tilemap"),
-        "HsFilterControlPanel": ("FilterControlPanel", None),
-        "HsHierarchicalFilterPanel": ("hierarchicalFilter", None),
-        "HsSubheaderComponent": ("subheader", None),
-        "HsIframe": ("iframe", None),
-        "HsImagePanel": ("imagePanel", None),
-        "HsPageContainer": ("pageContainer", None),
-        "HsTotalsPanelV2": ("totalsPanelV2", None),
-        "HsTableReactabularChart": ("table", "table"),
-        "HsTextBlock": ("textBlock", None),
-        "HsTabsPanel": ("tabsPanel", None),
-        # Remaining types (not API-creatable)
-        "HsSwitchControlPanel": ("SwitchControlPanel", None),
-        "HsAudioplayer": ("audioplayer", "area"),
-    }
+    chart_type_map = COMPONENT_TYPE_MAP
     if component_type not in chart_type_map:
         # Reject unknown types instead of silently falling back to barChart.
         # Frontend would render an empty bar without warning, hiding the typo.

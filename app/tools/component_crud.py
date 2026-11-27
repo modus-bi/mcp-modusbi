@@ -11,6 +11,9 @@ Functions:
 """
 
 import logging
+import re
+import hashlib
+from collections import Counter
 
 import copy
 from typing import Any
@@ -957,23 +960,35 @@ async def _get_component_data(
     else:
         caption = f"Component {component_idx}"
 
-    comp_type = cfg.get("type") or cfg.get("chartType") or comp.get("type") or "unknown"
+    # Native class identity drives axis semantics; chartType is a renderer slug.
+    # An inactive Comparison series and Pivot's pivotAgg/pivotOrder must be
+    # interpreted identically to the actual frontend.
+    comp_type = comp.get("type") or cfg.get("type") or cfg.get("chartType") or "unknown"
+    comp_type = {"comparisonChart": "HsComparisonChart", "pivotChart": "HsPivotChart"}.get(comp_type, comp_type)
 
     # Find dataset_id, collect fields and filters from component config
     dataset_id = cfg.get("datasetId") or cfg.get("dataSetId")
     component_fields = []
     category_fields = []  # Fields from categories axis → group by
+    order_fields = []
+    sort_select_fields = []
     filter_conditions = []
 
     for axis in cfg.get("axes", []):
         axis_type = axis.get("type", "")
+
+        if comp_type == "HsComparisonChart" and axis_type == "series" and axis.get("selectedFieldIndex") == -1:
+            continue
 
         # Extract filter fields
         if axis_type == "filters":
             for field in axis.get("fields", []):
                 field_name = field.get("name", "")
                 operator = field.get("operator", "=")
-                values = field.get("values", [])
+                selection = (cfg.get("filters") or {}).get(field_name, {})
+                if field.get("global"):
+                    selection = (data.get("globalFilters") or {}).get(field.get("alias") or field_name, selection)
+                values = selection.get("selected", field.get("values", [])) if selection.get("enabled", True) else []
                 if field_name and values:
                     # Build where condition in proper recordsets.create format
                     filter_conditions.append({
@@ -987,11 +1002,27 @@ async def _get_component_data(
             continue
 
         # Track category fields for group-by
-        if axis_type == "categories":
+        if axis_type in {"categories", "series", "rows", "columns", "objects", "indicators", "identity", "linkage"}:
             for field in axis.get("fields", []):
                 fname = field.get("name", "")
                 if fname:
                     category_fields.append(fname)
+                    selection = (cfg.get("filters") or {}).get(fname, (cfg.get("filters") or {}).get(field.get("alias"), {}))
+                    if ((axis_type == "objects" and selection.get("type") == "by compare") or
+                            (axis_type == "indicators" and selection.get("type") == "by value")) and selection.get("selected"):
+                        selected = selection["selected"]
+                        filter_conditions.append({"lvl": 0, "name": fname, "not": False, "values": selected,
+                            "operators": ["="] * len(selected), "logicOr": int(len(selected) > 1)})
+                    direction = field.get("pivotOrder") if comp_type == "HsPivotChart" else field.get("order")
+                    if direction in {"asc", "desc"}:
+                        sort_value = field.get("sortByFieldValue") or fname
+                        sort_name, _, sort_calc = sort_value.partition("$!$")
+                        sort_alias = fname + "_sortBy" if sort_calc else fname
+                        if sort_calc:
+                            sort_select_fields.append({"lvl": 0, "name": sort_name, "alias": sort_alias,
+                                "calc": sort_calc, "aggr": field.get("sortByAgg") or "max", "fieldAlias": field.get("sortByFieldName") or sort_name})
+                        order_fields.append({"name": sort_name, "alias": sort_alias, "calc": sort_calc,
+                            "direction": direction, "dir": direction, "orderIndex": field.get("orderIndex", 0)})
 
         # Extract data fields
         for field in axis.get("fields", []):
@@ -999,10 +1030,13 @@ async def _get_component_data(
                 if not dataset_id:
                     dataset_id = field["datasetId"]
             field_info = {
+                "id": field.get("id"),
+                "axis": axis_type,
                 "name": field.get("name"),
                 "alias": field.get("alias") or field.get("name"),
                 "title": field.get("title", ""),  # Human-readable title
-                "aggr": field.get("agg") or field.get("aggregation") or ""
+                "aggr": (field.get("pivotAgg") or "sum") if comp_type == "HsPivotChart" and axis_type == "values" else field.get("agg") or field.get("aggregation") or "",
+                "calc": field.get("calc", "") if field.get("type") == "calculated" else "",
             }
             component_fields.append(field_info)
 
@@ -1022,40 +1056,61 @@ async def _get_component_data(
     # Build select based on component fields (if any configured)
     # Format: [{lvl, name, alias, calc, aggr, fieldAlias}]
     select_fields = []
+    def identifier(name):
+        return str(name).encode("utf-8")[:63].decode("utf-8", errors="ignore")
+    field_counts = Counter(identifier(f.get("name", "")) for f in component_fields)
+    has_collisions = any(n>1 for n in field_counts.values())
+    column_bindings = []
+    used_aliases = {name for name,count in field_counts.items() if count==1}
     if component_fields:
-        for f in component_fields:
+        for index,f in enumerate(component_fields):
             field_name = f.get("name", "")
             field_title = f.get("title") or field_name  # Use title for fieldAlias
             aggr = f.get("aggr", "")
+            output_name = field_name
+            if field_counts[identifier(field_name)]>1:
+                output_name = "giga_field_"+hashlib.sha256(str([f.get("id"),f.get("axis"),index]).encode()).hexdigest()[:20]
+                while output_name in used_aliases:output_name+="_"
+            used_aliases.add(output_name)
+            if has_collisions:
+                column_bindings.append({"id":f.get("id"),"axis":f.get("axis"),"field":field_name,"label":field_title,"aggregation":aggr,"output_name":identifier(output_name)})
             select_fields.append({
                 "lvl": 0,
                 "name": field_name,
-                "alias": field_name,  # Use field name as alias for readability
-                "calc": "",
+                "alias": output_name,
+                "calc": f.get("calc", ""),
                 "aggr": aggr if aggr else "",
                 "fieldAlias": field_title  # Human-readable name
             })
 
     # Build group-by from category fields when aggregation is present
-    has_aggregation = any(f.get("aggr") for f in component_fields)
+    select_fields.extend(sort_select_fields)
+    # Calculated raw expressions (e.g. graph parent or formatted table cells)
+    # are not aggregates. Pivot/comparison use dimensions outside categories.
+    has_aggregation = any(f.get("aggr") or re.search(r"\b(?:SUM|AVG|MIN|MAX|COUNT)\s*\(", f.get("calc") or "", re.I) for f in component_fields)
     group_fields = []
     if has_aggregation and category_fields:
-        for fname in category_fields:
+        category_fields.extend(f["name"] for f in component_fields if not f.get("aggr") and not f.get("calc"))
+        for fname in dict.fromkeys(category_fields):
+            expression = next((f.get("calc") for f in component_fields if f["name"] == fname and f.get("calc")), "")
             group_fields.append({
                 "lvl": 0,
                 "name": fname,
                 "alias": fname,
-                "calc": "",
+                "calc": expression,
                 "aggr": "",
                 "fieldAlias": fname
             })
+        for order in order_fields:
+            if not order.get("calc"):
+                order["calc"] = next((f.get("calc") for f in component_fields if f["name"] == order["name"] and f.get("calc")), "")
 
     # Get data from recordset with proper format
     data_params = {
         "select": select_fields,  # Use component fields or empty for all
         "where": filter_conditions,  # Apply component filters
         "group": group_fields,
-        "order": [],
+        "order": sorted(order_fields, key=lambda item: item.get("orderIndex", 0)),
         "having": {"condition": ""},
         "series": {"enable": 0},
         "limit": limit
@@ -1073,6 +1128,10 @@ async def _get_component_data(
         rows = []
 
     columns = list(rows[0].keys()) if rows else []
+    if column_bindings and rows:
+        expected_outputs = {b["output_name"] for b in column_bindings}
+        if any(not expected_outputs.issubset(row) for row in rows):
+            return {"success":False,"error":"COLUMN_BINDING_MISMATCH: query omitted projected field outputs","column_bindings":column_bindings}
 
     return {
         "success": True,
@@ -1083,6 +1142,7 @@ async def _get_component_data(
         },
         "dataset_id": dataset_id,
         "columns": columns,
+        "column_bindings": column_bindings,
         "rows": rows[:limit],
         "total_rows": len(rows),
         "limited": len(rows) > limit
@@ -1436,6 +1496,10 @@ async def _update_component(
         value_fields = [f.strip() for f in value_field.split(",") if f.strip()]
 
         def _make_field_entry(vf: str, agg_axis: dict) -> dict:
+            calculated = next((f for a in cfg.get("axes", []) for f in a.get("fields", [])
+                               if f.get("name") == vf and f.get("type") == "calculated"), None)
+            if calculated is not None:
+                return copy.deepcopy(calculated)
             # IMPORTANT: ModusBI API uses "agg" field (NOT "aggregation"!)
             # Effective aggregation: explicit param → top-level cfg →
             # existing field-level agg on this axis.

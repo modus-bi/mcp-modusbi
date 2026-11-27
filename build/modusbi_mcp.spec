@@ -29,7 +29,7 @@ a = Analysis(
     [os.path.join(DEPLOY_DIR, 'entry_point.py')],
     pathex=[REPO_ROOT],  # repo root so `from app.xxx` imports work
     binaries=[],
-    datas=[],  # промпт-контент инлайн в app/prompts.py; гайды-доки не бандлятся
+    datas=[(os.path.join(APP_ROOT, 'tools', 'tilemap_regions.json'), 'app/tools')],
     hiddenimports=[
         'app',
         'app.server',

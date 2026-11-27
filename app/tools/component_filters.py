@@ -327,7 +327,15 @@ async def _reset_global_filters(
                 reset_count += 1
                 reset_indices.append(int(key))
 
-    if reset_count == 0:
+    # Frontend consumers read report.globalFilters, not the panel's local
+    # selectedValue. Clear both stores, including already-empty local panels.
+    global_reset_count = 0
+    for state in (report.get("globalFilters") or {}).values():
+        if isinstance(state, dict) and state.get("selected"):
+            state["selected"] = []
+            global_reset_count += 1
+
+    if reset_count == 0 and global_reset_count == 0:
         return {
             "success": True,
             "message": "No active filters found",
@@ -347,6 +355,7 @@ async def _reset_global_filters(
         "message": f"Reset {reset_count} filter(s)",
         "report_id": report_id,
         "reset_count": reset_count,
+        "global_reset_count": global_reset_count,
         "reset_indices": reset_indices,
     }
 

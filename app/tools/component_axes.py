@@ -92,7 +92,7 @@ async def _calc_fields_list(
             if field.get("type") == "calculated":
                 calc_fields.append({
                     "name": field.get("name"),
-                    "sql_expression": field.get("alias", ""),
+                    "sql_expression": field.get("calc") or field.get("alias", ""),
                     "axis_type": axis_type,
                     "dataset_id": field.get("datasetId"),
                     "display_name": field.get("title__ru", ""),
@@ -123,9 +123,9 @@ def _build_calc_field(
         "datasetId": dataset_id,
         "id": generate_uid(),
         "bk": 0,
-        "calc": "",
+        "calc": calc_expression,
         "correctable": 0,
-        "draft": None,
+        "draft": True,
         "expression": [],
         "filterSqlType": None,
         "inactive": None,
@@ -154,7 +154,9 @@ async def _calc_field_add(
     )
     axes = cfg.get("axes", [])
 
-    resolved_ds = dataset_id or cfg.get("datasetId") or cfg.get("dataSetId")
+    resolved_ds = dataset_id or cfg.get("datasetId") or cfg.get("dataSetId") or next(
+        (f.get("datasetId") for a in axes for f in a.get("fields", []) if f.get("datasetId")), None
+    )
     field = _build_calc_field(calc_expression, resolved_ds, display_name)
 
     # Find or create target axis
@@ -216,6 +218,8 @@ async def _calc_field_update(
 
     if calc_expression is not None and calc_expression != "":
         found_field["alias"] = calc_expression
+        found_field["calc"] = calc_expression
+        found_field["draft"] = True
     if display_name is not None and display_name != "":
         found_field["title__ru"] = display_name
 
@@ -232,7 +236,7 @@ async def _calc_field_update(
         "component_idx": component_idx,
         "field_name": field_name,
         "axis": found_axis_type,
-        "sql_expression": found_field.get("alias", ""),
+        "sql_expression": found_field.get("calc") or found_field.get("alias", ""),
     }
 
 
